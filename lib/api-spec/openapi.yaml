@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: waitlist
+    description: Waitlist operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /waitlist:
+    post:
+      operationId: joinWaitlist
+      tags: [waitlist]
+      summary: Join the waitlist
+      description: Submit a waitlist signup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WaitlistInput"
+      responses:
+        "201":
+          description: Successfully added to waitlist
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WaitlistEntry"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +66,58 @@ components:
           type: string
       required:
         - status
-
+    WaitlistInput:
+      type: object
+      required:
+        - name
+        - email
+        - practiceName
+      properties:
+        name:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          format: email
+        practiceName:
+          type: string
+          minLength: 1
+        pmsInUse:
+          type: ["string", "null"]
+        numLocations:
+          type: ["integer", "null"]
+        numProviders:
+          type: ["integer", "null"]
+    WaitlistEntry:
+      type: object
+      required:
+        - id
+        - name
+        - email
+        - practiceName
+        - createdAt
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        practiceName:
+          type: string
+        pmsInUse:
+          type: ["string", "null"]
+        numLocations:
+          type: ["integer", "null"]
+        numProviders:
+          type: ["integer", "null"]
+        createdAt:
+          type: string
+          format: date-time
+    ApiError:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string

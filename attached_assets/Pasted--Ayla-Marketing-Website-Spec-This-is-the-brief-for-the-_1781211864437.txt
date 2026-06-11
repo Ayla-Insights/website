@@ -1,0 +1,526 @@
+# Ayla — Marketing Website Spec
+
+This is the brief for the agent building **aylainsights.com** (or whichever domain
+lands). It's self-contained — you don't need to read the rest of the repo to
+do this job. If you want extra context for tone, see `PROJECT_SPEC.md` (what
+the product does) and `CLAUDE.md` (how seriously we take PHI/HIPAA — this
+matters for your messaging).
+
+> **Read the "Critical guardrails" section first.** It contains the only
+> non-negotiable rules — most of them are about what you cannot say.
+
+---
+
+## 1. What we sell, who we sell to
+
+**Product (one sentence):** Ayla is an AI copilot for dental
+practices that finds the money hiding in their charts and helps the team book
+it — unscheduled treatment, schedule gaps, lapsed recall.
+
+**Company:** Ayla Insights.
+
+**Primary audience:** practice owners and office managers at independent and
+small-group dental practices (1–5 locations). They use **Dentrix** today.
+They are running their practice, not shopping for AI tools. They feel:
+overwhelmed at the front desk, sure there's money slipping through the
+cracks, skeptical of dental-tech vendors who oversold them last time.
+
+**Secondary audience:** front-desk staff who'll be the daily users (need to
+trust that the tool helps, doesn't replace them), and any investors/partners
+who land on the site.
+
+**What we're not:** a patient-facing app, a marketing automation tool, a
+generic chatbot, or a replacement for Dentrix.
+
+---
+
+## 2. Positioning
+
+**The hook (use variants of this throughout):**
+> The average independent practice has **$100,000+ of unscheduled treatment**
+> sitting in patient charts. Ayla finds it, surfaces it, and helps your
+> team book it.
+
+**Why we win:**
+- **Numbers-forward, not vibes-forward.** Ayla shows actual dollar amounts —
+  unscheduled treatment, fillable hours this week, overdue recall — not
+  vague "insights."
+- **Works with Dentrix.** No rip-and-replace. Ayla reads from the PMS the
+  practice already runs.
+- **Front desk stays in control.** Ayla can *propose* bookings; nothing
+  happens until the staff member taps Confirm. This is the trust story —
+  lead with it whenever you talk about AI safety.
+- **Built for HIPAA from day one.** (See guardrails — phrase carefully.)
+
+**What we are not selling on:** model brand-names ("powered by Claude"),
+prompt-engineering wizardry, agentic AI buzz. The audience does not care.
+They care about money found and time saved.
+
+---
+
+## 3. Critical guardrails — read before writing copy
+
+These are non-negotiable. Most relate to legal/compliance risk.
+
+### 3.1 Do not claim "HIPAA compliant"
+
+HIPAA compliance is a *legal status*, not a feature, and we don't have it
+yet (no BAAs executed, no risk analysis filed). Overclaiming this is real
+liability. Use these alternative phrasings instead:
+
+| ❌ Do not write | ✅ Write instead |
+|---|---|
+| "HIPAA compliant" | "Built for HIPAA" / "HIPAA-ready architecture" |
+| "Fully secure" | "Designed around the HIPAA technical safeguards" |
+| "Bank-grade encryption" | (describe specifics — TLS, encryption at rest, audit log) |
+| "Your data is safe" | (describe what specifically — tenant isolation, audit trail, human-in-the-loop) |
+
+If you describe a control we're still building (TLS termination, KMS, MFA),
+phrase it as **what Ayla is built to do** or **the architecture supports**,
+not "we have." When in doubt, ask the user.
+
+### 3.2 No patient names, photos, or stories — real *or* synthetic-looking
+
+Even synthetic patient data on a marketing page reads as if it could be
+real. Dashboards in screenshots are fine, but **always with an obvious
+"Demo data" watermark** in the image. No first-and-last name pairings, no
+patient testimonials (we have none yet), no before/after stories.
+
+### 3.3 No claims about competitors
+
+Don't name Yapi, Weave, Modento, Lighthouse 360, Pearl, or any other dental
+vendor. Don't write "unlike [X]." Position against the *status quo*
+("spreadsheets and the report module"), not other products.
+
+### 3.4 No medical/clinical claims
+
+Ayla is a *front-office* tool. It does not diagnose, treat, or recommend
+clinical care. If copy implies otherwise, rewrite it.
+
+### 3.5 ROI numbers — be specific or be silent
+
+If a page shows a number ($100K, $150K, "30% lift", etc.), it must either be
+clearly labeled "**typical** for an independent practice" or "**estimated**"
+or come with a footnote. Never invent a customer-attributed number ("Bright
+Smile Dental saved $X"). The dashboard's headline numbers ($145K unscheduled,
+$192K total opportunity, 117 overdue recalls) come from a seeded *demo*
+practice — they are realistic-but-synthetic and can be cited as **"the kind
+of opportunity Ayla finds in a typical practice."**
+
+---
+
+## 4. Goals & success criteria
+
+**Primary goal:** a qualified practice owner or office manager books a
+discovery call.
+
+**Primary CTA (everywhere):** "Book a discovery call" (calendar embed).
+
+**Secondary CTA:** "Join the waitlist" (email capture only). Use this for
+visitors not ready to book.
+
+**Out of scope for v1:** self-serve sign-up, free trial, in-product purchase.
+
+**Measurable success (for the agent to instrument):**
+- Lighthouse: Performance ≥95, Accessibility ≥95, Best Practices ≥95,
+  SEO ≥95 on mobile *and* desktop.
+- TTI < 2.5s on a Moto G4 / Slow 4G profile.
+- Discovery-call form submission, waitlist email submission, demo-video play,
+  and pricing-page view all instrumented as events.
+
+---
+
+## 5. Information architecture
+
+```
+/                            Home
+/product                     What Ayla does
+/security                    Security & HIPAA posture
+/pricing                     Contact us (gated demo path)
+/about                       Company & founder story
+/book                        Book a discovery call (calendar embed)
+/waitlist                    Join the waitlist (email)
+/legal/privacy               Privacy policy
+/legal/terms                 Terms of service
+/blog                        (Scaffold only — no posts at launch)
+```
+
+**Global elements:**
+- Top nav: logo, Product, Security, Pricing, About, **Book a demo** (button)
+- Footer: short value prop, nav links, legal links, contact email,
+  copyright. Subtle. No "social proof" badges yet.
+- 404 page that links back home.
+
+---
+
+## 6. Page-by-page content blueprint
+
+For each page below, draft headlines and proof points are starting points,
+not contracts. Rewrite for flow — keep substance and structure.
+
+### 6.1 Home (`/`)
+
+**Hero (above the fold):**
+- Eyebrow: *AI for the dental front office*
+- Headline: **Find the revenue hiding in your practice.**
+- Subhead: *The average independent practice has over $100,000 of
+  unscheduled treatment sitting in patient charts. Ayla shows your team
+  exactly where the opportunity is — and helps them book it.*
+- Primary CTA: **Book a discovery call**
+- Secondary CTA: *Join the waitlist*
+- Visual: a clean screenshot of the Ayla dashboard, with the "Money on the
+  table" cards prominent. Watermark: "Demo data."
+
+**Below the fold (top to bottom):**
+
+1. **The three opportunity buckets** (3-card row, each with a dashboard
+   crop):
+   - **Unscheduled treatment.** Diagnosed cases that never got booked,
+     ranked by dollars and recency.
+   - **Fillable hours this week.** Open chair time, with estimated
+     production each gap could recover.
+   - **Lapsed recall.** Hygiene patients past due, ranked by months
+     overdue × historical show-rate.
+
+2. **How it works** (3-step horizontal):
+   - **Connect.** Ayla reads from Dentrix — no rip-and-replace.
+   - **Discover.** The dashboard shows where the money is, every morning.
+   - **Act.** Ask Ayla in chat — *"Fill tomorrow's openings,"* *"Find
+     unscheduled crowns over $1,000."* Your team confirms every booking.
+
+3. **The trust story** (one short panel):
+   - Headline: *Ayla suggests. Your team decides.*
+   - Body: Every booking and cancellation goes through a confirmation card.
+     Nothing happens until a staff member taps Confirm. Every action is
+     audited.
+
+4. **Built for HIPAA** (security panel, leads to `/security`):
+   - One paragraph describing the posture (tenant isolation, audit trail,
+     minimum-necessary data sent to AI, BAA-ready). End with a "See our
+     security posture" link.
+
+5. **Final CTA panel:** *Book a 20-minute discovery call. We'll show you
+   what Ayla would find in a practice like yours.*
+
+### 6.2 Product (`/product`)
+
+Deeper version of "How it works." Sections:
+- **The dashboard** (with a larger annotated screenshot — Demo data
+  watermark). Walk through what each card means and why it matters.
+- **Ask Ayla** — the chat console. Show 3–4 example questions and the
+  kinds of answers the user gets. Emphasize that **patient names are
+  masked when sent to the AI** ("First L.") — describe this as a deliberate
+  privacy architecture, not a workaround.
+- **The booking flow** — proposal → confirmation card → booked. Walk it
+  step by step. Reinforce: the AI cannot book without staff confirmation.
+- **The audit trail** — every action logged, every read of patient data
+  logged, by user and timestamp.
+- **What Ayla doesn't do** (a short, honest list — builds trust):
+  - Doesn't send SMS/email to patients on its own (yet — display-only
+    outreach scripts for staff to copy)
+  - Doesn't give clinical advice
+  - Doesn't replace front-desk staff
+
+### 6.3 Security (`/security`)
+
+This is the page that converts office managers and operations leads. Be
+specific, not waffly.
+
+Suggested sections:
+- **The posture** — Ayla is built around the HIPAA technical safeguards.
+  We expect to sign a Business Associate Agreement (BAA) with every
+  customer before any real patient data flows.
+- **What we built in from day one** (bulleted list — the language below
+  matches what's actually shipped in the codebase; do not embellish):
+  - **Tenant isolation by construction.** Each practice's data is reached
+    through a tenant-bound data adapter; cross-tenant reads are
+    structurally impossible.
+  - **Human-in-the-loop writes.** The AI can propose appointments and
+    cancellations; nothing executes until a staff member confirms.
+  - **The AI never touches the database.** It can only call a whitelisted
+    set of validated tools.
+  - **Minimum-necessary to AI.** Patient names are masked, and phone,
+    email, DOB, and outreach scripts never reach the language model.
+  - **PHI-scrubbed logs.** Patient data cannot land in server logs.
+  - **Tamper-evident audit trail.** Every action and every read of patient
+    data is logged, tenant-scoped, and retained.
+- **What's coming before launch** (be honest — this signals seriousness):
+  - TLS end-to-end and encryption at rest
+  - SSO + MFA, RBAC, automatic session expiry
+  - Executed BAAs with every business associate (Anthropic, our cloud
+    host, etc.)
+  - Documented risk analysis, written policies, designated Security Officer
+  - Independent HIPAA gap assessment before any real PHI flows
+- **Contact:** a "Talk to our security team" mailto (use `security@ayla...`
+  — flag the address as TBD).
+
+### 6.4 Pricing (`/pricing`)
+
+Pre-launch — no public pricing yet. Keep it short and honest:
+
+- Headline: *Pricing built for independent practices.*
+- One short paragraph: we're still partnering directly with our launch
+  customers to set pricing that pays for itself in the first month.
+- Two buttons: **Book a discovery call** and **Join the waitlist**.
+
+> **TBD:** when pricing is set, this page becomes a tiered/usage table.
+> Out of scope for v1.
+
+### 6.5 About (`/about`)
+
+- Mission: a paragraph on why Ayla exists. Theme: dental practices leave
+  hundreds of thousands of dollars unbilled and untreated every year — not
+  because they're bad at their jobs, but because the systems they use don't
+  surface it. We built Ayla to fix that.
+- **TBD: founder bio.** Placeholder block — the user will fill in name,
+  background, photo, and a 1–2 paragraph story.
+- (Optional, when team grows: a small team grid. Skip for v1.)
+
+### 6.6 Book (`/book`)
+
+A focused single-purpose page: short reassurance ("20 minutes. We'll show
+you what Ayla would find in a practice your size. No pitch deck.") plus an
+embedded calendar widget (Cal.com or Calendly — see Section 9).
+
+### 6.7 Waitlist (`/waitlist`)
+
+Minimal email-capture form. Required fields: name, work email, practice
+name. Optional: PMS in use (defaults to Dentrix), # locations, # providers.
+Confirmation page or inline confirmation message.
+
+### 6.8 Legal (`/legal/privacy`, `/legal/terms`)
+
+Use boilerplate templates appropriate for a B2B SaaS handling marketing-site
+visitor data only (no PHI flows through the website itself). Mark
+prominently: **"Last updated [DATE]. Reviewed by counsel: pending."** —
+remove the "pending" line once a lawyer signs off.
+
+### 6.9 Blog (`/blog`)
+
+Scaffold the IA only. No posts at launch. The system should support MDX
+posts when the user is ready to write.
+
+---
+
+## 7. Voice & tone
+
+| Be this | Not this |
+|---|---|
+| Confident, calm, specific | Hype-y ("revolutionary AI") |
+| Numbers-forward | Vibes-forward ("delightful experiences") |
+| Practitioner-first (front-desk language) | Engineer-first ("agentic LLM pipeline") |
+| Honest about limits ("display-only outreach for now") | Vague hand-waving |
+| Sentences | Walls of em-dashes |
+
+**Reference voice:** Stripe.com home page (calm, specific, design-led). Not
+Notion.so (cute), not OpenAI.com (cosmic).
+
+**Words to use:** copilot, front office, opportunity, recover, find, surface,
+confirm, audit, practice (always "practice," never "clinic" or "office").
+
+**Words to avoid:** revolutionize, unleash, supercharge, "powered by AI,"
+"intelligent," "smart" (as adjective), "amazing," "delightful," "patients
+love it" (we have no patient users), 🎉/🚀 emoji.
+
+---
+
+## 8. Visual identity
+
+The product uses a teal/600 brand color. Carry it. The site should feel
+**clean, dental-SaaS-professional, design-led, not flashy**.
+
+### Tokens (starting set — refine if you have a strong opinion)
+
+```css
+--brand-50:  #f0fdfa;
+--brand-100: #ccfbf1;
+--brand-500: #14b8a6;
+--brand-600: #0d9488;  /* primary — buttons, brand accents */
+--brand-700: #0f766e;
+--brand-900: #134e4a;
+
+--ink-900:   #0f172a;  /* headings */
+--ink-700:   #334155;  /* body */
+--ink-500:   #64748b;  /* secondary text */
+--ink-100:   #f1f5f9;  /* panels */
+
+--bg:        #ffffff;
+--bg-soft:   #f8fafc;
+--accent:    #f59e0b;  /* sparingly — for highlight stats only */
+```
+
+### Typography
+
+- Sans for everything; default to `Inter` or a comparable open-source
+  sans-serif via `fonts.bunny.net` or `fontsource` (avoid Google Fonts'
+  privacy quirks — see §11).
+- Headings: tighter tracking, –1% to –2%.
+- Body: comfortable line-height (1.6+), generous max-width (~640px for
+  reading sections).
+
+### Look & feel
+
+- Light, lots of white space.
+- Real product screenshots > stock photos. **Always watermark screenshots
+  with "Demo data."**
+- Limited animation: subtle on-scroll fades only. No parallax, no carousels.
+- One illustration set or none — if you go custom, get the user to approve
+  style before producing the set.
+
+### Logo
+
+> **TBD:** the user has not provided a finalized logo. Build the site with a
+> simple wordmark ("Ayla") in `--brand-700` and the small "A" mark from the
+> app (rounded square, gradient `--brand-500 → --brand-700`, white "A"). Make
+> swapping a real logo a one-file change.
+
+---
+
+## 9. Functional requirements
+
+- **Calendar booking** (`/book`): embed Cal.com (preferred — open source,
+  no surveillance) or Calendly. **TBD:** the user's specific calendar link.
+- **Waitlist + discovery-call form**: send to a serverless endpoint. Store
+  submissions in Airtable, Notion, or a simple Postgres table. **Email the
+  user on submit.** Recommend Resend for transactional email. Do not roll
+  your own SMTP.
+- **Newsletter signup** (optional, post-launch): hook into the same backend
+  as waitlist; mark as a `kind: 'newsletter'` field.
+- **404 / 500 pages** that link back home.
+- **Sitemap + robots.txt + Open Graph + JSON-LD** (see §10).
+
+---
+
+## 10. SEO, performance, accessibility
+
+### SEO
+
+- One `<h1>` per page; semantic headings.
+- Title tags ≤ 60 chars; meta descriptions ≤ 155 chars; each page
+  individually written.
+- Open Graph + Twitter Card on every page with a 1200×630 social card. The
+  home and product pages get a custom designed card; other pages can use a
+  template card.
+- `sitemap.xml` and `robots.txt` autogenerated.
+- JSON-LD structured data on home and product: `SoftwareApplication` schema
+  with `applicationCategory: "BusinessApplication"`.
+
+### Performance
+
+- Lighthouse mobile + desktop scores ≥95 across the board.
+- Largest Contentful Paint < 1.5s on broadband, < 2.5s on Slow 4G.
+- No more than 100KB of JS on the home page (target). Static-first.
+- Self-host fonts (subset to Latin if possible). Avoid Google Fonts CDN.
+- Image budget: WebP or AVIF only, sized for the viewport, served via
+  `next/image` or `astro:assets`.
+
+### Accessibility
+
+- WCAG 2.1 AA target.
+- Keyboard-navigable everywhere; visible focus states (don't reset).
+- All buttons are `<button>`, all links are `<a>`, no `<div onclick>`.
+- Color-contrast ratio ≥4.5:1 for body, ≥3:1 for large text.
+- Forms with `<label>` and inline error messages.
+- Screen-reader-only headings for visual sections that lack one.
+
+---
+
+## 11. Privacy & analytics
+
+The audience is healthcare-adjacent. Be conservative.
+
+- **Analytics:** Plausible, Fathom, or Vercel Analytics. **No Google
+  Analytics.** No third-party cookies. No cookie banner needed if we don't
+  set tracking cookies.
+- **Fonts:** self-host or use `fonts.bunny.net` — do not load from
+  fonts.googleapis.com (data-protection concerns).
+- **Embeds:** if Calendly/Cal.com is embedded, use the version that loads
+  on user click ("Click to load calendar"), not auto-load. Same for any
+  video.
+- **Forms:** TLS only. Store nothing in cookies that doesn't need to be.
+
+---
+
+## 12. Tech stack — recommendation
+
+You have judgment here. Defaults the user will be happy with:
+
+- **Framework:** Astro (preferred — content-site native, ships minimal JS)
+  or Next.js App Router. Either is fine; avoid SPA frameworks (no
+  marketing-site CSR).
+- **Styling:** Tailwind CSS. Match the design tokens in §8.
+- **Hosting:** Vercel or Netlify. Whichever the framework you pick prefers.
+- **Forms backend:** a Vercel/Netlify function + Resend for email + a
+  managed table (Airtable to start; Supabase if you want a queryable DB).
+- **Domain:** **TBD.** Build the site so DNS + custom domain is a config
+  change, not a code change.
+- **Repo:** new repo, separate from the product. **Do not commit secrets**
+  (Resend API key, Cal.com tokens) — use the host's env-var system.
+
+---
+
+## 13. Out of scope (do not build)
+
+- Live chat / support chatbot.
+- Customer login / dashboard.
+- Free trial / self-serve signup.
+- A patient-facing scheduling widget (the *product* will eventually offer
+  one; the marketing site doesn't).
+- I18n / multiple languages.
+- Newsletter platform integration (post-launch).
+- Stock photography of patients in chairs (we will provide real product
+  screenshots; do not buy generic dental stock).
+
+---
+
+## 14. Acceptance criteria
+
+The site is ready to ship when:
+
+1. All pages in §5 are live, content matches §6, voice matches §7.
+2. Lighthouse ≥95 across Performance, Accessibility, Best Practices, SEO
+   on **both** mobile and desktop, for the home page and `/product` at
+   minimum.
+3. Discovery-call form, waitlist form, and analytics events all work
+   end-to-end (form submissions arrive in the chosen backend; the user
+   receives an email per submission).
+4. No claim of "HIPAA compliant" appears anywhere on the site.
+5. Every patient-facing screenshot carries a visible "Demo data"
+   watermark.
+6. The site renders correctly with **JS disabled** for the home, product,
+   and security pages (forms and calendar embeds can require JS).
+7. A `404` page exists; broken links from the nav and footer return 0.
+8. The repo's README contains: how to run locally, how to deploy, how to
+   change content, and where the env vars live.
+
+---
+
+## 15. TBDs the user needs to fill in
+
+Flag these back; do not invent.
+
+- [ ] **Domain name** + DNS access
+- [ ] **Logo** (final wordmark + favicon set)
+- [ ] **Founder bio** for the About page (name, background, photo, 1–2
+      paragraphs)
+- [ ] **Calendar link** (Cal.com / Calendly URL for `/book`)
+- [ ] **Backend choice for form submissions** (Airtable workspace,
+      Supabase project, etc.) and the API keys
+- [ ] **`security@` and `hello@` email addresses** on the domain
+- [ ] **Legal copy** — pick a privacy/terms generator or have counsel
+      draft; mark "Reviewed by counsel: pending" until signed off
+- [ ] **Social cards** — final OG image design (the user may want to brief
+      a designer separately)
+
+---
+
+## 16. Future enhancements (don't build yet — note for v2)
+
+- ROI calculator ("Enter your # operatories and patients; we'll estimate
+  your hidden revenue") — high-impact lead magnet.
+- Customer case studies — once we have customers willing to be named.
+- Webinar / educational content — once we have a content cadence.
+- Comparison pages — only if customer feedback shows the audience is
+  shopping; never make them combative.
+- Live status page — once we have production uptime to report.
+- Public roadmap — judgment call; signals momentum but can backfire.
