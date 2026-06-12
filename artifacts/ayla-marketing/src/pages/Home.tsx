@@ -1,9 +1,11 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Calendar, Users, Activity, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
+import { useCountUp } from "@/hooks/useCountUp";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 export default function Home() {
   useSEO({
@@ -11,6 +13,14 @@ export default function Home() {
     description: "Ayla is an AI copilot for dental front offices. It finds unscheduled treatment, schedule gaps, and lapsed recall — and helps your team book it.",
     path: "/",
   });
+
+  const { ref: unscheduledRef, displayValue: unscheduledValue } = useCountUp(145000, { prefix: "$", duration: 1500 });
+  const { ref: fillableRef, displayValue: fillableValue } = useCountUp(47200, { prefix: "$", duration: 1500 });
+  const { ref: recallsRef, displayValue: recallsValue } = useCountUp(117, { duration: 1500 });
+
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, -150]);
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
@@ -47,63 +57,23 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative"
+              style={{ y }}
+              className="relative hidden md:block"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#14b8a6]/20 to-transparent blur-3xl rounded-full" />
-              <div className="relative bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-                  Demo data
-                </div>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between pb-4 border-b border-border/50">
-                    <h3 className="font-semibold text-[#0f172a]">Morning Briefing</h3>
-                    <span className="text-sm text-muted-foreground">Today</span>
-                  </div>
-                  
-                  <div className="grid gap-4">
-                    <Card className="bg-[#f8fafc] border-none shadow-sm">
-                      <CardContent className="p-4 flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-medium text-[#64748b] mb-1">Unscheduled Treatment</p>
-                          <p className="text-3xl font-bold text-[#0f172a]">$145,000</p>
-                        </div>
-                        <div className="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
-                          <ArrowUpRight className="h-6 w-6" />
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="bg-[#f8fafc] border-none shadow-sm">
-                      <CardContent className="p-4 flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-medium text-[#64748b] mb-1">Fillable Hours This Week</p>
-                          <p className="text-3xl font-bold text-[#0f172a]">$47,200</p>
-                        </div>
-                        <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                          <Calendar className="h-6 w-6" />
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="bg-[#f8fafc] border-none shadow-sm">
-                      <CardContent className="p-4 flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-medium text-[#64748b] mb-1">Overdue Recalls</p>
-                          <p className="text-3xl font-bold text-[#0f172a]">117</p>
-                        </div>
-                        <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
-                          <Users className="h-6 w-6" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              </div>
+              <HeroDashboard
+                unscheduledRef={unscheduledRef} unscheduledValue={unscheduledValue}
+                fillableRef={fillableRef} fillableValue={fillableValue}
+                recallsRef={recallsRef} recallsValue={recallsValue}
+              />
             </motion.div>
+            
+            <div className="relative md:hidden block">
+              <HeroDashboard
+                unscheduledRef={unscheduledRef} unscheduledValue={unscheduledValue}
+                fillableRef={fillableRef} fillableValue={fillableValue}
+                recallsRef={recallsRef} recallsValue={recallsValue}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -111,13 +81,8 @@ export default function Home() {
       {/* Opportunity Buckets */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm"
-            >
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <StaggerItem className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm">
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
                 <Activity className="h-6 w-6" />
               </div>
@@ -125,15 +90,9 @@ export default function Home() {
               <p className="text-[#64748b] leading-relaxed">
                 Find patients with diagnosed but unscheduled treatment plans. Prioritize by production value and insurance remaining.
               </p>
-            </motion.div>
+            </StaggerItem>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm"
-            >
+            <StaggerItem className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm">
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
                 <Calendar className="h-6 w-6" />
               </div>
@@ -141,15 +100,9 @@ export default function Home() {
               <p className="text-[#64748b] leading-relaxed">
                 Instantly identify gaps in tomorrow's schedule and match them with patients who have unscheduled treatment of the right length.
               </p>
-            </motion.div>
+            </StaggerItem>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm"
-            >
+            <StaggerItem className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm">
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
                 <Users className="h-6 w-6" />
               </div>
@@ -157,8 +110,8 @@ export default function Home() {
               <p className="text-[#64748b] leading-relaxed">
                 Surface patients who are overdue for hygiene, prioritizing those with remaining benefits or unscheduled family members.
               </p>
-            </motion.div>
-          </div>
+            </StaggerItem>
+          </StaggerChildren>
         </div>
       </section>
 
@@ -170,7 +123,7 @@ export default function Home() {
             <p className="text-lg text-[#64748b]">No rip-and-replace required. Ayla sits on top of your existing systems.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#14b8a6]/20 via-[#14b8a6] to-[#14b8a6]/20" />
             
             {[
@@ -178,12 +131,8 @@ export default function Home() {
               { title: "Discover", desc: "The dashboard shows exactly where the money is every morning, ranked by priority." },
               { title: "Act", desc: "Ask Ayla in chat to draft messages or propose appointments. Your team confirms every booking." }
             ].map((step, i) => (
-              <motion.div 
+              <StaggerItem 
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="relative z-10 flex flex-col items-center text-center"
               >
                 <div className="w-24 h-24 rounded-full bg-white border-4 border-[#ccfbf1] flex items-center justify-center text-2xl font-bold text-[#0d9488] shadow-sm mb-6">
@@ -193,9 +142,9 @@ export default function Home() {
                 <p className="text-[#64748b] leading-relaxed max-w-[280px]">
                   {step.desc}
                 </p>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
@@ -249,4 +198,81 @@ export default function Home() {
       </section>
     </div>
   );
+}
+
+function HeroDashboard({ unscheduledRef, unscheduledValue, fillableRef, fillableValue, recallsRef, recallsValue }: any) {
+  return (
+    <>
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#14b8a6]/20 to-transparent blur-3xl rounded-full" />
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.35 }}
+        className="relative bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 transform rotate-1 hover:rotate-0 transition-transform duration-500"
+      >
+        <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
+          Demo data
+        </div>
+        
+        <div className="space-y-6">
+          <div className="flex items-center justify-between pb-4 border-b border-border/50">
+            <h3 className="font-semibold text-[#0f172a]">Morning Briefing</h3>
+            <span className="text-sm text-muted-foreground">Today</span>
+          </div>
+          
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.12, delayChildren: 0.5 } }
+            }}
+            className="grid gap-4"
+          >
+            <motion.div variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}>
+              <Card className="bg-[#f8fafc] border-none shadow-sm">
+                <CardContent className="p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-[#64748b] mb-1">Unscheduled Treatment</p>
+                    <p ref={unscheduledRef} className="text-3xl font-bold text-[#0f172a]">{unscheduledValue}</p>
+                  </div>
+                  <div className="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                    <ArrowUpRight className="h-6 w-6" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}>
+              <Card className="bg-[#f8fafc] border-none shadow-sm">
+                <CardContent className="p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-[#64748b] mb-1">Fillable Hours This Week</p>
+                    <p ref={fillableRef} className="text-3xl font-bold text-[#0f172a]">{fillableValue}</p>
+                  </div>
+                  <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                    <Calendar className="h-6 w-6" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}>
+              <Card className="bg-[#f8fafc] border-none shadow-sm">
+                <CardContent className="p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-[#64748b] mb-1">Overdue Recalls</p>
+                    <p ref={recallsRef} className="text-3xl font-bold text-[#0f172a]">{recallsValue}</p>
+                  </div>
+                  <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                    <Users className="h-6 w-6" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </>
+  )
 }

@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUpRight, Calendar, Users, MessageSquare, CheckCircle, Shield } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 export default function Product() {
   useSEO({
@@ -9,6 +11,23 @@ export default function Product() {
     description: "See how Ayla surfaces unscheduled treatment, fillable schedule gaps, and lapsed recall — and helps your team book it, with every action confirmed by staff.",
     path: "/product",
   });
+
+  const [activeSection, setActiveSection] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll(".scroll-section");
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          setActiveSection(index);
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col w-full pb-24">
       {/* Header */}
@@ -21,209 +40,136 @@ export default function Product() {
         </div>
       </section>
 
-      {/* Dashboard Section */}
-      <section className="py-16 px-4">
+      <section className="relative px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-[#0f172a] mb-6">The Dashboard</h2>
-              <p className="text-lg text-[#64748b] mb-8">
-                Every morning, your team sees exactly where the opportunity is, ranked by priority. No running reports, no digging through charts.
-              </p>
-              
-              <ul className="space-y-6">
-                <li className="flex gap-4">
-                  <div className="mt-1 h-10 w-10 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
-                    <ActivityIcon />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#0f172a] text-lg">Unscheduled Treatment</h4>
-                    <p className="text-[#64748b]">Prioritized by production value and remaining insurance benefits.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="mt-1 h-10 w-10 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
-                    <Calendar className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#0f172a] text-lg">Fillable Hours</h4>
-                    <p className="text-[#64748b]">Matches tomorrow's gaps with patients who need treatment of the exact right length.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="mt-1 h-10 w-10 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
-                    <Users className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#0f172a] text-lg">Lapsed Recall</h4>
-                    <p className="text-[#64748b]">Surfaces overdue patients who have unscheduled family members to maximize appointment value.</p>
-                  </div>
-                </li>
-              </ul>
-            </motion.div>
+          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-start relative">
             
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8">
-                <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-                  Demo data
-                </div>
-                
-                <div className="space-y-4 pt-6">
-                  <Card className="bg-[#f8fafc] border-none shadow-sm">
-                    <CardContent className="p-4 flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-[#64748b] mb-1">Unscheduled Treatment</p>
-                        <p className="text-3xl font-bold text-[#0f172a]">$145,000</p>
-                      </div>
-                      <div className="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
-                        <ArrowUpRight className="h-6 w-6" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-[#f8fafc] border-none shadow-sm">
-                    <CardContent className="p-4 flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-[#64748b] mb-1">Fillable Hours This Week</p>
-                        <p className="text-3xl font-bold text-[#0f172a]">$47,200</p>
-                      </div>
-                      <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                        <Calendar className="h-6 w-6" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-[#f8fafc] border-none shadow-sm">
-                    <CardContent className="p-4 flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-[#64748b] mb-1">Overdue Recalls</p>
-                        <p className="text-3xl font-bold text-[#0f172a]">117</p>
-                      </div>
-                      <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
-                        <Users className="h-6 w-6" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ask Ayla */}
-      <section className="py-20 px-4 bg-[#f8fafc]">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center flex-row-reverse">
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:order-2"
-            >
-              <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Ask Ayla</h2>
-              <p className="text-lg text-[#64748b] mb-6">
-                Your team can ask Ayla to find specific opportunities or draft communications, just like talking to a colleague.
-              </p>
-              <div className="bg-[#0f172a] p-4 rounded-lg inline-block mb-6">
-                <p className="text-sm text-slate-300 flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-[#14b8a6]" />
-                  Privacy architecture: Patient names are masked as "First L." before being sent to the AI.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:order-1 space-y-6"
-            >
-              <div className="flex flex-col gap-3">
-                <div className="self-end bg-[#0f766e] text-white p-4 rounded-2xl rounded-tr-sm max-w-[80%] shadow-sm">
-                  Find unscheduled crowns over $1,000 for patients with remaining benefits.
-                </div>
-                <div className="self-start bg-white border border-border/50 p-4 rounded-2xl rounded-tl-sm max-w-[80%] shadow-sm flex gap-3">
-                  <div className="mt-1 h-8 w-8 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
-                    <span className="font-bold text-xs">A</span>
-                  </div>
-                  <div>
-                    <p className="text-[#334155] mb-2">I found 14 patients matching those criteria. Here are the top 3 by production value:</p>
-                    <ul className="text-sm space-y-1 text-[#64748b]">
-                      <li>• John S. - $1,450 (Has $1,500 remaining)</li>
-                      <li>• Sarah M. - $1,200 (Has $2,000 remaining)</li>
-                      <li>• Robert T. - $1,150 (Has $1,200 remaining)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <div className="self-end bg-[#0f766e] text-white p-4 rounded-2xl rounded-tr-sm max-w-[80%] shadow-sm">
-                  Draft a text to John S. about scheduling his crown.
-                </div>
-                <div className="self-start bg-white border border-border/50 p-4 rounded-2xl rounded-tl-sm max-w-[80%] shadow-sm flex gap-3">
-                  <div className="mt-1 h-8 w-8 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
-                    <span className="font-bold text-xs">A</span>
-                  </div>
-                  <div>
-                    <p className="text-[#334155] mb-2">Here's a draft you can copy:</p>
-                    <div className="bg-slate-50 p-3 rounded text-sm text-[#334155] border border-slate-100">
-                      Hi John! This is Sarah from [Practice Name]. I noticed you still have insurance benefits remaining for the year that could cover your pending crown treatment. Would you like to schedule that before your benefits reset?
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Flow */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Human-in-the-loop booking</h2>
-          <p className="text-lg text-[#64748b] mb-12 max-w-2xl mx-auto">
-            AI cannot book without staff confirmation. Every action requires a human tap.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div className="p-6 rounded-xl border border-border/50 bg-white">
-              <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 1</div>
-              <h3 className="font-bold text-[#0f172a] mb-2">Proposal</h3>
-              <p className="text-sm text-[#64748b]">Ayla proposes an appointment time based on the exact gap in your schedule.</p>
+            {/* Left side (Sticky Visual Mock) - Only sticky on LG+ */}
+            <div className="hidden lg:block sticky top-24 h-[calc(100vh-96px)] py-12 flex flex-col justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSection}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full relative"
+                >
+                  {activeSection === 0 && <DashboardMock />}
+                  {activeSection === 1 && <ChatMock />}
+                  {activeSection === 2 && <BookingMock />}
+                  {activeSection === 3 && <AuditMock />}
+                </motion.div>
+              </AnimatePresence>
             </div>
-            <div className="p-6 rounded-xl border border-border/50 bg-white">
-              <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 2</div>
-              <h3 className="font-bold text-[#0f172a] mb-2">Confirm</h3>
-              <p className="text-sm text-[#64748b]">Staff reviews the proposal and taps Confirm on the action card.</p>
-            </div>
-            <div className="p-6 rounded-xl border border-border/50 bg-white">
-              <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 3</div>
-              <h3 className="font-bold text-[#0f172a] mb-2">Booked</h3>
-              <p className="text-sm text-[#64748b]">The appointment is securely written back to your practice management system.</p>
+
+            {/* Right side (Scrollable content) */}
+            <div className="lg:py-0 pb-12">
+              
+              {/* Section 0: Dashboard */}
+              <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
+                <div className="lg:hidden mb-12">
+                  <DashboardMock />
+                </div>
+                <div className={`transition-opacity duration-500 ${activeSection === 0 ? "opacity-100" : "opacity-35"}`}>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">The Morning Briefing</h2>
+                  <p className="text-lg text-[#64748b] mb-8">
+                    Every morning, your team sees exactly where the opportunity is, ranked by priority. No running reports, no digging through charts.
+                  </p>
+                  <ul className="space-y-6">
+                    <li className="flex gap-4">
+                      <div className="mt-1 h-10 w-10 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
+                        <ActivityIcon />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-[#0f172a] text-lg">Unscheduled Treatment</h4>
+                        <p className="text-[#64748b]">Prioritized by production value and remaining insurance benefits.</p>
+                      </div>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="mt-1 h-10 w-10 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
+                        <Calendar className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-[#0f172a] text-lg">Fillable Hours</h4>
+                        <p className="text-[#64748b]">Matches tomorrow's gaps with patients who need treatment of the exact right length.</p>
+                      </div>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="mt-1 h-10 w-10 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
+                        <Users className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-[#0f172a] text-lg">Lapsed Recall</h4>
+                        <p className="text-[#64748b]">Surfaces overdue patients who have unscheduled family members to maximize appointment value.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Section 1: Ask Ayla */}
+              <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
+                <div className="lg:hidden mb-12">
+                  <ChatMock />
+                </div>
+                <div className={`transition-opacity duration-500 ${activeSection === 1 ? "opacity-100" : "opacity-35"}`}>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Ask Ayla</h2>
+                  <p className="text-lg text-[#64748b] mb-6">
+                    Your team can ask Ayla to find specific opportunities or draft communications, just like talking to a colleague using natural language.
+                  </p>
+                  <div className="bg-[#0f172a] p-4 rounded-lg inline-block mb-6">
+                    <p className="text-sm text-slate-300 flex items-center gap-2">
+                      <Shield className="h-4 w-4 text-[#14b8a6]" />
+                      Privacy architecture: Patient names are masked as "First L." before reaching AI.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 2: Booking Flow */}
+              <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
+                <div className="lg:hidden mb-12">
+                  <BookingMock />
+                </div>
+                <div className={`transition-opacity duration-500 ${activeSection === 2 ? "opacity-100" : "opacity-35"}`}>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Human-in-the-loop</h2>
+                  <p className="text-lg text-[#64748b] mb-8">
+                    AI cannot book without staff confirmation. Every action requires a human tap.
+                  </p>
+                  <StaggerChildren className="space-y-4">
+                    <StaggerItem className="p-6 rounded-xl border border-border/50 bg-white">
+                      <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 1: Proposal</div>
+                      <p className="text-[#64748b]">Ayla proposes an appointment time based on the exact gap in your schedule.</p>
+                    </StaggerItem>
+                    <StaggerItem className="p-6 rounded-xl border border-border/50 bg-white">
+                      <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 2: Confirm</div>
+                      <p className="text-[#64748b]">Staff reviews the proposal and taps Confirm on the action card.</p>
+                    </StaggerItem>
+                    <StaggerItem className="p-6 rounded-xl border border-border/50 bg-white">
+                      <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 3: Booked</div>
+                      <p className="text-[#64748b]">The appointment is securely written back to your practice management system.</p>
+                    </StaggerItem>
+                  </StaggerChildren>
+                </div>
+              </div>
+
+              {/* Section 3: Audit Trail */}
+              <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
+                <div className="lg:hidden mb-12">
+                  <AuditMock />
+                </div>
+                <div className={`transition-opacity duration-500 ${activeSection === 3 ? "opacity-100" : "opacity-35"}`}>
+                  <div className="mb-6"><CheckCircle className="h-10 w-10 text-[#0f766e]" /></div>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Every action logged</h2>
+                  <p className="text-lg text-[#64748b]">
+                    Every action, every read of patient data, and every confirmation is logged, tenant-scoped, and retained in a tamper-evident audit trail. You always know exactly what Ayla and your staff are doing.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Audit Trail */}
-      <section className="py-16 px-4 bg-[#f0fdfa]">
-        <div className="container mx-auto max-w-4xl text-center">
-          <CheckCircle className="h-10 w-10 text-[#0f766e] mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-[#0f172a] mb-4">Tamper-evident audit trail</h2>
-          <p className="text-[#334155]">
-            Every action, every read of patient data, and every confirmation is logged, tenant-scoped, and retained. You always know exactly what Ayla and your staff are doing.
-          </p>
         </div>
       </section>
 
@@ -232,25 +178,213 @@ export default function Product() {
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-[#0f172a] mb-8 text-center">What Ayla doesn't do</h2>
           <div className="bg-white border border-border/50 rounded-2xl p-8 shadow-sm">
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
+            <StaggerChildren className="space-y-4">
+              <StaggerItem className="flex items-start gap-3">
                 <span className="text-[#ef4444] font-bold text-lg leading-none mt-1">×</span>
                 <span className="text-lg text-[#334155]"><strong>Doesn't send SMS/email automatically.</strong> It provides display-only scripts for your staff to copy.</span>
-              </li>
-              <li className="flex items-start gap-3">
+              </StaggerItem>
+              <StaggerItem className="flex items-start gap-3">
                 <span className="text-[#ef4444] font-bold text-lg leading-none mt-1">×</span>
                 <span className="text-lg text-[#334155]"><strong>Doesn't give clinical advice.</strong> It only surfaces administrative and scheduling data.</span>
-              </li>
-              <li className="flex items-start gap-3">
+              </StaggerItem>
+              <StaggerItem className="flex items-start gap-3">
                 <span className="text-[#ef4444] font-bold text-lg leading-none mt-1">×</span>
                 <span className="text-lg text-[#334155]"><strong>Doesn't replace front-desk staff.</strong> It gives them superpowers.</span>
-              </li>
-            </ul>
+              </StaggerItem>
+            </StaggerChildren>
           </div>
         </div>
       </section>
     </div>
   );
+}
+
+function DashboardMock() {
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 relative w-full">
+      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
+        Demo data
+      </div>
+      <div className="space-y-4 pt-6">
+        <Card className="bg-[#f8fafc] border-none shadow-sm">
+          <CardContent className="p-4 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-[#64748b] mb-1">Unscheduled Treatment</p>
+              <p className="text-3xl font-bold text-[#0f172a]">$145,000</p>
+            </div>
+            <div className="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+              <ArrowUpRight className="h-6 w-6" />
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-[#f8fafc] border-none shadow-sm">
+          <CardContent className="p-4 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-[#64748b] mb-1">Fillable Hours This Week</p>
+              <p className="text-3xl font-bold text-[#0f172a]">$47,200</p>
+            </div>
+            <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+              <Calendar className="h-6 w-6" />
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-[#f8fafc] border-none shadow-sm">
+          <CardContent className="p-4 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-[#64748b] mb-1">Overdue Recalls</p>
+              <p className="text-3xl font-bold text-[#0f172a]">117</p>
+            </div>
+            <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+              <Users className="h-6 w-6" />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
+
+function ChatMock() {
+  const queries = [
+    {
+      user: "Find unscheduled crowns over $1,000",
+      ayla: "Found 14 patients. Top match: John S. — $1,450, $1,500 benefits remaining."
+    },
+    {
+      user: "Fill tomorrow's 2pm opening",
+      ayla: "Sarah M. has an unscheduled cleaning that fits exactly. Shall I propose the slot?"
+    },
+    {
+      user: "Who is most overdue for recall?",
+      ayla: "Robert T. — 18 months overdue, high show-rate history."
+    }
+  ];
+
+  const [queryIndex, setQueryIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    const currentAylaText = queries[queryIndex].ayla;
+
+    if (isTyping) {
+      if (typedText.length < currentAylaText.length) {
+        timeout = setTimeout(() => {
+          setTypedText(currentAylaText.substring(0, typedText.length + 1));
+        }, 28);
+      } else {
+        setIsTyping(false);
+        timeout = setTimeout(() => {
+          setTypedText("");
+          setIsTyping(true);
+          setQueryIndex((prev) => (prev + 1) % queries.length);
+        }, 2000);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [typedText, isTyping, queryIndex, queries]);
+
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 relative w-full h-[400px] flex flex-col">
+      <div className="flex-1 space-y-6 flex flex-col justify-end pb-4">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={queryIndex}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="flex flex-col gap-4 w-full"
+          >
+            <div className="self-end bg-[#0f766e] text-white p-3 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm text-sm">
+              {queries[queryIndex].user}
+            </div>
+            <div className="self-start bg-slate-50 border border-border/50 p-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm flex gap-3 text-sm">
+              <div className="mt-0.5 h-6 w-6 rounded-full bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center shrink-0">
+                <span className="font-bold text-[10px]">A</span>
+              </div>
+              <div className="text-[#334155] min-h-[40px]">
+                {typedText}
+                {isTyping && <span className="animate-pulse ml-1">|</span>}
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <div className="mt-4 pt-4 border-t border-border/50">
+        <p className="text-xs text-slate-400 flex items-center gap-2">
+          <Shield className="h-3 w-3 text-[#14b8a6]" />
+          Patient names masked as "First L." before reaching AI
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function BookingMock() {
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 relative w-full">
+      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
+        Demo data
+      </div>
+      <div className="space-y-6 pt-6">
+        <div className="bg-slate-50 border border-border rounded-xl p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="font-semibold text-[#0f172a]">Proposed Appointment</h4>
+            <span className="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-1 rounded">Pending</span>
+          </div>
+          <div className="space-y-2 mb-6">
+            <p className="text-sm flex justify-between"><span className="text-slate-500">Patient:</span> <span className="font-medium">Sarah M.</span></p>
+            <p className="text-sm flex justify-between"><span className="text-slate-500">Treatment:</span> <span className="font-medium">Prophy + Exam</span></p>
+            <p className="text-sm flex justify-between"><span className="text-slate-500">Time:</span> <span className="font-medium">Tomorrow, 2:00 PM</span></p>
+          </div>
+          <div className="flex gap-3">
+            <button className="flex-1 bg-[#0d9488] text-white py-2 rounded-lg text-sm font-medium">Confirm & Book</button>
+            <button className="flex-1 bg-white border border-slate-200 text-slate-700 py-2 rounded-lg text-sm font-medium">Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function AuditMock() {
+  return (
+    <div className="bg-[#0f172a] rounded-2xl shadow-xl border border-slate-700 p-6 relative w-full text-slate-300 font-mono text-xs overflow-hidden">
+      <div className="space-y-3 opacity-80">
+        <div className="flex gap-4">
+          <span className="text-[#14b8a6]">14:02:11</span>
+          <span className="text-slate-500">USER_QUERY</span>
+          <span className="truncate">"Fill tomorrow's 2pm opening"</span>
+        </div>
+        <div className="flex gap-4">
+          <span className="text-[#14b8a6]">14:02:12</span>
+          <span className="text-slate-500">DATA_READ</span>
+          <span className="truncate">Dentrix DB: schedule gaps & unscheduled tx</span>
+        </div>
+        <div className="flex gap-4">
+          <span className="text-[#14b8a6]">14:02:12</span>
+          <span className="text-amber-500">PHI_MASKING</span>
+          <span className="truncate">Masked 12 patient records to "First L."</span>
+        </div>
+        <div className="flex gap-4">
+          <span className="text-[#14b8a6]">14:02:14</span>
+          <span className="text-slate-500">AI_RESPONSE</span>
+          <span className="truncate">Generated proposal for Sarah M.</span>
+        </div>
+        <div className="flex gap-4">
+          <span className="text-[#14b8a6]">14:03:05</span>
+          <span className="text-emerald-500">USER_ACTION</span>
+          <span className="truncate">Staff ID 402 clicked 'Confirm'</span>
+        </div>
+        <div className="flex gap-4">
+          <span className="text-[#14b8a6]">14:03:06</span>
+          <span className="text-blue-500">DATA_WRITE</span>
+          <span className="truncate">Dentrix DB: Inserted appointment ID 9942</span>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 function ActivityIcon() {

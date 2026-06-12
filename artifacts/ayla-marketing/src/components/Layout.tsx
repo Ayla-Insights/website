@@ -3,6 +3,8 @@ import { Logo } from "@/components/Logo";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/product", label: "Product", testId: "link-product" },
@@ -14,6 +16,7 @@ const navLinks = [
 export function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [location] = useLocation();
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -26,16 +29,36 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium relative">
             {navLinks.map((link) => (
-              <Link
+              <div 
                 key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-primary"
-                data-testid={link.testId}
+                className="relative"
+                onMouseEnter={() => setHoveredPath(link.href)}
+                onMouseLeave={() => setHoveredPath(null)}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "transition-colors relative py-1",
+                    location === link.href ? "text-primary" : "text-foreground hover:text-primary"
+                  )}
+                  data-testid={link.testId}
+                >
+                  {link.label}
+                </Link>
+                <AnimatePresence>
+                  {((hoveredPath === link.href) || (!hoveredPath && location === link.href)) && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute left-0 right-0 -bottom-1 h-0.5 bg-[#0d9488] rounded-full"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
           </nav>
 

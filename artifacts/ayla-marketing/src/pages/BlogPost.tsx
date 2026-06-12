@@ -2,6 +2,7 @@ import { Link, useParams } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPost, type Section } from "@/data/posts";
 import { ArrowLeft } from "lucide-react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -58,6 +59,8 @@ function renderSection(section: Section, idx: number) {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = getPost(slug ?? "");
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   useSEO(
     post
@@ -84,6 +87,10 @@ export default function BlogPost() {
 
   return (
     <div className="w-full pb-24">
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[#0d9488] z-[100]" 
+        style={{ scaleX, transformOrigin: "left" }} 
+      />
       {/* Header */}
       <div className="bg-[#f8fafc] border-b border-border/40 pt-16 pb-12 px-4">
         <div className="container mx-auto max-w-2xl">
