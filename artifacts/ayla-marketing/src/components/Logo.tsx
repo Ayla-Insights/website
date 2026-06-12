@@ -6,7 +6,7 @@ export function Logo({ className = "" }: { className?: string }) {
         alt="Ayla Insights logo"
         className="w-8 h-8 object-contain"
       />
-      <span className="text-[#0f766e] font-bold text-xl tracking-tight">Ayla</span>
+      <span className="text-[#0f766e] font-bold text-xl tracking-tight">Ayla Insights</span>
     </div>
   );
 }
