@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUpRight, Calendar, Users, MessageSquare, CheckCircle, Shield } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
+import { useCountUp } from "@/hooks/useCountUp";
 import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 export default function Product() {
@@ -237,6 +238,10 @@ export default function Product() {
 }
 
 function DashboardMock() {
+  const { ref: unscheduledRef, displayValue: unscheduledValue } = useCountUp(145000, { prefix: "$", duration: 1500 });
+  const { ref: fillableRef, displayValue: fillableValue } = useCountUp(47200, { prefix: "$", duration: 1500 });
+  const { ref: recallsRef, displayValue: recallsValue } = useCountUp(117, { duration: 1500 });
+
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 relative w-full">
       <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
@@ -247,7 +252,7 @@ function DashboardMock() {
           <CardContent className="p-4 flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-[#64748b] mb-1">Unscheduled Treatment</p>
-              <p className="text-3xl font-bold text-[#0f172a]">$145,000</p>
+              <p ref={unscheduledRef} className="text-3xl font-bold text-[#0f172a]">{unscheduledValue}</p>
             </div>
             <div className="h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
               <ArrowUpRight className="h-6 w-6" />
@@ -258,7 +263,7 @@ function DashboardMock() {
           <CardContent className="p-4 flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-[#64748b] mb-1">Fillable Hours This Week</p>
-              <p className="text-3xl font-bold text-[#0f172a]">$47,200</p>
+              <p ref={fillableRef} className="text-3xl font-bold text-[#0f172a]">{fillableValue}</p>
             </div>
             <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
               <Calendar className="h-6 w-6" />
@@ -269,7 +274,7 @@ function DashboardMock() {
           <CardContent className="p-4 flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-[#64748b] mb-1">Overdue Recalls</p>
-              <p className="text-3xl font-bold text-[#0f172a]">117</p>
+              <p ref={recallsRef} className="text-3xl font-bold text-[#0f172a]">{recallsValue}</p>
             </div>
             <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
               <Users className="h-6 w-6" />
