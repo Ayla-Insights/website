@@ -7,62 +7,66 @@ export function useCountUp(
   const { duration = 1200, prefix = "", suffix = "", decimals = 0 } = options || {};
   const [displayValue, setDisplayValue] = useState(prefix + "0" + suffix);
   const ref = useRef<HTMLElement | any>(null);
+  const hasRun = useRef(false);
+
+  const runAnimation = () => {
+    if (hasRun.current) return;
+    hasRun.current = true;
+
+    let animationFrameId: number;
+    let startTimestamp: number;
+
+    const format = (value: number) => {
+      let formatted = decimals === 0
+        ? Math.round(value).toString()
+        : value.toFixed(decimals);
+      const parts = formatted.split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return prefix + parts.join(".") + suffix;
+    };
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setDisplayValue(format(target * easeProgress));
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      } else {
+        setDisplayValue(format(target));
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => { if (animationFrameId) cancelAnimationFrame(animationFrameId); };
+  };
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
 
-    let hasRun = false;
-    let animationFrameId: number;
+    // Fallback: if the element is already in-view on load (e.g. hero section)
+    // or the ref ends up on a hidden duplicate (display:none), start after 600ms.
+    const fallbackTimer = setTimeout(runAnimation, 600);
 
+    // Also watch via IntersectionObserver so off-screen sections still animate in.
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasRun) {
-          hasRun = true;
+        if (entries[0].isIntersecting) {
+          clearTimeout(fallbackTimer);
+          runAnimation();
           observer.disconnect();
-
-          let startTimestamp: number;
-          const step = (timestamp: number) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            
-            const easeProgress = 1 - Math.pow(1 - progress, 3);
-            const currentCount = target * easeProgress;
-            
-            let formattedNumber = currentCount.toFixed(decimals);
-            if (decimals === 0) {
-                formattedNumber = Math.round(currentCount).toString();
-            }
-            
-            const parts = formattedNumber.split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            formattedNumber = parts.join(".");
-
-            setDisplayValue(prefix + formattedNumber + suffix);
-
-            if (progress < 1) {
-              animationFrameId = requestAnimationFrame(step);
-            } else {
-                let finalFormattedNumber = target.toFixed(decimals);
-                if (decimals === 0) {
-                    finalFormattedNumber = Math.round(target).toString();
-                }
-                const finalParts = finalFormattedNumber.split(".");
-                finalParts[0] = finalParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                setDisplayValue(prefix + finalParts.join(".") + suffix);
-            }
-          };
-          animationFrameId = requestAnimationFrame(step);
         }
       },
       { threshold: 0.3 }
     );
 
-    observer.observe(el);
+    if (el) observer.observe(el);
+
     return () => {
+      clearTimeout(fallbackTimer);
       observer.disconnect();
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target, duration, prefix, suffix, decimals]);
 
   return { ref, displayValue };
