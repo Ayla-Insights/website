@@ -1,4 +1,4 @@
-import { Shield, Lock, Server, FileText, CheckCircle2 } from "lucide-react";
+import { Shield, Lock, Server, FileText, CheckCircle2, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -16,17 +16,31 @@ export default function Security() {
           <div className="inline-flex items-center justify-center p-3 bg-[#f0fdfa] rounded-2xl mb-6">
             <Shield className="h-8 w-8 text-[#0f766e]" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Security & Architecture</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Built for HIPAA from the ground up. Not bolted on after.</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            Ayla is built around the HIPAA technical safeguards. We expect to sign a BAA with every customer before any real patient data flows.
+            Ayla was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access — by construction, not by policy.
           </p>
+          <div className="inline-flex flex-wrap justify-center gap-3 mt-8">
+            <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
+              <ShieldCheck className="h-4 w-4 text-[#0f766e]" /> HIPAA-ready architecture
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
+              <FileText className="h-4 w-4 text-[#0f766e]" /> BAA with every customer
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
+              <Lock className="h-4 w-4 text-[#0f766e]" /> Encrypted in transit & at rest
+            </span>
+            <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
+              <CheckCircle2 className="h-4 w-4 text-[#0f766e]" /> SOC 2 (in progress)
+            </span>
+          </div>
         </div>
       </section>
 
       {/* Built from Day One */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0f172a] mb-12 text-center">What we built in from day one</h2>
+          <h2 className="text-3xl font-bold text-[#0f172a] mb-12 text-center">What's built in — not bolted on.</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white border border-border/50 rounded-2xl p-6 shadow-sm">
@@ -89,6 +103,17 @@ export default function Security() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Why this matters */}
+      <section className="px-4 pb-20">
+        <div className="bg-[#0f172a] rounded-2xl p-8 max-w-4xl mx-auto mb-0">
+          <Shield className="h-6 w-6 text-[#14b8a6] inline mr-3 mb-1" />
+          <h2 className="text-xl font-bold text-white inline-block mb-3">We sign a BAA before anything else.</h2>
+          <p className="text-slate-300 leading-relaxed">
+            Before any real patient data flows through Ayla, we execute a fully signed Business Associate Agreement with your practice. HIPAA compliance isn't a feature — it's the foundation. We won't cut corners on this, and we won't ask you to either.
+          </p>
         </div>
       </section>
 

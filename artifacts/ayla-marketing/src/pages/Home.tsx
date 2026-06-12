@@ -37,20 +37,20 @@ export default function Home() {
                 AI for the dental front office
               </span>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#0f172a] mb-6 leading-tight">
-                Find the revenue hiding in your practice.
+                Your practice is leaving $140,000 on the table. Ayla finds it.
               </h1>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
-                The average independent practice has over $100,000 of unscheduled treatment sitting in patient charts. Ayla shows your team exactly where the opportunity is — and helps them book it.
+                Ayla connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/book" data-testid="hero-book-call">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                    Book a discovery call
+                    See what we'd find in your practice
                   </Button>
                 </Link>
-                <Link href="/waitlist" data-testid="hero-waitlist">
+                <Link href="/book" data-testid="hero-waitlist">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
-                    Join the waitlist
+                    Watch a demo
                   </Button>
                 </Link>
               </div>
@@ -78,27 +78,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Opportunity Buckets */}
+      {/* Problem Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Dental practices lose money the same way, every time.</h2>
+          </div>
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <StaggerItem className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm">
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
-                <Activity className="h-6 w-6" />
+                <Calendar className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Unscheduled Treatment</h3>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Empty chairs</h3>
               <p className="text-[#64748b] leading-relaxed">
-                Find patients with diagnosed but unscheduled treatment plans. Prioritize by production value and insurance remaining.
+                A cancelled appointment with no backfill is pure lost revenue. Most offices have no fast way to find a replacement.
               </p>
             </StaggerItem>
 
             <StaggerItem className="p-6 rounded-2xl bg-white border border-border/50 shadow-sm">
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
-                <Calendar className="h-6 w-6" />
+                <Activity className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Fillable Hours This Week</h3>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Unscheduled treatment</h3>
               <p className="text-[#64748b] leading-relaxed">
-                Instantly identify gaps in tomorrow's schedule and match them with patients who have unscheduled treatment of the right length.
+                The average practice has $100,000+ in diagnosed-but-unscheduled treatment plans. Nobody has time to chase them.
               </p>
             </StaggerItem>
 
@@ -106,9 +109,9 @@ export default function Home() {
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
                 <Users className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Lapsed Recall</h3>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Staff flying blind</h3>
               <p className="text-[#64748b] leading-relaxed">
-                Surface patients who are overdue for hygiene, prioritizing those with remaining benefits or unscheduled family members.
+                Your team can't grow what they can't see. Without clear goals and real-time pacing, growth stays a conversation instead of becoming a result.
               </p>
             </StaggerItem>
           </StaggerChildren>
@@ -127,9 +130,9 @@ export default function Home() {
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#14b8a6]/20 via-[#14b8a6] to-[#14b8a6]/20" />
             
             {[
-              { title: "Connect", desc: "Reads directly from Dentrix. No complex migration or rip-and-replace of your existing software." },
-              { title: "Discover", desc: "The dashboard shows exactly where the money is every morning, ranked by priority." },
-              { title: "Act", desc: "Ask Ayla in chat to draft messages or propose appointments. Your team confirms every booking." }
+              { title: "Connect to Dentrix", desc: "Ayla integrates directly with your Dentrix system — no manual data entry, no spreadsheets. Setup takes minutes." },
+              { title: "See your opportunities", desc: "Your dashboard shows the numbers that matter: unscheduled treatment, schedule gaps, recall patients, goal pacing — in real dollars." },
+              { title: "Ask Ayla to act", desc: "Type a question — 'Who can fill tomorrow's 2pm?' — and Ayla finds the answer and proposes the action. You approve it. Done." }
             ].map((step, i) => (
               <StaggerItem 
                 key={i}
@@ -148,6 +151,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Social Proof Strip */}
+      <section className="py-20 px-4 bg-[#f8fafc]">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-center text-3xl font-bold text-[#0f172a] mb-4">What practices find when they connect Ayla</h2>
+          <p className="text-center text-lg text-[#64748b] mb-12">Anonymized from early partner practices across six specialties.</p>
+
+          <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { badge: "General Dentistry", figure: "$148,000", desc: "in unscheduled treatment identified. Crowns and implants, patients averaging 14 months since diagnosis." },
+              { badge: "Periodontics", figure: "31 patients", desc: "overdue for active perio maintenance, with a combined $41,200 in unscheduled scaling and root planing." },
+              { badge: "Cosmetic Dentistry", figure: "$220,000", desc: "in unscheduled elective treatment. Veneers and whitening cases diagnosed but never followed up on." },
+              { badge: "Orthodontics", figure: "18 openings", desc: "in the next 30 days that could be filled with recall exams from patients with pending treatment consults." },
+              { badge: "Pediatric Dentistry", figure: "94 families", desc: "with one or more members overdue for recall, representing a combined 187 unscheduled hygiene appointments." },
+              { badge: "Endodontics", figure: "$67,500", desc: "in referred-out root canal cases that could have been retained in-house based on schedule availability." },
+            ].map((card, i) => (
+              <StaggerItem key={i} className="bg-white border border-border/50 rounded-2xl p-6 shadow-sm">
+                <div className="inline-block px-3 py-1 rounded-full bg-[#ccfbf1] text-[#0f766e] text-xs font-semibold mb-4">
+                  {card.badge}
+                </div>
+                <div className="text-3xl font-bold text-[#0f172a] mb-1">{card.figure}</div>
+                <p className="text-sm text-[#64748b]">{card.desc}</p>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
       {/* Trust Panel */}
       <section className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
@@ -160,9 +190,9 @@ export default function Home() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 mb-6">
               <CheckCircle2 className="h-8 w-8 text-[#14b8a6]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ayla suggests. Your team decides.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ayla suggests. Your team decides. Every time.</h2>
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Every booking and cancellation goes through a confirmation card. Nothing happens until a staff member taps Confirm. Every single action is auditable.
+              No action executes automatically. Every booking, every outreach, every schedule change goes through a staff confirmation card. Nothing happens until a human taps Confirm. Every single action is logged.
             </p>
           </motion.div>
         </div>
@@ -172,9 +202,9 @@ export default function Home() {
       <section className="py-16 px-4 bg-[#f0fdfa]">
         <div className="container mx-auto max-w-4xl text-center">
           <ShieldCheck className="h-12 w-12 text-[#0f766e] mx-auto mb-6" />
-          <h2 className="text-2xl font-bold text-[#0f172a] mb-4">HIPAA-ready architecture</h2>
+          <h2 className="text-2xl font-bold text-[#0f172a] mb-4">Built for HIPAA from the ground up. Not bolted on after.</h2>
           <p className="text-lg text-[#334155] max-w-2xl mx-auto mb-8">
-            Ayla is built around the technical safeguards required for healthcare data. Tenant isolation by construction, PHI-scrubbed logs, and human-in-the-loop writes.
+            Ayla was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
           </p>
           <Link href="/security" data-testid="home-security-link" className="text-[#0d9488] font-semibold hover:text-[#0f766e] underline underline-offset-4">
             Read our security posture
@@ -185,13 +215,13 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-24 px-4">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold text-[#0f172a] mb-6">Ready to see the opportunity?</h2>
+          <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Ayla finds in your practice.</h2>
           <p className="text-xl text-[#64748b] mb-10">
-            Book a 20-minute discovery call. We'll show you what Ayla would find in a practice like yours. No pressure, just numbers.
+            Takes 20 minutes. No commitment. We connect to your data and show you exactly what you're leaving on the table.
           </p>
           <Link href="/book" data-testid="home-final-cta">
             <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
-              Book your discovery call
+              Book a demo
             </Button>
           </Link>
         </div>

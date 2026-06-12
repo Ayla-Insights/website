@@ -58,7 +58,9 @@ export default function Product() {
                   {activeSection === 0 && <DashboardMock />}
                   {activeSection === 1 && <ChatMock />}
                   {activeSection === 2 && <BookingMock />}
-                  {activeSection === 3 && <AuditMock />}
+                  {activeSection === 3 && <TeamMock />}
+                  {activeSection === 4 && <InsuranceMock />}
+                  {activeSection === 5 && <AuditMock />}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -72,9 +74,9 @@ export default function Product() {
                   <DashboardMock />
                 </div>
                 <div className={`transition-opacity duration-500 ${activeSection === 0 ? "opacity-100" : "opacity-35"}`}>
-                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">The Morning Briefing</h2>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Fill the Schedule</h2>
                   <p className="text-lg text-[#64748b] mb-8">
-                    Every morning, your team sees exactly where the opportunity is, ranked by priority. No running reports, no digging through charts.
+                    Ayla detects open slots and instantly identifies the best patients to fill them, ranked by treatment need, recall status, and how long they've been waiting.
                   </p>
                   <ul className="space-y-6">
                     <li className="flex gap-4">
@@ -154,12 +156,47 @@ export default function Product() {
                 </div>
               </div>
 
-              {/* Section 3: Audit Trail */}
+              {/* Section 3: Team Scoreboard */}
+              <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
+                <div className="lg:hidden mb-12">
+                  <TeamMock />
+                </div>
+                <div className={`transition-opacity duration-500 ${activeSection === 3 ? "opacity-100" : "opacity-35"}`}>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Give your team a scoreboard.</h2>
+                  <p className="text-lg text-[#64748b] mb-6">
+                    Ayla tracks production by provider and hygiene productivity by hygienist — and shows everyone their pacing toward monthly goals. When the team can see the gap, they can close it.
+                  </p>
+                  <blockquote className="border-l-4 border-[#0d9488] pl-4 py-1 text-[#334155] italic text-base mb-2">
+                    "I need my staff to be as invested in growth as I am."
+                  </blockquote>
+                  <p className="text-sm text-[#64748b] mt-2">
+                    — General dentist, 20-year practice owner
+                  </p>
+                </div>
+              </div>
+
+              {/* Section 4: Insurance Profitability */}
+              <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
+                <div className="lg:hidden mb-12">
+                  <InsuranceMock />
+                </div>
+                <div className={`transition-opacity duration-500 ${activeSection === 4 ? "opacity-100" : "opacity-35"}`}>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Know which insurance plans are worth keeping.</h2>
+                  <p className="text-lg text-[#64748b] mb-6">
+                    Ayla breaks down your production and collections by carrier and calculates your effective reimbursement rate. Make participation decisions with data, not gut feel.
+                  </p>
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
+                    Plans with high write-off rates are often the first to go when practices review their insurance mix.
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 5: Audit Trail */}
               <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
                 <div className="lg:hidden mb-12">
                   <AuditMock />
                 </div>
-                <div className={`transition-opacity duration-500 ${activeSection === 3 ? "opacity-100" : "opacity-35"}`}>
+                <div className={`transition-opacity duration-500 ${activeSection === 5 ? "opacity-100" : "opacity-35"}`}>
                   <div className="mb-6"><CheckCircle className="h-10 w-10 text-[#0f766e]" /></div>
                   <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Every action logged</h2>
                   <p className="text-lg text-[#64748b]">
@@ -346,6 +383,115 @@ function BookingMock() {
       </div>
     </div>
   )
+}
+
+function TeamMock() {
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 w-full relative">
+      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
+        Demo data
+      </div>
+      <h3 className="font-semibold text-[#0f172a] mb-6">Goal Pacing — This Month</h3>
+      <div className="space-y-5">
+        <div>
+          <div className="flex justify-between items-end mb-1">
+            <span className="font-medium text-[#0f172a] text-sm">Dr. Martinez</span>
+            <span className="text-xs font-medium text-[#64748b]">78% to goal</span>
+          </div>
+          <div className="w-full bg-[#ccfbf1] h-2 rounded-full overflow-hidden">
+            <div className="bg-[#0d9488] h-full" style={{ width: "78%" }}></div>
+          </div>
+        </div>
+        <div>
+          <div className="flex justify-between items-end mb-1">
+            <span className="font-medium text-[#0f172a] text-sm">Dr. Chen</span>
+            <span className="text-xs font-medium text-[#64748b]">61% to goal</span>
+          </div>
+          <div className="w-full bg-[#ccfbf1] h-2 rounded-full overflow-hidden">
+            <div className="bg-[#0d9488] h-full" style={{ width: "61%" }}></div>
+          </div>
+        </div>
+        <div>
+          <div className="flex justify-between items-end mb-1">
+            <span className="font-medium text-[#0f172a] text-sm">Sarah (Hygiene)</span>
+            <span className="text-xs font-medium text-[#64748b]">92% to goal</span>
+          </div>
+          <div className="w-full bg-[#ccfbf1] h-2 rounded-full overflow-hidden">
+            <div className="bg-[#0d9488] h-full" style={{ width: "92%" }}></div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-6 flex gap-2">
+        <div className="flex-1 bg-[#f8fafc] rounded-lg px-3 py-2 text-center">
+          <div className="font-semibold text-[#0f172a]">$42,800</div>
+          <div className="text-xs text-[#64748b]">Production MTD</div>
+        </div>
+        <div className="flex-1 bg-[#f8fafc] rounded-lg px-3 py-2 text-center">
+          <div className="font-semibold text-[#0f172a]">14 hrs</div>
+          <div className="text-xs text-[#64748b]">Chair time used</div>
+        </div>
+        <div className="flex-1 bg-[#f8fafc] rounded-lg px-3 py-2 text-center">
+          <div className="font-semibold text-[#0f172a]">6 open</div>
+          <div className="text-xs text-[#64748b]">Slots this week</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InsuranceMock() {
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 w-full relative">
+      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
+        Demo data
+      </div>
+      <h3 className="font-semibold text-[#0f172a] mb-6">Insurance Profitability</h3>
+      <div className="space-y-4">
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between items-center">
+            <span className="font-medium text-sm text-[#0f172a]">Delta Dental PPO</span>
+            <span className="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium">88% effective</span>
+          </div>
+          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
+            <div className="bg-emerald-500 h-full" style={{ width: "85%" }}></div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between items-center">
+            <span className="font-medium text-sm text-[#0f172a]">Cigna DPPO</span>
+            <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded font-medium">74% effective</span>
+          </div>
+          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
+            <div className="bg-yellow-500 h-full" style={{ width: "72%" }}></div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between items-center">
+            <span className="font-medium text-sm text-[#0f172a]">MetLife PDP</span>
+            <span className="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded font-medium">61% effective</span>
+          </div>
+          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
+            <div className="bg-orange-500 h-full" style={{ width: "58%" }}></div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <span className="font-medium text-sm text-[#0f172a]">Aetna DMO</span>
+              <span className="text-[10px] bg-red-100 text-red-700 px-1.5 rounded uppercase font-bold tracking-wider border border-red-200">Review</span>
+            </div>
+            <span className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded font-medium">41% effective</span>
+          </div>
+          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
+            <div className="bg-red-500 h-full" style={{ width: "38%" }}></div>
+          </div>
+        </div>
+      </div>
+      <p className="text-xs text-[#64748b] italic mt-6 border-t border-slate-100 pt-4">
+        Carriers below 65% effective rate flagged for review
+      </p>
+    </div>
+  );
 }
 
 function AuditMock() {

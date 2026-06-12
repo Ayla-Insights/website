@@ -1,0 +1,223 @@
+# AYLA WEBSITE BRIEF — Strategy, Copy & Page Structure
+
+## Product
+Ayla is an AI front-office agent for dental practices. It integrates with the
+Dentrix practice management system and gives practices two things:
+1. A staff chat console — front desk asks plain-English questions, Ayla
+   surfaces opportunities and takes scheduling actions.
+2. A patient-facing web chat — 24/7 self-scheduling that writes into Dentrix.
+
+## The core strategic insight (drives ALL copy decisions)
+Discovery interviews revealed that the dentist's #1 wish wasn't better
+reporting — it was staff alignment toward growth. Practices know their
+numbers are bad. They don't have the tools to act on them OR to get their
+teams rowing in the same direction.
+
+This means Ayla's positioning is NOT "analytics platform." It is:
+> The operating system for a growing dental practice.
+
+Every headline, feature description, and CTA should connect to one of three
+outcomes: fill the schedule, recover lost production, align the team around
+growth. Numbers and dollar signs belong in the copy — vague benefit language
+does not.
+
+---
+
+## Brand voice
+- Confident but not arrogant. Practitioners are smart; don't oversell.
+- Specific and numerical. "6 figures of unscheduled treatment" beats
+  "revenue opportunities."
+- Practitioner-empathetic. Acknowledge the reality: dentists didn't go to
+  school to manage software or coach reluctant staff.
+- Never clinical. Ayla does not give clinical advice and the website should
+  never imply it does.
+- Trust-forward. Security and HIPAA compliance are features, not footnotes.
+
+---
+
+## Page structure & copy
+
+### Hero section
+Headline (choose one or A/B test):
+  "Your practice is leaving $140,000 on the table. Ayla finds it."
+  "The front-office employee that never leaves."
+  "Stop managing your practice. Start growing it."
+
+Subheadline:
+  Ayla connects to your Dentrix system and shows you exactly where you're
+  losing production — then helps you get it back. Unscheduled treatment.
+  Empty chair time. Patients who've fallen off recall. All in one place,
+  in plain English.
+
+CTA: "See your practice's opportunity report" (primary) / "Watch a demo" (secondary)
+
+Visual: Dashboard screenshot or animation showing the ROI summary cards
+(new patients, unscheduled treatment $, fillable hours). Make the numbers
+large and specific.
+
+---
+
+### The problem section
+Headline: "Dental practices lose money the same way, every time."
+
+Three-column layout (icon + short copy each):
+
+1. Empty chairs
+   A cancelled appointment with no backfill is pure lost revenue. Most
+   offices have no fast way to find a replacement.
+
+2. Unscheduled treatment
+   The average practice has $100,000+ in diagnosed-but-unscheduled
+   treatment plans. Nobody has time to chase them.
+
+3. Staff flying blind
+   Your team can't grow what they can't see. Without clear goals and
+   real-time pacing, growth stays a conversation instead of becoming
+   a result.
+
+---
+
+### How it works (3 steps — keep it visual)
+1. Connect to Dentrix
+   Ayla integrates directly with your Dentrix system — no manual data
+   entry, no spreadsheets. Setup takes minutes.
+
+2. See your opportunities instantly
+   Your dashboard opens on the numbers that matter: unscheduled treatment,
+   schedule gaps, recall patients, goal pacing. In real dollars.
+
+3. Ask Ayla to act
+   Type a question — "Who can fill tomorrow's 2pm?" or "Show me
+   unscheduled crowns over $1,000" — and Ayla finds the answer and
+   proposes the action. You approve it. Done.
+
+---
+
+### Feature sections (individual scrolling sections or tabs)
+
+FEATURE 1: Fill the schedule
+Headline: "A cancellation isn't a lost hour — unless you let it be."
+Copy: Ayla detects open slots and instantly identifies the best patients
+to fill them, ranked by treatment need, recall status, and how long
+they've been waiting. One click to reach out. One click to confirm.
+The chair stays productive.
+
+FEATURE 2: Recover unscheduled treatment
+Headline: "Your most valuable patients are already in your system."
+Copy: Ayla ranks every unscheduled treatment plan by dollar value and
+time since diagnosis — so your team knows exactly who to call, what
+to say, and what it's worth. Stop leaving five-figure cases sitting
+in a report nobody reads.
+Callout stat: "The average Ayla practice has $140,000 in unscheduled
+treatment. Most of it is crowns, implants, and high-value elective work."
+
+FEATURE 3: Align your team around growth
+Headline: "Growth is a team sport. Give your team a scoreboard."
+Copy: Ayla tracks production by provider, collections by front-office
+activity, and hygiene productivity by hygienist — and shows everyone
+their pacing toward monthly goals. Not to micromanage. To motivate.
+When the team can see the gap, they can close it.
+Quote (from discovery): "I need my staff to be as invested in growth
+as I am." — General dentist, 20-year practice owner
+
+FEATURE 4: Know which insurance plans are worth keeping
+Headline: "Not all insurance is good insurance."
+Copy: Ayla breaks down your production and collections by carrier,
+calculates your effective reimbursement rate, and flags the plans
+where write-offs are quietly killing your margin. Make the
+participation decision with data, not gut feel.
+
+FEATURE 5: 24/7 patient self-scheduling
+Headline: "Patients book when you're not there. Now you capture them."
+Copy: An embeddable web chat widget lets patients book, reschedule,
+and confirm appointments any time — directly into your Dentrix
+schedule, following your real scheduling rules. No double-booking.
+No phone tag. No missed opportunities after hours.
+
+---
+
+### Security & compliance section
+Headline: "Built for HIPAA from the ground up. Not bolted on after."
+Copy: Ayla was designed by an IAM and cybersecurity architect with
+enterprise defense-industry experience. Your patient data stays yours.
+Encrypted in transit and at rest. Role-based access controls. Full
+audit trail of every action. We sign a Business Associate Agreement
+with every practice. Compliance isn't a checkbox for us — it's the
+architecture.
+Trust signals: HIPAA compliant badge, BAA included, SOC 2 (in progress),
+role-based access, end-to-end encryption.
+
+---
+
+### Social proof / case study section
+Use the six anonymized specialty case studies (General, Perio, Cosmetic,
+Ortho, Pedo, Endo) as rotating cards or a tabbed section.
+Lead with the General Dentistry case (most relatable to broadest audience).
+Highlight the specific dollar numbers — they are the proof.
+
+---
+
+### Pricing section
+Keep it simple at launch. Two tiers:
+
+Starter — $X/location/month
+  - Staff chat console
+  - Dentrix integration
+  - Opportunity dashboard (unscheduled treatment, recall, schedule gaps)
+  - Goal tracking
+  Annual billing / monthly available
+
+Growth — $X/location/month
+  - Everything in Starter
+  - Patient self-scheduling widget
+  - Staff performance dashboard
+  - Insurance profitability analysis
+  - Proactive outreach automation
+  Annual billing / monthly available
+
+Note to agent: Use placeholder pricing ($X) — do not invent numbers.
+Pricing TBD by founder.
+
+---
+
+### About the founder section
+[Use the approved founder bio copy — already written. Key beats:
+grew up in mom's dental office, dental IT in college, aerospace
+cybersecurity career, always wanted to bring better technology to
+dentistry. Mom was the first beta tester.]
+
+---
+
+### Footer CTA
+Headline: "See what Ayla finds in your practice."
+Subhead: Takes 20 minutes. No commitment. We connect to your data and
+show you exactly what you're leaving on the table.
+CTA button: "Book a demo"
+
+---
+
+## Design direction notes for the web agent
+- Clean, clinical-adjacent aesthetic. Think: modern health-tech SaaS.
+  White backgrounds, generous whitespace, one strong accent color
+  (suggest teal or a dental blue — founder to approve).
+- Dashboard screenshot/animation is the most important visual asset.
+  The numbers in that screenshot must look real and specific.
+- Mobile-first. Practice managers check things on their phones.
+- Trust signals (HIPAA, BAA, encryption) should appear near any data
+  or integration mention — not just in a dedicated section.
+- No stock photos of smiling dentists. Use product UI, data
+  visualizations, and clean iconography instead.
+- The hero needs a number. Whatever the headline, a specific dollar
+  figure ($140,000, $148,000) should be visible above the fold.
+
+---
+
+## Pages needed (minimum viable website)
+- Home (above structure)
+- Features (expanded version of feature sections)
+- Security & Compliance (expanded trust page)
+- About (founder bio + mission)
+- Pricing
+- Book a Demo (form or Calendly embed)
+- Blog/Resources (placeholder — SEO long-game, specialty case studies)
+  
