@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -20,6 +21,11 @@ const waitlistSchema = z.object({
 type WaitlistFormValues = z.infer<typeof waitlistSchema>;
 
 export default function Waitlist() {
+  useSEO({
+    title: "Join the Waitlist",
+    description: "Get early access to Ayla — the AI copilot that finds unscheduled treatment and schedule gaps in your dental practice.",
+    path: "/waitlist",
+  });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 

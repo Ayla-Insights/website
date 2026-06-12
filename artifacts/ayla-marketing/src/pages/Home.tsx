@@ -3,8 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar, Users, Activity, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Home() {
+  useSEO({
+    title: "Find the Revenue Hiding in Your Practice",
+    description: "Ayla is an AI copilot for dental front offices. It finds unscheduled treatment, schedule gaps, and lapsed recall — and helps your team book it.",
+    path: "/",
+  });
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}

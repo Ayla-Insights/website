@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUpRight, Calendar, Users, MessageSquare, CheckCircle, Shield } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Product() {
+  useSEO({
+    title: "Product",
+    description: "See how Ayla surfaces unscheduled treatment, fillable schedule gaps, and lapsed recall — and helps your team book it, with every action confirmed by staff.",
+    path: "/product",
+  });
   return (
     <div className="flex flex-col w-full pb-24">
       {/* Header */}

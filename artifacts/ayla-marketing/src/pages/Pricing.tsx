@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Pricing() {
+  useSEO({
+    title: "Pricing",
+    description: "Pricing built for independent dental practices. We're partnering with launch customers to set pricing that pays for itself in the first month.",
+    path: "/pricing",
+  });
   return (
     <div className="flex flex-col w-full pb-24 items-center justify-center min-h-[70vh]">
       <section className="pt-24 px-4 text-center max-w-3xl mx-auto">

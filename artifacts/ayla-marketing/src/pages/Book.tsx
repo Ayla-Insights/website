@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Book() {
+  useSEO({
+    title: "Book a Discovery Call",
+    description: "20 minutes. We'll show you what Ayla would find in a practice your size. No pitch deck.",
+    path: "/book",
+  });
   const [loaded, setLoaded] = useState(false);
 
   return (

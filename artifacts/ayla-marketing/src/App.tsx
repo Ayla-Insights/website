@@ -15,6 +15,7 @@ import Waitlist from "@/pages/Waitlist";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ function Router() {
         <Route path="/waitlist" component={Waitlist} />
         <Route path="/legal/privacy" component={Privacy} />
         <Route path="/legal/terms" component={Terms} />
+        <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
         <Route component={NotFound} />
       </Switch>

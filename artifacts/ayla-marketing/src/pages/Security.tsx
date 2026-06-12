@@ -1,7 +1,13 @@
 import { Shield, Lock, Server, FileText, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Security() {
+  useSEO({
+    title: "Security & HIPAA Posture",
+    description: "Ayla is built for HIPAA from day one — tenant isolation by construction, human-in-the-loop writes, minimum-necessary data to AI, and a tamper-evident audit trail.",
+    path: "/security",
+  });
   return (
     <div className="flex flex-col w-full pb-24">
       {/* Header */}

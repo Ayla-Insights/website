@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function About() {
+  useSEO({
+    title: "About",
+    description: "Ayla was built by someone who grew up in dental offices and spent years in enterprise cybersecurity. Here's why we built it — and who we are.",
+    path: "/about",
+  });
   return (
     <div className="flex flex-col w-full pb-24">
       {/* Mission Section */}

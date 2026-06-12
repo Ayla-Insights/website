@@ -1,4 +1,11 @@
+import { useSEO } from "@/hooks/useSEO";
+
 export default function Privacy() {
+  useSEO({
+    title: "Privacy Policy",
+    description: "Ayla Insights privacy policy — how we handle visitor data on the marketing site.",
+    path: "/legal/privacy",
+  });
   return (
     <div className="flex flex-col w-full pb-24 px-4 pt-16">
       <div className="container mx-auto max-w-3xl bg-white p-8 md:p-12 rounded-2xl border border-border/50 shadow-sm prose prose-slate">
