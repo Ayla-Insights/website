@@ -1,0 +1,63 @@
+# Ayla Insights — Website Punch List (for Replit Agent)
+
+Source: live-site review of https://aylainsights.replit.app/ (rendered in-browser, every page clicked through). Tickets are written to be handed directly to the Replit building agent. Priority order: do all **P0** first, then **P1**, then **P2**.
+
+Audience reminder: the site is being shown to **prospective customers / beta users** for a healthcare/PHI data platform. The main conversion goal is **getting people into the beta**.
+
+---
+
+## P0 — Broken / blocking (fix before any demo)
+
+**1. Homepage hero shows $0 / $0 / 0.**
+The hero "demo" dashboard renders **$0 / $0 / 0** right next to the "$140,000 on the table" headline. The `/product` page shows the correct figures (**$145,000 / $47,200 / 117**). Populate the hero dashboard with the same real demo data as `/product` so the numbers reinforce the headline instead of contradicting it. Verify the hero and `/product` pull from a single shared source so they can't drift again.
+
+---
+
+## P1 — High impact (do before launch / beta outreach)
+
+**2. No "Join the beta" path.** This is the site's primary goal and it's missing. Add a clear, prominent beta CTA: a dedicated "Join the beta" button in the top nav and hero, leading to either a short waitlist form (name, email, practice name, PMS) or a clearly-labeled beta signup. Make it the dominant call-to-action above "Book a call."
+
+**3. "Watch a demo" leads to a booking form, not a demo.** The "Watch a demo" link points at the booking flow with no actual demo content. Either (a) link it to a real product walkthrough/video, or (b) relabel it to match what it actually does (e.g. "Book a walkthrough"). Don't promise a demo and deliver a calendar.
+
+**4. `/book` copy says "20 minutes" but Cal.com only offers 15/30-min slots.** Align the promised duration with the actual Cal.com event types — either reconfigure Cal.com to offer a 20-min event or update the copy to match the real slot lengths.
+
+**5. Founder is anonymous ("Photo coming soon").** For a trust-sensitive healthcare product sold to early customers, an anonymous founder undercuts credibility. Add a real founder name, photo, and one-line bio.
+
+**6. Proof stats clash with the site's own pre-launch language.** The site shows confident "six-specialty" proof/results stats while elsewhere stating "pre-launch," "SOC 2 in progress," and "counsel pending." Reconcile this: either soften the proof claims to clearly-labeled illustrative/synthetic figures, or remove them until you have real customer results. Inconsistency here reads as overclaiming to exactly the savvy buyers you're targeting.
+
+**7. Scroll animations can leave content stuck invisible.** Add a `prefers-reduced-motion` path and a no-JS / animation-failure fallback so content is always visible even if the scroll animation doesn't fire. Right now content can get trapped in the hidden pre-animation state.
+
+**8. Replit preview URL is indexable.** Add `noindex` to the `*.replit.app` preview so it doesn't compete with / leak ahead of the canonical production domain in search. Set the canonical tag to the real domain.
+
+---
+
+## P2 — Polish (nice-to-have, post-launch acceptable)
+
+**9. Inconsistent hero figures across pages** — the headline value appears as $140k / $145k / $148k in different places. Pick one number and use it everywhere.
+
+**10. Blog missing from top nav** — the blog exists but isn't linked in primary navigation. Add it.
+
+**11. "Features" vs "Product" label mismatch** — nav label and page/route naming disagree. Standardize on one term.
+
+**12. Off-brand Cal.com embed** — the embedded calendar is dark/off-brand and requires an extra "Load calendar" click. Theme it to match the site and reduce the extra click if possible.
+
+**13. "$X" pricing placeholder** — replace the literal pricing placeholder with real pricing or a clearly-worded "pricing at beta" message.
+
+**14. Anonymous testimonial** — attribute it to a real person/practice or remove it until you have a real one.
+
+**15. No JSON-LD structured data** — add Organization / Product JSON-LD for SEO.
+
+**16. OG image points at a possibly-dead absolute URL** — verify the Open Graph image resolves; fix or replace.
+
+**17. Accessibility / contrast spot-checks** — a few low-contrast text spots flagged; run an a11y contrast pass and fix failures.
+
+---
+
+## Do NOT touch (these are genuinely strong)
+
+- The **Security / HIPAA page** — excellent; leave as-is.
+- **Information architecture** — clean and logical.
+- The **404 page** and **legal pages** — present and working.
+- **Responsiveness and load speed** — good across breakpoints.
+- The **"What Ayla doesn't do"** objection-handling section — keep it.
+- No broken links were found across the site.
