@@ -18,7 +18,7 @@ export default function Pricing() {
           Designed for independent practices. Priced to pay for itself in the first month.
         </p>
         <p className="text-sm text-[#64748b] mt-4">
-          Pricing is finalized with each launch partner. Book a call to see what Ayla finds in your practice first.
+          We're finalizing beta pricing with our launch partners. Book a call to see what Ayla finds in your practice first — pricing is always secondary to the ROI.
         </p>
       </section>
 
@@ -28,8 +28,8 @@ export default function Pricing() {
           <div className="bg-white border-2 border-border rounded-2xl p-8 shadow-sm relative">
             <h2 className="text-xl font-bold text-[#0f172a]">Starter</h2>
             <div className="mt-2 mb-6">
-              <span className="text-4xl font-bold text-[#0f172a]">$X / location / month</span>
-              <p className="text-sm text-[#64748b] mt-1">(billed annually)</p>
+              <span className="text-2xl font-bold text-[#0f172a]">Beta pricing</span>
+              <p className="text-sm text-[#64748b] mt-1">Finalized with each launch partner</p>
             </div>
             <div className="h-px w-full bg-border/50 mb-6"></div>
             <ul className="space-y-4 mb-8">
@@ -66,8 +66,8 @@ export default function Pricing() {
             </div>
             <h2 className="text-xl font-bold text-white">Growth</h2>
             <div className="mt-2 mb-6">
-              <span className="text-4xl font-bold text-white">$X / location / month</span>
-              <p className="text-sm text-slate-400 mt-1">(billed annually)</p>
+              <span className="text-2xl font-bold text-white">Beta pricing</span>
+              <p className="text-sm text-slate-400 mt-1">Finalized with each launch partner</p>
             </div>
             <div className="h-px w-full bg-slate-700 mb-4"></div>
             <p className="text-sm text-slate-400 mb-3">Everything in Starter, plus:</p>
@@ -124,7 +124,7 @@ export default function Pricing() {
             </div>
             <div className="border-b border-border/50 pb-6">
               <h3 className="font-semibold text-lg text-[#0f172a] mb-2">What's required to get started?</h3>
-              <p className="text-[#64748b]">An active Dentrix license and about 20 minutes for a setup call. That's it.</p>
+              <p className="text-[#64748b]">An active Dentrix license and about 30 minutes for a setup call. That's it.</p>
             </div>
             <div className="pb-6">
               <h3 className="font-semibold text-lg text-[#0f172a] mb-2">When is pricing finalized?</h3>

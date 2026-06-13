@@ -27,7 +27,7 @@ export default function Home() {
       <section className="pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-gradient-to-b from-[#f0fdfa]/50 to-background overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -37,20 +37,20 @@ export default function Home() {
                 AI for the dental front office
               </span>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#0f172a] mb-6 leading-tight">
-                Your practice is leaving $140,000 on the table. Ayla finds it.
+                Your practice is leaving $145,000 on the table. Ayla finds it.
               </h1>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
                 Ayla connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/book" data-testid="hero-book-call">
+                <Link href="/waitlist" data-testid="hero-join-beta">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                    See what we'd find in your practice
+                    Join the beta
                   </Button>
                 </Link>
-                <Link href="/book" data-testid="hero-waitlist">
+                <Link href="/book" data-testid="hero-book-call">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
-                    Watch a demo
+                    Book a walkthrough
                   </Button>
                 </Link>
               </div>
@@ -66,7 +66,7 @@ export default function Home() {
                 recallsRef={recallsRef} recallsValue={recallsValue}
               />
             </motion.div>
-            
+
             <div className="relative md:hidden block">
               <HeroDashboard
                 unscheduledRef={unscheduledRef} unscheduledValue={unscheduledValue}
@@ -128,13 +128,13 @@ export default function Home() {
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#14b8a6]/20 via-[#14b8a6] to-[#14b8a6]/20" />
-            
+
             {[
               { title: "Connect to Dentrix", desc: "Ayla integrates directly with your Dentrix system — no manual data entry, no spreadsheets. Setup takes minutes." },
               { title: "See your opportunities", desc: "Your dashboard shows the numbers that matter: unscheduled treatment, schedule gaps, recall patients, goal pacing — in real dollars." },
               { title: "Ask Ayla to act", desc: "Type a question — 'Who can fill tomorrow's 2pm?' — and Ayla finds the answer and proposes the action. You approve it. Done." }
             ].map((step, i) => (
-              <StaggerItem 
+              <StaggerItem
                 key={i}
                 className="relative z-10 flex flex-col items-center text-center"
               >
@@ -154,17 +154,18 @@ export default function Home() {
       {/* Social Proof Strip */}
       <section className="py-20 px-4 bg-[#f8fafc]">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-center text-3xl font-bold text-[#0f172a] mb-4">What practices find when they connect Ayla</h2>
-          <p className="text-center text-lg text-[#64748b] mb-12">Anonymized from early partner practices across six specialties.</p>
+          <h2 className="text-center text-3xl font-bold text-[#0f172a] mb-2">What practices typically find when they surface hidden revenue</h2>
+          <p className="text-center text-sm text-[#94a3b8] mb-2">Illustrative examples based on industry data — not yet from Ayla customers.</p>
+          <p className="text-center text-lg text-[#64748b] mb-12">Patterns observed across six common dental specialties.</p>
 
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { badge: "General Dentistry", figure: "$148,000", desc: "in unscheduled treatment identified. Crowns and implants, patients averaging 14 months since diagnosis." },
-              { badge: "Periodontics", figure: "31 patients", desc: "overdue for active perio maintenance, with a combined $41,200 in unscheduled scaling and root planing." },
-              { badge: "Cosmetic Dentistry", figure: "$220,000", desc: "in unscheduled elective treatment. Veneers and whitening cases diagnosed but never followed up on." },
-              { badge: "Orthodontics", figure: "18 openings", desc: "in the next 30 days that could be filled with recall exams from patients with pending treatment consults." },
-              { badge: "Pediatric Dentistry", figure: "94 families", desc: "with one or more members overdue for recall, representing a combined 187 unscheduled hygiene appointments." },
-              { badge: "Endodontics", figure: "$67,500", desc: "in referred-out root canal cases that could have been retained in-house based on schedule availability." },
+              { badge: "General Dentistry", figure: "~$145,000", desc: "in unscheduled treatment identified. Crowns and implants, patients averaging 14 months since diagnosis." },
+              { badge: "Periodontics", figure: "~31 patients", desc: "overdue for active perio maintenance, with a combined ~$41,000 in unscheduled scaling and root planing." },
+              { badge: "Cosmetic Dentistry", figure: "~$220,000", desc: "in unscheduled elective treatment. Veneers and whitening cases diagnosed but never followed up on." },
+              { badge: "Orthodontics", figure: "~18 openings", desc: "in the next 30 days that could be filled with recall exams from patients with pending treatment consults." },
+              { badge: "Pediatric Dentistry", figure: "~94 families", desc: "with one or more members overdue for recall, representing a combined 187+ unscheduled hygiene appointments." },
+              { badge: "Endodontics", figure: "~$67,000", desc: "in referred-out root canal cases that could have been retained in-house based on schedule availability." },
             ].map((card, i) => (
               <StaggerItem key={i} className="bg-white border border-border/50 rounded-2xl p-6 shadow-sm">
                 <div className="inline-block px-3 py-1 rounded-full bg-[#ccfbf1] text-[#0f766e] text-xs font-semibold mb-4">
@@ -181,7 +182,7 @@ export default function Home() {
       {/* Trust Panel */}
       <section className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -217,13 +218,20 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Ayla finds in your practice.</h2>
           <p className="text-xl text-[#64748b] mb-10">
-            Takes 20 minutes. No commitment. We connect to your data and show you exactly what you're leaving on the table.
+            Join the beta or book a 30-minute walkthrough. No commitment. No pitch deck.
           </p>
-          <Link href="/book" data-testid="home-final-cta">
-            <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
-              Book a demo
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/waitlist" data-testid="home-beta-cta">
+              <Button size="lg" variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa] h-14 px-10 text-lg">
+                Join the beta
+              </Button>
+            </Link>
+            <Link href="/book" data-testid="home-final-cta">
+              <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
+                Book a walkthrough
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
@@ -234,7 +242,7 @@ function HeroDashboard({ unscheduledRef, unscheduledValue, fillableRef, fillable
   return (
     <>
       <div className="absolute inset-0 bg-gradient-to-tr from-[#14b8a6]/20 to-transparent blur-3xl rounded-full" />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.35 }}
@@ -243,14 +251,14 @@ function HeroDashboard({ unscheduledRef, unscheduledValue, fillableRef, fillable
         <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
           Demo data
         </div>
-        
+
         <div className="space-y-6">
           <div className="flex items-center justify-between pb-4 border-b border-border/50">
             <h3 className="font-semibold text-[#0f172a]">Morning Briefing</h3>
             <span className="text-sm text-muted-foreground">Today</span>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={{

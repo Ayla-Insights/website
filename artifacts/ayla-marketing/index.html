@@ -7,19 +7,32 @@
     <meta name="description" content="Ayla is an AI copilot for dental front offices. It finds unscheduled treatment, schedule gaps, and lapsed recall — and helps your team book it." />
     <meta name="robots" content="index, follow" />
 
+    <!-- Prevent preview/staging domains from being indexed -->
+    <script>
+      (function() {
+        var host = window.location.hostname;
+        if (host.endsWith('.replit.app') || host.endsWith('.replit.dev') || host.endsWith('.repl.co')) {
+          var meta = document.createElement('meta');
+          meta.name = 'robots';
+          meta.content = 'noindex, nofollow';
+          document.head.appendChild(meta);
+        }
+      })();
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:title" content="Ayla Insights — Find the Revenue Hiding in Your Practice" />
     <meta property="og:description" content="Ayla is an AI copilot for dental front offices. It finds unscheduled treatment, schedule gaps, and lapsed recall — and helps your team book it." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aylainsights.com" />
-    <meta property="og:image" content="https://aylainsights.com/og-default.png" />
+    <meta property="og:image" content="https://aylainsights.com/opengraph.jpg" />
     <meta property="og:site_name" content="Ayla Insights" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ayla Insights — Find the Revenue Hiding in Your Practice" />
     <meta name="twitter:description" content="Ayla is an AI copilot for dental front offices. It finds unscheduled treatment, schedule gaps, and lapsed recall — and helps your team book it." />
-    <meta name="twitter:image" content="https://aylainsights.com/og-default.png" />
+    <meta name="twitter:image" content="https://aylainsights.com/opengraph.jpg" />
 
     <link rel="icon" type="image/png" href="/logo-mark.png" />
     <link rel="canonical" href="https://aylainsights.com" />

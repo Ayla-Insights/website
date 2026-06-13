@@ -4,7 +4,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function Book() {
   useSEO({
     title: "Book a Discovery Call",
-    description: "20 minutes. We'll show you what Ayla would find in a practice your size. No pitch deck.",
+    description: "30 minutes. We'll show you what Ayla would find in a practice your size. No pitch deck.",
     path: "/book",
   });
   const [loaded, setLoaded] = useState(false);
@@ -14,7 +14,7 @@ export default function Book() {
       <section className="pt-24 pb-12 px-4 text-center max-w-2xl mx-auto w-full">
         <h1 className="text-4xl font-bold text-[#0f172a] mb-4">Book a Discovery Call</h1>
         <p className="text-lg text-[#64748b] mb-12">
-          20 minutes. We'll show you what Ayla would find in a practice your size. No pitch deck.
+          30 minutes. We'll connect to your data and show you exactly what you're leaving on the table. No pitch deck.
         </p>
 
         <div className="w-full rounded-xl overflow-hidden border border-border/60 shadow-sm bg-white">
@@ -37,7 +37,7 @@ export default function Book() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
                 </svg>
-                Load calendar
+                Open calendar
               </button>
               <p className="text-xs text-[#94a3b8]">Calendar powered by Cal.com</p>
             </div>

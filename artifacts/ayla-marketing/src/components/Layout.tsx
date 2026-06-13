@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/product", label: "Product", testId: "link-product" },
   { href: "/security", label: "Security", testId: "link-security" },
   { href: "/pricing", label: "Pricing", testId: "link-pricing" },
+  { href: "/blog", label: "Blog", testId: "link-blog" },
   { href: "/about", label: "About", testId: "link-about" },
 ];
 
@@ -31,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium relative">
             {navLinks.map((link) => (
-              <div 
+              <div
                 key={link.href}
                 className="relative"
                 onMouseEnter={() => setHoveredPath(link.href)}
@@ -62,8 +63,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
 
-          {/* Right side: Book a demo + hamburger */}
+          {/* Right side: Join the beta + Book a demo + hamburger */}
           <div className="flex items-center gap-2">
+            <Link href="/waitlist" data-testid="link-beta-nav" className="hidden md:block">
+              <Button variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa]">
+                Join the beta
+              </Button>
+            </Link>
             <Link href="/book" data-testid="link-book-nav">
               <Button variant="default" className="bg-[#0d9488] hover:bg-[#0f766e] text-white">
                 Book a demo
@@ -100,7 +106,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-border/40 mt-1">
+            <div className="pt-2 border-t border-border/40 mt-1 flex flex-col gap-1">
+              <Link href="/waitlist" data-testid="mobile-link-beta" onClick={closeMenu}>
+                <button className="w-full px-3 py-2.5 rounded-lg text-sm font-semibold text-[#0d9488] hover:bg-[#f0fdfa] transition-colors text-left">
+                  Join the beta →
+                </button>
+              </Link>
               <Link href="/waitlist" data-testid="mobile-link-waitlist" onClick={closeMenu}>
                 <button className="w-full px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted/60 hover:text-primary transition-colors text-left">
                   Join the waitlist
@@ -128,7 +139,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/product" className="hover:text-primary">Features</Link></li>
+                <li><Link href="/product" className="hover:text-primary">Product</Link></li>
                 <li><Link href="/security" className="hover:text-primary">Security</Link></li>
                 <li><Link href="/pricing" className="hover:text-primary">Pricing</Link></li>
               </ul>
@@ -139,6 +150,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/about" className="hover:text-primary">About</Link></li>
                 <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
+                <li><Link href="/waitlist" className="hover:text-primary">Join the beta</Link></li>
               </ul>
             </div>
 

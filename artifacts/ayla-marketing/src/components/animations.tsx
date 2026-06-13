@@ -1,15 +1,16 @@
-import { motion, HTMLMotionProps } from "framer-motion";
+import { motion, HTMLMotionProps, useReducedMotion } from "framer-motion";
 import { forwardRef } from "react";
 
 export const FadeInSection = forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
   ({ children, className, ...props }, ref) => {
+    const reduced = useReducedMotion();
     return (
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, y: 28 }}
+        initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={reduced ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={className}
         {...props}
       >
@@ -22,6 +23,7 @@ FadeInSection.displayName = "FadeInSection";
 
 export const StaggerChildren = forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
   ({ children, className, ...props }, ref) => {
+    const reduced = useReducedMotion();
     return (
       <motion.div
         ref={ref}
@@ -32,7 +34,7 @@ export const StaggerChildren = forwardRef<HTMLDivElement, HTMLMotionProps<"div">
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.09,
+              staggerChildren: reduced ? 0 : 0.09,
             },
           },
         }}
@@ -48,12 +50,13 @@ StaggerChildren.displayName = "StaggerChildren";
 
 export const StaggerItem = forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
   ({ children, className, ...props }, ref) => {
+    const reduced = useReducedMotion();
     return (
       <motion.div
         ref={ref}
         variants={{
-          hidden: { opacity: 0, y: 28 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+          hidden: reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
+          visible: { opacity: 1, y: 0, transition: reduced ? { duration: 0 } : { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
         }}
         className={className}
         {...props}
