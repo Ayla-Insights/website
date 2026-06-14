@@ -1,0 +1,137 @@
+# SEO IMPLEMENTATION BRIEF — aylainsights.com
+
+You already have the current aylainsights.com build. Before making ANY changes,
+complete Step 0 below. Do not blindly overwrite existing work — audit first,
+then reconcile this spec against what's already there.
+
+Ayla Insights is a pre-launch B2B SaaS selling an AI front-office copilot to
+DENTAL PRACTICE OWNERS AND MANAGERS (not to patients). All SEO targets the
+practice-buyer, never patients searching for a dentist.
+
+## STEP 0 — AUDIT THE EXISTING SITE FIRST (do this before changing anything)
+
+Inventory what currently exists and report it back before implementing:
+
+1. List every existing route/page and its current <title>, meta description,
+   and H1.
+2. Note which pages from the target architecture (below) already exist, which
+   are missing, and which exist under a different URL.
+3. Flag any existing copy, title tag, meta description, alt text, or schema
+   that claims "HIPAA compliant" or "SOC 2 certified" — these are compliance
+   violations and must be corrected regardless of anything else.
+4. Note existing schema markup, sitemap.xml, robots.txt, and analytics/Search
+   Console setup — present or absent.
+5. Identify any existing blog/resources content.
+
+Then produce a short GAP REPORT with three buckets:
+   - ALREADY DONE (matches this spec — leave alone)
+   - NEEDS EDIT (exists but wrong/incomplete — fix to match spec)
+   - MISSING (build new per spec)
+
+Implement only NEEDS EDIT and MISSING items. Preserve anything already correct.
+Where the existing copy is good but not SEO-optimized, refine it — do not
+discard the founder's voice or rewrite working pages from scratch. Where this
+spec conflicts with an intentional existing design choice, flag it for the
+founder rather than silently overriding.
+
+## GLOBAL RULES (apply everywhere)
+
+1. COMPLIANCE GUARDRAIL — never use the phrase "HIPAA compliant" anywhere in
+   copy, title tags, meta descriptions, alt text, or schema. Only "built for
+   HIPAA" or "designed for HIPAA." This is a legal requirement. For security
+   keywords use "secure dental software" / "dental data security" instead.
+2. Brand pairing — every <title> pairs the brand with "dental" context.
+   Format: "Page Topic | Ayla Insights — AI Front Office for Dental Practices"
+3. One H1 per page, matching that page's primary keyword.
+4. Title tags ≤60 chars where possible; meta descriptions ≤155 chars.
+5. Descriptive, keyword-aware alt text on all meaningful images (especially
+   dashboard screenshots).
+6. Semantic HTML: proper h1→h2→h3 hierarchy, not styled divs.
+7. Mobile-first and fast — practice managers browse on phones. Lazy-load
+   images, compress assets, target Core Web Vitals green.
+8. Every page has a canonical tag. No duplicate-content pages.
+
+## SITE ARCHITECTURE (one page per keyword cluster)
+
+Target routes (reconcile against existing routes in Step 0):
+- /                     Home
+- /features             Features overview (sections per pillar)
+- /dentrix              Dedicated Dentrix integration page (high-intent)
+- /security             Security & data protection
+- /about                Founder + mission
+- /contact  or /demo    Book a discovery call (primary CTA destination)
+- /resources            Blog/resources hub
+- /resources/[slug]     Individual posts
+
+Primary CTA sitewide: "Book a discovery call." Secondary: "Join the waitlist."
+No public pricing page, no self-serve signup (pre-launch posture). If a pricing
+page currently exists, flag it in the gap report — do not publish pricing.
+
+## PER-PAGE SEO
+
+### / (Home)
+- Title: Ayla Insights | AI Front Office for Dental Practices
+- Meta: See the production hiding in your Dentrix data. Ayla helps your front
+  desk fill the schedule, recover unscheduled treatment, and grow. Book a demo.
+- H1: The AI front-office copilot for dental practices
+- Primary keywords: dental front office software, AI dental front desk,
+  dental practice growth software
+- Secondary: dental practice analytics, dental scheduling software
+- A specific dollar figure must appear above the fold.
+
+### /features
+- Title: Features | Ayla Insights Dental Front Office Software
+- Meta: Fill schedule gaps, recover unscheduled treatment, align your team
+  around growth, and spot insurance that hurts collections. Built on Dentrix.
+- H1: Everything your front desk needs to grow the practice
+- H2 sections, each targeting its own cluster:
+  - "Fill the schedule" → fill last-minute dental cancellations, dental
+    schedule gaps, dental cancellation fill
+  - "Recover unscheduled treatment" → unscheduled treatment dental, follow up
+    on unscheduled dental treatment, dental treatment plan acceptance
+  - "Align your team around growth" → grow a dental practice, dental practice
+    production, dental KPI tracking, dental front office accountability
+  - "Reactivate lapsed recall" → dental recall reactivation, reactivate lapsed
+    dental patients
+  - "See which insurance plans hurt you" → dental insurance profitability,
+    which dental insurance plans to drop
+
+### /dentrix  (HIGH PRIORITY — sharpest, lowest-competition traffic)
+- Title: Dentrix Analytics & AI Front Office | Ayla Insights
+- Meta: Ayla connects to your Dentrix system to surface unscheduled treatment,
+  schedule gaps, and growth opportunities — no spreadsheets, no manual reports.
+- H1: Turn your Dentrix data into a fuller schedule
+- Primary keywords: dentrix analytics, dentrix integration, dentrix reporting
+- Secondary: dentrix add-ons, dentrix apps, software that integrates with
+  dentrix, dentrix unscheduled treatment report, dentrix AI
+- If this page does not exist yet, it is the highest-priority page to BUILD.
+
+### /security
+- Title: Security & Data Protection | Ayla Insights
+- Meta: Built for HIPAA from the ground up by a cybersecurity architect.
+  Encryption, role-based access, full audit trail, and BAAs with every vendor.
+- H1: Built for HIPAA from the ground up
+- Primary keywords: secure dental software, dental data security
+- Do NOT target "HIPAA compliant dental software."
+- Frame SOC 2 honestly as in progress, never as certified.
+
+### /about
+- Title: About the Founder | Ayla Insights
+- Meta: Founded by a dental-IT veteran and aerospace cybersecurity architect
+  who grew up in his mom's dental practice. Better technology for dentistry.
+- H1: Better technology for the field I grew up in
+- Use the approved founder bio (preserve it if already present).
+
+### /contact (or /demo)
+- Title: Book a Discovery Call | Ayla Insights
+- Meta: See what Ayla finds in your practice. A 20-minute walkthrough, no
+  commitment. Book a discovery call with the founder.
+- H1: See what Ayla finds in your practice
+- Calendar-booking link + form. Primary conversion page.
+
+### /resources (hub)
+- Title: Dental Practice Growth Resources | Ayla Insights
+- Meta: Practical guides on filling the schedule, recovering unscheduled
+  treatment, dental KPIs, and growing a modern dental practice.
+- H1: Resources for growing a modern dental practice
+- Launch with the
