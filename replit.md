@@ -38,15 +38,19 @@ Marketing website for Ayla Insights (aylainsights.com), an AI copilot for dental
 | Route | Purpose |
 |---|---|
 | / | Home — hero, opportunity buckets, how it works, trust, security teaser |
-| /product | What Ayla does — dashboard walkthrough, Ask Ayla chat, booking flow, audit trail |
+| /features | What Ayla does — dashboard walkthrough, Ask Ayla chat, booking flow, audit trail (was /product) |
+| /dentrix | Dentrix-focused SEO landing page (analytics, integration, reporting) |
 | /security | HIPAA-ready posture — what's built in, what's coming before launch |
 | /pricing | Pre-launch pricing page with CTAs |
-| /about | Mission + founder placeholder |
-| /book | Discovery call booking (Cal.com/Calendly embed placeholder) |
+| /about | Mission + founder bio |
+| /demo | Discovery call booking (Cal.com embed placeholder) (was /book) |
 | /waitlist | Email capture form (saves to DB via /api/waitlist) |
 | /legal/privacy | Privacy policy |
 | /legal/terms | Terms of service |
-| /blog | Scaffold only, no posts |
+| /resources | Blog/resources hub — 3 posts live (was /blog) |
+| /resources/:slug | Individual post (was /blog/:slug) |
+
+Legacy URLs `/product`, `/book`, `/blog`, `/blog/:slug` client-redirect (wouter `<Redirect>`) to their new paths.
 
 ## Architecture decisions
 
@@ -61,7 +65,7 @@ Marketing website for Ayla Insights (aylainsights.com), an AI copilot for dental
 - [ ] Domain name + DNS
 - [ ] Real logo (replace wordmark component in `components/Layout.tsx`)
 - [ ] Founder bio for /about
-- [ ] Calendar link for /book (Cal.com or Calendly URL)
+- [ ] Calendar link for /demo (Cal.com or Calendly URL)
 - [ ] Email addresses: hello@aylainsights.com, security@aylainsights.com
 - [ ] Legal review (privacy policy and terms marked "Reviewed by counsel: pending")
 
@@ -69,9 +73,17 @@ Marketing website for Ayla Insights (aylainsights.com), an AI copilot for dental
 
 _Populate as you build — explicit user instructions worth remembering across sessions._
 
+## SEO
+
+- Per-page `<title>`/meta/canonical/OG/JSON-LD handled by `src/hooks/useSEO.ts`. Pass `fullTitleOverride` to set an exact title (else `title` is suffixed with " — Ayla Insights"); pass `jsonLd` for page-scoped structured data.
+- Title format follows the SEO brief: each page pairs its topic with the "Ayla Insights" brand + dental context; titles ≤60 chars, meta ≤155 chars.
+- Org + WebSite JSON-LD live statically in `index.html`; Home injects SoftwareApplication schema via `useSEO`.
+- `public/sitemap.xml` lists canonical (new) URLs only — update it when routes change.
+
 ## Gotchas
 
 - Never use "HIPAA compliant" — use "Built for HIPAA" or "HIPAA-ready architecture"
 - Dashboard visuals must always carry a visible "Demo data" watermark
+- Page files were renamed to match routes (Features/Demo/Resources/ResourcePost/Dentrix); old route paths only survive as redirects in App.tsx
 - Font import must be the very first line of index.css (before @import "tailwindcss")
 - Always run codegen after OpenAPI spec changes: `pnpm --filter @workspace/api-spec run codegen`

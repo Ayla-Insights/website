@@ -56,7 +56,7 @@ function renderSection(section: Section, idx: number) {
   }
 }
 
-export default function BlogPost() {
+export default function ResourcePost() {
   const { slug } = useParams<{ slug: string }>();
   const post = getPost(slug ?? "");
   const { scrollYProgress } = useScroll();
@@ -66,20 +66,21 @@ export default function BlogPost() {
     post
       ? {
           title: post.title,
+          fullTitleOverride: `${post.title} | Ayla Insights`,
           description: post.description,
-          path: `/blog/${post.slug}`,
+          path: `/resources/${post.slug}`,
           type: "article",
           publishedAt: post.publishedAt,
         }
-      : { title: "Post not found", description: "This post could not be found.", path: "/blog" }
+      : { title: "Post not found", description: "This post could not be found.", path: "/resources" }
   );
 
   if (!post) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center">
         <h1 className="text-3xl font-bold text-[#0f172a] mb-4">Post not found</h1>
-        <Link href="/blog" className="text-[#0d9488] hover:underline font-medium">
-          Back to blog
+        <Link href="/resources" className="text-[#0d9488] hover:underline font-medium">
+          Back to resources
         </Link>
       </div>
     );
@@ -95,8 +96,8 @@ export default function BlogPost() {
       <div className="bg-[#f8fafc] border-b border-border/40 pt-16 pb-12 px-4">
         <div className="container mx-auto max-w-2xl">
           <Link
-            href="/blog"
-            data-testid="link-back-to-blog"
+            href="/resources"
+            data-testid="link-back-to-resources"
             className="inline-flex items-center gap-2 text-sm text-[#64748b] hover:text-[#0d9488] mb-8 transition-colors"
           >
             <ArrowLeft size={15} />
@@ -121,7 +122,7 @@ export default function BlogPost() {
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border/40">
           <Link
-            href="/blog"
+            href="/resources"
             className="inline-flex items-center gap-2 text-sm text-[#64748b] hover:text-[#0d9488] transition-colors"
           >
             <ArrowLeft size={15} />

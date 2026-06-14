@@ -6,11 +6,12 @@ import { useSEO } from "@/hooks/useSEO";
 import { useCountUp } from "@/hooks/useCountUp";
 import { StaggerChildren, StaggerItem } from "@/components/animations";
 
-export default function Product() {
+export default function Features() {
   useSEO({
-    title: "Product",
-    description: "See how Ayla surfaces unscheduled treatment, fillable schedule gaps, and lapsed recall — and helps your team book it, with every action confirmed by staff.",
-    path: "/product",
+    title: "Features",
+    fullTitleOverride: "Features | Ayla Insights Dental Front Office Software",
+    description: "Fill schedule gaps, recover unscheduled treatment, reactivate recall, and spot insurance that hurts collections — all from your Dentrix data.",
+    path: "/features",
   });
 
   const [activeSection, setActiveSection] = useState(0);
@@ -34,9 +35,9 @@ export default function Product() {
       {/* Header */}
       <section className="pt-24 pb-16 px-4 bg-gradient-to-b from-[#f0fdfa]/50 to-background text-center">
         <div className="container mx-auto max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">What Ayla Does</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Everything your front desk needs to grow the practice</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            A complete platform to find, prioritize, and schedule the hidden revenue in your practice.
+            Dental front office software that finds, prioritizes, and schedules the hidden revenue in your practice — built on your Dentrix data.
           </p>
         </div>
       </section>
@@ -163,7 +164,7 @@ export default function Product() {
                   <TeamMock />
                 </div>
                 <div className={`transition-opacity duration-500 ${activeSection === 3 ? "opacity-100" : "opacity-35"}`}>
-                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Give your team a scoreboard.</h2>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Align your team around growth</h2>
                   <p className="text-lg text-[#64748b] mb-6">
                     Ayla tracks production by provider and hygiene productivity by hygienist — and shows everyone their pacing toward monthly goals. When the team can see the gap, they can close it.
                   </p>
@@ -182,7 +183,7 @@ export default function Product() {
                   <InsuranceMock />
                 </div>
                 <div className={`transition-opacity duration-500 ${activeSection === 4 ? "opacity-100" : "opacity-35"}`}>
-                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Know which insurance plans are worth keeping.</h2>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">See which insurance plans hurt your collections</h2>
                   <p className="text-lg text-[#64748b] mb-6">
                     Ayla breaks down your production and collections by carrier and calculates your effective reimbursement rate. Make participation decisions with data, not gut feel.
                   </p>

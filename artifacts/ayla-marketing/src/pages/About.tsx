@@ -4,8 +4,9 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function About() {
   useSEO({
-    title: "About",
-    description: "Ayla was built by someone who grew up in dental offices and spent years in enterprise cybersecurity. Here's why we built it — and who we are.",
+    title: "About the Founder",
+    fullTitleOverride: "About the Founder | Ayla Insights",
+    description: "Ayla was built by a founder who grew up in dental offices and spent years in enterprise cybersecurity. Here's why we built it — and who we are.",
     path: "/about",
   });
   return (
@@ -69,7 +70,7 @@ export default function About() {
                 Join the beta
               </Button>
             </Link>
-            <Link href="/book" data-testid="about-book-cta">
+            <Link href="/demo" data-testid="about-book-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
                 Book a discovery call
               </Button>

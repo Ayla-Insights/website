@@ -6,11 +6,15 @@ interface SEOProps {
   path?: string;
   type?: "website" | "article";
   publishedAt?: string;
+  /** Full <title> override. When omitted, title is suffixed with the site name. */
+  fullTitleOverride?: string;
+  /** Optional JSON-LD structured data injected for this page. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const SITE_NAME = "Ayla Insights";
 const BASE_URL = "https://aylainsights.com";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/og-default.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 
 function setMeta(name: string, content: string, attr: "name" | "property" = "name") {
   let el = document.querySelector(`meta[${attr}="${name}"]`);
@@ -22,9 +26,9 @@ function setMeta(name: string, content: string, attr: "name" | "property" = "nam
   el.setAttribute("content", content);
 }
 
-export function useSEO({ title, description, path = "", type = "website", publishedAt }: SEOProps) {
+export function useSEO({ title, description, path = "", type = "website", publishedAt, fullTitleOverride, jsonLd }: SEOProps) {
   useEffect(() => {
-    const fullTitle = `${title} — ${SITE_NAME}`;
+    const fullTitle = fullTitleOverride ?? `${title} — ${SITE_NAME}`;
     const url = `${BASE_URL}${path}`;
 
     document.title = fullTitle;
@@ -55,9 +59,28 @@ export function useSEO({ title, description, path = "", type = "website", publis
     }
     canonical.href = url;
 
-    // Article published date
+    // Article published date (clear stale value on non-article pages)
     if (publishedAt) {
       setMeta("article:published_time", publishedAt, "property");
+    } else {
+      document.querySelector('meta[property="article:published_time"]')?.remove();
     }
-  }, [title, description, path, type, publishedAt]);
+
+    // JSON-LD structured data (page-scoped)
+    const SCRIPT_ID = "page-jsonld";
+    const existing = document.getElementById(SCRIPT_ID);
+    if (existing) existing.remove();
+    if (jsonLd) {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = SCRIPT_ID;
+      script.text = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const node = document.getElementById(SCRIPT_ID);
+      if (node) node.remove();
+    };
+  }, [title, description, path, type, publishedAt, fullTitleOverride, jsonLd]);
 }

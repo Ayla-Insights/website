@@ -54,7 +54,7 @@ export default function Pricing() {
                 <span className="text-[#334155]">Monthly billing available</span>
               </li>
             </ul>
-            <Link href="/book" data-testid="pricing-starter-cta">
+            <Link href="/demo" data-testid="pricing-starter-cta">
               <Button variant="outline" className="w-full h-12 text-base">Book a discovery call</Button>
             </Link>
           </div>
@@ -93,7 +93,7 @@ export default function Pricing() {
                 <span className="text-slate-300">Priority support</span>
               </li>
             </ul>
-            <Link href="/book" data-testid="pricing-growth-cta">
+            <Link href="/demo" data-testid="pricing-growth-cta">
               <Button className="w-full h-12 text-base bg-[#0d9488] hover:bg-[#0f766e] text-white">Book a discovery call</Button>
             </Link>
           </div>

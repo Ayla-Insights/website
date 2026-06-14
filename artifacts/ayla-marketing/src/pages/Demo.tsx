@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useSEO } from "@/hooks/useSEO";
 
-export default function Book() {
+export default function Demo() {
   useSEO({
     title: "Book a Discovery Call",
-    description: "30 minutes. We'll show you what Ayla would find in a practice your size. No pitch deck.",
-    path: "/book",
+    fullTitleOverride: "Book a Discovery Call | Ayla Insights",
+    description: "30 minutes. We'll show you what Ayla would find in a dental practice your size. No pitch deck.",
+    path: "/demo",
   });
   const [loaded, setLoaded] = useState(false);
 

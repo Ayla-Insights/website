@@ -9,9 +9,21 @@ import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 export default function Home() {
   useSEO({
-    title: "Find the Revenue Hiding in Your Practice",
-    description: "Ayla is an AI copilot for dental front offices. It finds unscheduled treatment, schedule gaps, and lapsed recall — and helps your team book it.",
+    title: "AI Front Office for Dental Practices",
+    fullTitleOverride: "Ayla Insights | AI Front Office for Dental Practices",
+    description: "See the revenue hiding in your Dentrix data. Ayla helps your dental front desk fill the schedule, recover unscheduled treatment, and grow.",
     path: "/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Ayla Insights",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      url: "https://aylainsights.com",
+      description:
+        "AI front-office copilot for dental practices that finds unscheduled treatment, schedule gaps, and lapsed recall — and helps the team book it.",
+      publisher: { "@type": "Organization", name: "Ayla Insights" },
+    },
   });
 
   const { ref: unscheduledRef, displayValue: unscheduledValue } = useCountUp(145000, { prefix: "$", duration: 1500 });
@@ -36,9 +48,12 @@ export default function Home() {
               <span className="inline-block py-1 px-3 rounded-full bg-[#ccfbf1] text-[#0f766e] text-sm font-semibold mb-6">
                 AI for the dental front office
               </span>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#0f172a] mb-6 leading-tight">
-                Your practice is leaving $145,000 on the table. Ayla finds it.
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#0f172a] mb-5 leading-tight">
+                The AI front-office copilot for dental practices
               </h1>
+              <p className="text-2xl md:text-3xl font-bold text-[#0f172a] mb-5 leading-snug">
+                Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Ayla finds it.
+              </p>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
                 Ayla connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
               </p>
@@ -48,7 +63,7 @@ export default function Home() {
                     Join the beta
                   </Button>
                 </Link>
-                <Link href="/book" data-testid="hero-book-call">
+                <Link href="/demo" data-testid="hero-book-call">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
                     Book a walkthrough
                   </Button>
@@ -226,7 +241,7 @@ export default function Home() {
                 Join the beta
               </Button>
             </Link>
-            <Link href="/book" data-testid="home-final-cta">
+            <Link href="/demo" data-testid="home-final-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
                 Book a walkthrough
               </Button>

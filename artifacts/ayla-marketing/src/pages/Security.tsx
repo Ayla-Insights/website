@@ -4,8 +4,9 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function Security() {
   useSEO({
-    title: "Security & HIPAA Posture",
-    description: "Ayla is built for HIPAA from day one — tenant isolation by construction, human-in-the-loop writes, minimum-necessary data to AI, and a tamper-evident audit trail.",
+    title: "Security & Data Protection",
+    fullTitleOverride: "Security & Data Protection | Ayla Insights",
+    description: "How Ayla protects patient data: tenant isolation, human-in-the-loop writes, minimum-necessary data to AI, and a tamper-evident audit trail.",
     path: "/security",
   });
   return (

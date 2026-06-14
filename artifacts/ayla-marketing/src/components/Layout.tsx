@@ -7,10 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/product", label: "Product", testId: "link-product" },
+  { href: "/features", label: "Features", testId: "link-features" },
   { href: "/security", label: "Security", testId: "link-security" },
   { href: "/pricing", label: "Pricing", testId: "link-pricing" },
-  { href: "/blog", label: "Blog", testId: "link-blog" },
+  { href: "/resources", label: "Resources", testId: "link-resources" },
   { href: "/about", label: "About", testId: "link-about" },
 ];
 
@@ -70,7 +70,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 Join the beta
               </Button>
             </Link>
-            <Link href="/book" data-testid="link-book-nav">
+            <Link href="/demo" data-testid="link-demo-nav">
               <Button variant="default" className="bg-[#0d9488] hover:bg-[#0f766e] text-white">
                 Book a demo
               </Button>
@@ -139,7 +139,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/product" className="hover:text-primary">Product</Link></li>
+                <li><Link href="/features" className="hover:text-primary">Features</Link></li>
+                <li><Link href="/dentrix" className="hover:text-primary">Dentrix</Link></li>
                 <li><Link href="/security" className="hover:text-primary">Security</Link></li>
                 <li><Link href="/pricing" className="hover:text-primary">Pricing</Link></li>
               </ul>
@@ -149,7 +150,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/about" className="hover:text-primary">About</Link></li>
-                <li><Link href="/blog" className="hover:text-primary">Blog</Link></li>
+                <li><Link href="/resources" className="hover:text-primary">Resources</Link></li>
                 <li><Link href="/waitlist" className="hover:text-primary">Join the beta</Link></li>
               </ul>
             </div>

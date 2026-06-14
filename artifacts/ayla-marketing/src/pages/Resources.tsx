@@ -10,21 +10,22 @@ function formatDate(iso: string) {
   });
 }
 
-export default function Blog() {
+export default function Resources() {
   useSEO({
-    title: "Blog",
+    title: "Resources",
+    fullTitleOverride: "Dental Practice Growth Resources | Ayla Insights",
     description:
-      "Dental practice management insights from the Ayla team — unscheduled treatment, front office productivity, and HIPAA-ready software.",
-    path: "/blog",
+      "Practical guides on growing a dental practice — unscheduled treatment, front desk productivity, recall, and HIPAA-ready software.",
+    path: "/resources",
   });
 
   return (
     <div className="w-full pb-24">
       <section className="pt-24 pb-14 px-4 bg-[#f8fafc] border-b border-border/40 text-center">
         <div className="container mx-auto max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">Blog</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">Dental practice growth resources</h1>
           <p className="text-lg text-[#64748b]">
-            Practice management insights from the Ayla team.
+            Practical guides for practice owners and front office teams — from the Ayla team.
           </p>
         </div>
       </section>
@@ -34,7 +35,7 @@ export default function Blog() {
           {posts.map((post) => (
             <Link
               key={post.slug}
-              href={`/blog/${post.slug}`}
+              href={`/resources/${post.slug}`}
               data-testid={`link-post-${post.slug}`}
               className="group block bg-white border border-border/50 rounded-2xl p-7 shadow-sm hover:shadow-md hover:border-[#0d9488]/30 transition-all"
             >
