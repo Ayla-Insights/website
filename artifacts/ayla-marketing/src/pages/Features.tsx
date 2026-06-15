@@ -47,7 +47,7 @@ export default function Features() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-start relative">
             
             {/* Left side (Sticky Visual Mock) - Only sticky on LG+ */}
-            <div className="hidden lg:block sticky top-24 h-[calc(100vh-96px)] py-12 flex flex-col justify-center">
+            <div className="hidden lg:flex sticky top-24 h-[calc(100vh-96px)] py-12 flex-col justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeSection}
