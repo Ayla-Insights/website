@@ -58,11 +58,11 @@ export default function Home() {
                 Ayla connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/waitlist" data-testid="hero-join-beta">
+                <a href="https://staging.aylainsights.com" data-testid="hero-join-beta">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                    Join the beta
+                    Beta Access
                   </Button>
-                </Link>
+                </a>
                 <Link href="/demo" data-testid="hero-book-call">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
                     Book a walkthrough
@@ -233,14 +233,14 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Ayla finds in your practice.</h2>
           <p className="text-xl text-[#64748b] mb-10">
-            Join the beta or book a 30-minute walkthrough. No commitment. No pitch deck.
+            Get beta access or book a 30-minute walkthrough. No commitment. No pitch deck.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/waitlist" data-testid="home-beta-cta">
+            <a href="https://staging.aylainsights.com" data-testid="home-beta-cta">
               <Button size="lg" variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa] h-14 px-10 text-lg">
-                Join the beta
+                Beta Access
               </Button>
-            </Link>
+            </a>
             <Link href="/demo" data-testid="home-final-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
                 Book a walkthrough

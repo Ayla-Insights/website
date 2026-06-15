@@ -65,11 +65,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Right side: Join the beta + Book a demo + hamburger */}
           <div className="flex items-center gap-2">
-            <Link href="/waitlist" data-testid="link-beta-nav" className="hidden md:block">
+            <a href="https://staging.aylainsights.com" data-testid="link-beta-nav" className="hidden md:block">
               <Button variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa]">
-                Join the beta
+                Beta Access
               </Button>
-            </Link>
+            </a>
             <Link href="/demo" data-testid="link-demo-nav">
               <Button variant="default" className="bg-[#0d9488] hover:bg-[#0f766e] text-white">
                 Book a demo
@@ -107,11 +107,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
             <div className="pt-2 border-t border-border/40 mt-1 flex flex-col gap-1">
-              <Link href="/waitlist" data-testid="mobile-link-beta" onClick={closeMenu}>
+              <a href="https://staging.aylainsights.com" data-testid="mobile-link-beta" onClick={closeMenu}>
                 <button className="w-full px-3 py-2.5 rounded-lg text-sm font-semibold text-[#0d9488] hover:bg-[#f0fdfa] transition-colors text-left">
-                  Join the beta →
+                  Beta Access →
                 </button>
-              </Link>
+              </a>
               <Link href="/waitlist" data-testid="mobile-link-waitlist" onClick={closeMenu}>
                 <button className="w-full px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted/60 hover:text-primary transition-colors text-left">
                   Join the waitlist
@@ -151,7 +151,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/about" className="hover:text-primary">About</Link></li>
                 <li><Link href="/resources" className="hover:text-primary">Resources</Link></li>
-                <li><Link href="/waitlist" className="hover:text-primary">Join the beta</Link></li>
+                <li><a href="https://staging.aylainsights.com" className="hover:text-primary">Beta Access</a></li>
               </ul>
             </div>
 

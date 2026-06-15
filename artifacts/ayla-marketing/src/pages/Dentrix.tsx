@@ -66,11 +66,11 @@ export default function Dentrix() {
                 Book a walkthrough
               </Button>
             </Link>
-            <Link href="/waitlist" data-testid="dentrix-beta-cta">
+            <a href="https://staging.aylainsights.com" data-testid="dentrix-beta-cta">
               <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
-                Join the beta
+                Beta Access
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
