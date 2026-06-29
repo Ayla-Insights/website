@@ -79,9 +79,6 @@ export default function Dentrix() {
       <section className="px-4 pb-4">
         <div className="container mx-auto max-w-4xl">
           <div className="relative rounded-2xl border border-border/60 bg-white shadow-sm p-6 md:p-8">
-            <span className="absolute top-4 right-4 text-[0.65rem] font-semibold uppercase tracking-wide text-[#94a3b8] bg-[#f1f5f9] rounded px-2 py-0.5">
-              Demo data
-            </span>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-3xl font-bold text-[#0d9488]">$145,000</div>

@@ -263,9 +263,6 @@ function HeroDashboard({ unscheduledRef, unscheduledValue, fillableRef, fillable
         transition={{ duration: 0.6, delay: 0.35 }}
         className="relative bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 transform rotate-1 hover:rotate-0 transition-transform duration-500"
       >
-        <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-          Demo data
-        </div>
 
         <div className="space-y-6">
           <div className="flex items-center justify-between pb-4 border-b border-border/50">

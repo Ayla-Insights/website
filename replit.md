@@ -58,7 +58,9 @@ Legacy URLs `/product`, `/book`, `/blog`, `/blog/:slug` client-redirect (wouter 
 - Waitlist submissions are stored in PostgreSQL via the shared API server.
 - Font loaded from fonts.bunny.net to avoid Google Fonts privacy concerns (healthcare audience).
 - "HIPAA compliant" never appears anywhere — always "Built for HIPAA" or "HIPAA-ready architecture".
-- All dashboard/product visuals are code-drawn (no images) and carry a "Demo data" badge.
+- All dashboard/product visuals are code-drawn (no images) and use synthetic numbers.
+  The "Demo data" badge was removed (owner decision, 2026-06-29); honesty is kept via
+  textual disclaimers ("illustrative… not yet from Mandi customers") and estimated $ labels.
 
 ## TBDs to fill in
 
@@ -83,7 +85,7 @@ _Populate as you build — explicit user instructions worth remembering across s
 ## Gotchas
 
 - Never use "HIPAA compliant" — use "Built for HIPAA" or "HIPAA-ready architecture"
-- Dashboard visuals must always carry a visible "Demo data" watermark
+- Dashboard visuals use synthetic numbers; keep the textual "illustrative… not yet from Mandi customers" disclaimers and estimated $ labels (the "Demo data" badge was removed 2026-06-29)
 - Page files were renamed to match routes (Features/Demo/Resources/ResourcePost/Dentrix); old route paths only survive as redirects in App.tsx
 - Font import must be the very first line of index.css (before @import "tailwindcss")
 - Always run codegen after OpenAPI spec changes: `pnpm --filter @workspace/api-spec run codegen`

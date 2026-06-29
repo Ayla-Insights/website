@@ -37,7 +37,10 @@ GitHub is the source of truth. Develop locally → push → Replit deploys (auto
 
 ## Brand / copy gotchas (from replit.md — keep enforcing)
 - Never write **"HIPAA compliant"** → use **"Built for HIPAA"** / "HIPAA-ready architecture".
-- Dashboard/product visuals carry a visible **"Demo data"** watermark; all $ labeled estimated/typical.
+- Dashboard/product visuals show **synthetic** numbers — no real customers yet. The
+  per-visual "Demo data" badge was removed (owner decision, 2026-06-29); honesty is
+  preserved by **textual disclaimers** ("illustrative examples… not yet from Mandi
+  customers") and all $ labeled **estimated/typical**. Keep those disclaimers.
 - The font `@import` must be the **first line** of `index.css` (before `@import "tailwindcss"`).
 - Rebrand in progress: **Ayla → Mandi**, domain **heymandi.ai**. Update copy/emails
   (`hello@`/`security@heymandi.ai`) as you touch pages.

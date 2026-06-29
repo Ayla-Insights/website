@@ -245,9 +245,6 @@ function DashboardMock() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 relative w-full">
-      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-        Demo data
-      </div>
       <div className="space-y-4 pt-6">
         <Card className="bg-[#f8fafc] border-none shadow-sm">
           <CardContent className="p-4 flex items-center justify-between">
@@ -367,9 +364,6 @@ function ChatMock() {
 function BookingMock() {
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 relative w-full">
-      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-        Demo data
-      </div>
       <div className="space-y-6 pt-6">
         <div className="bg-slate-50 border border-border rounded-xl p-5">
           <div className="flex items-center justify-between mb-4">
@@ -394,9 +388,6 @@ function BookingMock() {
 function TeamMock() {
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 w-full relative">
-      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-        Demo data
-      </div>
       <h3 className="font-semibold text-[#0f172a] mb-6">Goal Pacing — This Month</h3>
       <div className="space-y-5">
         <div>
@@ -448,9 +439,6 @@ function TeamMock() {
 function InsuranceMock() {
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 w-full relative">
-      <div className="absolute top-4 right-4 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10 border border-amber-200">
-        Demo data
-      </div>
       <h3 className="font-semibold text-[#0f172a] mb-6">Insurance Profitability</h3>
       <div className="space-y-4">
         <div className="flex flex-col gap-1">
