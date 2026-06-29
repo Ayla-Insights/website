@@ -37,10 +37,10 @@ const steps = [
 
 export default function Dentrix() {
   useSEO({
-    title: "Dentrix Analytics & AI Front Office",
-    fullTitleOverride: "Dentrix Analytics & AI Front Office | Mandi",
+    title: "Dentrix Analytics & AI Office Copilot",
+    fullTitleOverride: "Dentrix Analytics & AI Office Copilot | Mandi",
     description:
-      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and front-office automation on top of Dentrix — no manual reporting.",
+      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and office automation on top of Dentrix — no manual reporting.",
     path: "/dentrix",
   });
 
@@ -57,7 +57,7 @@ export default function Dentrix() {
           </h1>
           <p className="text-lg md:text-xl text-[#334155] max-w-2xl mx-auto mb-8 leading-relaxed">
             You already have everything you need to grow — it's sitting in Dentrix. Mandi is the AI
-            front-office copilot that reads your Dentrix data, finds the production you're missing, and
+            office copilot that reads your Dentrix data, finds the production you're missing, and
             helps your team book it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

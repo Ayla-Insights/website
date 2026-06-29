@@ -9,7 +9,7 @@ import { StaggerChildren, StaggerItem } from "@/components/animations";
 export default function Features() {
   useSEO({
     title: "Features",
-    fullTitleOverride: "Features | Mandi Dental Front Office Software",
+    fullTitleOverride: "Features | Mandi Dental Office Software",
     description: "Fill schedule gaps, recover unscheduled treatment, reactivate recall, and spot insurance that hurts collections — all from your Dentrix data.",
     path: "/features",
   });
@@ -37,7 +37,7 @@ export default function Features() {
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Everything your front desk needs to grow the practice</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            Dental front office software that finds, prioritizes, and schedules the hidden revenue in your practice — built on your Dentrix data.
+            Dental office software that finds, prioritizes, and schedules the hidden revenue in your practice — built on your Dentrix data.
           </p>
         </div>
       </section>

@@ -9,8 +9,8 @@ import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 export default function Home() {
   useSEO({
-    title: "AI Front Office for Dental Practices",
-    fullTitleOverride: "Mandi | AI Front Office for Dental Practices",
+    title: "AI Copilot for the Dental Office",
+    fullTitleOverride: "Mandi | AI Copilot for the Dental Office",
     description: "See the revenue hiding in your Dentrix data. Mandi helps your dental front desk fill the schedule, recover unscheduled treatment, and grow.",
     path: "/",
     jsonLd: {
@@ -21,7 +21,7 @@ export default function Home() {
       operatingSystem: "Web",
       url: "https://heymandi.ai",
       description:
-        "AI front-office copilot for dental practices that finds unscheduled treatment, schedule gaps, and lapsed recall — and helps the team book it.",
+        "AI copilot for the dental office that finds unscheduled treatment, schedule gaps, lapsed recall, and back-office opportunities — and helps the team act on them.",
       publisher: { "@type": "Organization", name: "Mandi" },
     },
   });
@@ -46,10 +46,10 @@ export default function Home() {
               className="max-w-2xl"
             >
               <span className="inline-block py-1 px-3 rounded-full bg-[#ccfbf1] text-[#0f766e] text-sm font-semibold mb-6">
-                AI for the dental front office
+                AI for the entire dental office
               </span>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[#0f172a] mb-5 leading-tight">
-                The AI front-office copilot for dental practices
+                The AI copilot for the dental office
               </h1>
               <p className="text-2xl md:text-3xl font-bold text-[#0f172a] mb-5 leading-snug">
                 Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Mandi finds it.
