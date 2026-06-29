@@ -22,6 +22,56 @@ build = [ "pnpm", "--filter", "@workspace/ayla-marketing", "run", "build" ]
 publicDir = "artifacts/ayla-marketing/dist/public"
 serve = "static"
 
+# Serve the prerendered static HTML for each known route. Replit "shadows"
+# rewrites with real files, so direct hits to the .html files serve them too;
+# these clean-URL rewrites map the extensionless paths to their files.
+# Keep this list in sync with `routes` in src/entry-server.tsx.
+[[services.production.rewrites]]
+from = "/features"
+to = "/features.html"
+
+[[services.production.rewrites]]
+from = "/dentrix"
+to = "/dentrix.html"
+
+[[services.production.rewrites]]
+from = "/security"
+to = "/security.html"
+
+[[services.production.rewrites]]
+from = "/pricing"
+to = "/pricing.html"
+
+[[services.production.rewrites]]
+from = "/about"
+to = "/about.html"
+
+[[services.production.rewrites]]
+from = "/demo"
+to = "/demo.html"
+
+[[services.production.rewrites]]
+from = "/waitlist"
+to = "/waitlist.html"
+
+[[services.production.rewrites]]
+from = "/legal/privacy"
+to = "/legal/privacy.html"
+
+[[services.production.rewrites]]
+from = "/legal/terms"
+to = "/legal/terms.html"
+
+[[services.production.rewrites]]
+from = "/resources"
+to = "/resources.html"
+
+[[services.production.rewrites]]
+from = "/resources/*"
+to = "/resources/*.html"
+
+# Catch-all SPA fallback: any path without a prerendered file (client-only
+# routes, unknown slugs, 404s) loads the shell and wouter renders it.
 [[services.production.rewrites]]
 from = "/*"
 to = "/index.html"
