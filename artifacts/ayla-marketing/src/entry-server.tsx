@@ -41,7 +41,7 @@ export interface RenderedPage {
 export function render(path: string): RenderedPage {
   const html = renderToString(<App ssrPath={path} />);
   const seo = takeSeo();
-  const title = seo?.title ?? "AI Front Office for Dental Practices";
+  const title = seo?.title ?? "AI Copilot for the Dental Office";
   return {
     html,
     fullTitle: seo?.fullTitleOverride ?? `${title} — ${SITE_NAME}`,

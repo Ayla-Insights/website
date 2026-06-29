@@ -25,7 +25,7 @@ export default function Resources() {
         <div className="container mx-auto max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">Dental practice growth resources</h1>
           <p className="text-lg text-[#64748b]">
-            Practical guides for practice owners and front office teams — from the Mandi team.
+            Practical guides for practice owners and office teams — from the Mandi team.
           </p>
         </div>
       </section>

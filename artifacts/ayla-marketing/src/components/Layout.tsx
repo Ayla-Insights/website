@@ -132,7 +132,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="md:col-span-1 space-y-4">
               <Logo />
               <p className="text-sm text-muted-foreground">
-                AI copilot for dental front offices. Find the revenue hiding in your practice.
+                The AI copilot for the whole dental office. Find the revenue hiding in your practice.
               </p>
             </div>
 

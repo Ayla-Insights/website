@@ -37,10 +37,10 @@ const steps = [
 
 export default function Dentrix() {
   useSEO({
-    title: "Dentrix Analytics & AI Front Office",
-    fullTitleOverride: "Dentrix Analytics & AI Front Office | Mandi",
+    title: "Dentrix Analytics & AI Office Copilot",
+    fullTitleOverride: "Dentrix Analytics & AI Office Copilot | Mandi",
     description:
-      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and front-office automation on top of Dentrix — no manual reporting.",
+      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and office automation on top of Dentrix — no manual reporting.",
     path: "/dentrix",
   });
 
@@ -57,7 +57,7 @@ export default function Dentrix() {
           </h1>
           <p className="text-lg md:text-xl text-[#334155] max-w-2xl mx-auto mb-8 leading-relaxed">
             You already have everything you need to grow — it's sitting in Dentrix. Mandi is the AI
-            front-office copilot that reads your Dentrix data, finds the production you're missing, and
+            office copilot that reads your Dentrix data, finds the production you're missing, and
             helps your team book it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -79,9 +79,6 @@ export default function Dentrix() {
       <section className="px-4 pb-4">
         <div className="container mx-auto max-w-4xl">
           <div className="relative rounded-2xl border border-border/60 bg-white shadow-sm p-6 md:p-8">
-            <span className="absolute top-4 right-4 text-[0.65rem] font-semibold uppercase tracking-wide text-[#94a3b8] bg-[#f1f5f9] rounded px-2 py-0.5">
-              Demo data
-            </span>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-3xl font-bold text-[#0d9488]">$145,000</div>
