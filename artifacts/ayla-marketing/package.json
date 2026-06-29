@@ -9,6 +9,7 @@
     "build:client": "vite build --config vite.config.ts",
     "build:server": "vite build --config vite.config.ts --ssr src/entry-server.tsx --outDir dist/server",
     "prerender": "node scripts/prerender.mjs",
+    "gen:og": "node scripts/gen-og.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
@@ -44,6 +45,7 @@
     "@replit/vite-plugin-cartographer": "catalog:",
     "@replit/vite-plugin-dev-banner": "catalog:",
     "@replit/vite-plugin-runtime-error-modal": "catalog:",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.15",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-query": "catalog:",

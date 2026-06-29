@@ -70,6 +70,27 @@ to = "/resources.html"
 from = "/resources/*"
 to = "/resources/*.html"
 
+# Legacy URLs (old aylainsights.com paths). Replit static can't issue real 301s,
+# so serve the renamed page's prerendered HTML — whose <link rel="canonical">
+# points at the new URL, consolidating SEO equity. The client (wouter <Redirect>)
+# still updates the address bar to the new path for human visitors. True 301s for
+# the apex/domain change belong at the DNS layer.
+[[services.production.rewrites]]
+from = "/product"
+to = "/features.html"
+
+[[services.production.rewrites]]
+from = "/book"
+to = "/demo.html"
+
+[[services.production.rewrites]]
+from = "/blog"
+to = "/resources.html"
+
+[[services.production.rewrites]]
+from = "/blog/*"
+to = "/resources/*.html"
+
 # Catch-all SPA fallback: any path without a prerendered file (client-only
 # routes, unknown slugs, 404s) loads the shell and wouter renders it.
 [[services.production.rewrites]]

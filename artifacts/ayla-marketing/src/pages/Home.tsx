@@ -55,7 +55,7 @@ export default function Home() {
                 Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Mandi finds it.
               </p>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
-                Mandi connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
+                Mandi connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English — and your team confirms every action before anything happens.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://app.heymandi.ai" data-testid="hero-join-beta">
