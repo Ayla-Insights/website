@@ -71,6 +71,25 @@ export default function ResourcePost() {
           path: `/resources/${post.slug}`,
           type: "article",
           publishedAt: post.publishedAt,
+          jsonLd: {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.description,
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            author: { "@type": "Organization", name: "Mandi", url: "https://heymandi.ai" },
+            publisher: {
+              "@type": "Organization",
+              name: "Mandi",
+              logo: { "@type": "ImageObject", url: "https://heymandi.ai/logo-primary.svg" },
+            },
+            image: "https://heymandi.ai/opengraph.png",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://heymandi.ai/resources/${post.slug}`,
+            },
+          },
         }
       : { title: "Post not found", description: "This post could not be found.", path: "/resources" }
   );
