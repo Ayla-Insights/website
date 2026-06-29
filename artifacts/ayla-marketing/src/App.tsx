@@ -14,6 +14,7 @@ import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
 import Demo from "@/pages/Demo";
 import Waitlist from "@/pages/Waitlist";
+import HiddenRevenue from "@/pages/HiddenRevenue";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import Resources from "@/pages/Resources";
@@ -47,6 +48,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/demo" component={Demo} />
         <Route path="/waitlist" component={Waitlist} />
+        <Route path="/hidden-revenue" component={HiddenRevenue} />
         <Route path="/legal/privacy" component={Privacy} />
         <Route path="/legal/terms" component={Terms} />
         <Route path="/resources/:slug" component={ResourcePost} />

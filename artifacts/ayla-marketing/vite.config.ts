@@ -63,6 +63,15 @@ export default defineConfig({
     strictPort: true,
     host: "0.0.0.0",
     allowedHosts: true,
+    // Local dev: proxy same-origin /api calls (teaser aggregate + waitlist) to the
+    // api-server so the front end can reach the backend without CORS. No effect on
+    // the built site (which is served same-origin behind the platform router).
+    proxy: {
+      "/api": {
+        target: process.env.API_PROXY_TARGET || "http://localhost:8080",
+        changeOrigin: true,
+      },
+    },
     fs: {
       strict: true,
     },
