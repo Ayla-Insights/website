@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { allPms } from "@/data/pms";
 
 const navLinks = [
   { href: "/features", label: "Features", testId: "link-features" },
@@ -128,8 +129,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-border/40 bg-muted/20">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-1 space-y-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div className="col-span-2 md:col-span-1 space-y-4">
               <Logo />
               <p className="text-sm text-muted-foreground">
                 The AI copilot for the whole dental office. Find the revenue hiding in your practice.
@@ -140,9 +141,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/features" className="hover:text-primary">Features</Link></li>
-                <li><Link href="/dentrix" className="hover:text-primary">Dentrix</Link></li>
                 <li><Link href="/security" className="hover:text-primary">Security</Link></li>
                 <li><Link href="/pricing" className="hover:text-primary">Pricing</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">Integrations</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                {allPms.map((pms) => (
+                  <li key={pms.slug}><Link href={`/${pms.slug}`} className="hover:text-primary">{pms.name}</Link></li>
+                ))}
               </ul>
             </div>
 

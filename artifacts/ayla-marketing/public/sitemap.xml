@@ -3,6 +3,11 @@
   <url><loc>https://heymandi.ai/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://heymandi.ai/features</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://heymandi.ai/dentrix</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://heymandi.ai/opendental</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://heymandi.ai/eaglesoft</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://heymandi.ai/dentrix-ascend</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://heymandi.ai/denticon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://heymandi.ai/curve</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://heymandi.ai/security</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://heymandi.ai/pricing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://heymandi.ai/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

@@ -42,6 +42,12 @@ GitHub is the source of truth. Develop locally → push → Replit deploys (auto
   preserved by **textual disclaimers** ("illustrative examples… not yet from Mandi
   customers") and all $ labeled **estimated/typical**. Keep those disclaimers.
 - The font `@import` must be the **first line** of `index.css` (before `@import "tailwindcss"`).
+- **PMS integrations** (`src/data/pms.ts` → `/dentrix`, `/opendental`, `/eaglesoft`,
+  `/dentrix-ascend`, `/denticon`, `/curve`): only **Dentrix is real** (cert-gated pilot);
+  every other system is **roadmap**. Never imply a live integration we don't have — pages
+  name the *sanctioned* developer program we'd build through and route interest to the
+  waitlist. Keep `entry-server.tsx` routes + `artifact.toml` rewrites + `sitemap.xml` in
+  sync when adding a PMS.
 - Rebrand in progress: **Ayla → Mandi**, domain **heymandi.ai**. Update copy/emails
   (`hello@`/`security@heymandi.ai`) as you touch pages.
 

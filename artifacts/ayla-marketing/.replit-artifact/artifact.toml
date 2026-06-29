@@ -70,6 +70,27 @@ to = "/resources.html"
 from = "/resources/*"
 to = "/resources/*.html"
 
+# Per-PMS integration landing pages (keep in sync with integrations in src/data/pms.ts).
+[[services.production.rewrites]]
+from = "/opendental"
+to = "/opendental.html"
+
+[[services.production.rewrites]]
+from = "/eaglesoft"
+to = "/eaglesoft.html"
+
+[[services.production.rewrites]]
+from = "/dentrix-ascend"
+to = "/dentrix-ascend.html"
+
+[[services.production.rewrites]]
+from = "/denticon"
+to = "/denticon.html"
+
+[[services.production.rewrites]]
+from = "/curve"
+to = "/curve.html"
+
 # Legacy URLs (old aylainsights.com paths). Replit static can't issue real 301s,
 # so serve the renamed page's prerendered HTML — whose <link rel="canonical">
 # points at the new URL, consolidating SEO equity. The client (wouter <Redirect>)
