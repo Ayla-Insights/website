@@ -12,8 +12,8 @@ interface SEOProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const SITE_NAME = "Ayla Insights";
-const BASE_URL = "https://aylainsights.com";
+const SITE_NAME = "Mandi";
+const BASE_URL = "https://heymandi.ai";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 
 function setMeta(name: string, content: string, attr: "name" | "property" = "name") {

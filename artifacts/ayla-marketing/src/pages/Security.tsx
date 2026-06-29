@@ -5,8 +5,8 @@ import { useSEO } from "@/hooks/useSEO";
 export default function Security() {
   useSEO({
     title: "Security & Data Protection",
-    fullTitleOverride: "Security & Data Protection | Ayla Insights",
-    description: "How Ayla protects patient data: tenant isolation, human-in-the-loop writes, minimum-necessary data to AI, and a tamper-evident audit trail.",
+    fullTitleOverride: "Security & Data Protection | Mandi",
+    description: "How Mandi protects patient data: tenant isolation, human-in-the-loop writes, minimum-necessary data to AI, and a tamper-evident audit trail.",
     path: "/security",
   });
   return (
@@ -19,7 +19,7 @@ export default function Security() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Built for HIPAA from the ground up. Not bolted on after.</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            Ayla was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access — by construction, not by policy.
+            Mandi was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access — by construction, not by policy.
           </p>
           <div className="inline-flex flex-wrap justify-center gap-3 mt-8">
             <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
@@ -113,7 +113,7 @@ export default function Security() {
           <Shield className="h-6 w-6 text-[#14b8a6] inline mr-3 mb-1" />
           <h2 className="text-xl font-bold text-white inline-block mb-3">We sign a BAA before anything else.</h2>
           <p className="text-slate-300 leading-relaxed">
-            Before any real patient data flows through Ayla, we execute a fully signed Business Associate Agreement with your practice. HIPAA compliance isn't a feature — it's the foundation. We won't cut corners on this, and we won't ask you to either.
+            Before any real patient data flows through Mandi, we execute a fully signed Business Associate Agreement with your practice. HIPAA compliance isn't a feature — it's the foundation. We won't cut corners on this, and we won't ask you to either.
           </p>
         </div>
       </section>
@@ -156,8 +156,8 @@ export default function Security() {
           <p className="text-xl text-[#64748b] mb-8">
             Have specific compliance requirements or technical questions? We're happy to discuss our architecture in detail.
           </p>
-          <a href="mailto:security@aylainsights.com" className="inline-flex h-12 items-center justify-center rounded-md bg-[#0f172a] px-8 text-base font-medium text-white transition-colors hover:bg-[#1e293b]">
-            Email security@aylainsights.com
+          <a href="mailto:security@heymandi.ai" className="inline-flex h-12 items-center justify-center rounded-md bg-[#0f172a] px-8 text-base font-medium text-white transition-colors hover:bg-[#1e293b]">
+            Email security@heymandi.ai
           </a>
         </div>
       </section>

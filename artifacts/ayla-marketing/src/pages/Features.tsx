@@ -9,7 +9,7 @@ import { StaggerChildren, StaggerItem } from "@/components/animations";
 export default function Features() {
   useSEO({
     title: "Features",
-    fullTitleOverride: "Features | Ayla Insights Dental Front Office Software",
+    fullTitleOverride: "Features | Mandi Dental Front Office Software",
     description: "Fill schedule gaps, recover unscheduled treatment, reactivate recall, and spot insurance that hurts collections — all from your Dentrix data.",
     path: "/features",
   });
@@ -78,7 +78,7 @@ export default function Features() {
                 <div className={`transition-opacity duration-500 ${activeSection === 0 ? "opacity-100" : "opacity-35"}`}>
                   <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Fill the Schedule</h2>
                   <p className="text-lg text-[#64748b] mb-8">
-                    Ayla detects open slots and instantly identifies the best patients to fill them, ranked by treatment need, recall status, and how long they've been waiting.
+                    Mandi detects open slots and instantly identifies the best patients to fill them, ranked by treatment need, recall status, and how long they've been waiting.
                   </p>
                   <ul className="space-y-6">
                     <li className="flex gap-4">
@@ -112,15 +112,15 @@ export default function Features() {
                 </div>
               </div>
 
-              {/* Section 1: Ask Ayla */}
+              {/* Section 1: Ask Mandi */}
               <div className="scroll-section min-h-[80vh] flex flex-col justify-center py-12 lg:py-24">
                 <div className="lg:hidden mb-12">
                   <ChatMock />
                 </div>
                 <div className={`transition-opacity duration-500 ${activeSection === 1 ? "opacity-100" : "opacity-35"}`}>
-                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Ask Ayla</h2>
+                  <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Ask Mandi</h2>
                   <p className="text-lg text-[#64748b] mb-6">
-                    Your team can ask Ayla to find specific opportunities or draft communications, just like talking to a colleague using natural language.
+                    Your team can ask Mandi to find specific opportunities or draft communications, just like talking to a colleague using natural language.
                   </p>
                   <div className="bg-[#0f172a] p-4 rounded-lg inline-block mb-6">
                     <p className="text-sm text-slate-300 flex items-center gap-2">
@@ -144,7 +144,7 @@ export default function Features() {
                   <StaggerChildren className="space-y-4">
                     <StaggerItem className="p-6 rounded-xl border border-border/50 bg-white">
                       <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 1: Proposal</div>
-                      <p className="text-[#64748b]">Ayla proposes an appointment time based on the exact gap in your schedule.</p>
+                      <p className="text-[#64748b]">Mandi proposes an appointment time based on the exact gap in your schedule.</p>
                     </StaggerItem>
                     <StaggerItem className="p-6 rounded-xl border border-border/50 bg-white">
                       <div className="text-sm font-semibold text-[#0d9488] mb-2">Step 2: Confirm</div>
@@ -166,7 +166,7 @@ export default function Features() {
                 <div className={`transition-opacity duration-500 ${activeSection === 3 ? "opacity-100" : "opacity-35"}`}>
                   <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Align your team around growth</h2>
                   <p className="text-lg text-[#64748b] mb-6">
-                    Ayla tracks production by provider and hygiene productivity by hygienist — and shows everyone their pacing toward monthly goals. When the team can see the gap, they can close it.
+                    Mandi tracks production by provider and hygiene productivity by hygienist — and shows everyone their pacing toward monthly goals. When the team can see the gap, they can close it.
                   </p>
                   <blockquote className="border-l-4 border-[#0d9488] pl-4 py-1 text-[#334155] italic text-base mb-2">
                     "I need my staff to be as invested in growth as I am."
@@ -185,7 +185,7 @@ export default function Features() {
                 <div className={`transition-opacity duration-500 ${activeSection === 4 ? "opacity-100" : "opacity-35"}`}>
                   <h2 className="text-3xl font-bold text-[#0f172a] mb-6">See which insurance plans hurt your collections</h2>
                   <p className="text-lg text-[#64748b] mb-6">
-                    Ayla breaks down your production and collections by carrier and calculates your effective reimbursement rate. Make participation decisions with data, not gut feel.
+                    Mandi breaks down your production and collections by carrier and calculates your effective reimbursement rate. Make participation decisions with data, not gut feel.
                   </p>
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
                     Plans with high write-off rates are often the first to go when practices review their insurance mix.
@@ -202,7 +202,7 @@ export default function Features() {
                   <div className="mb-6"><CheckCircle className="h-10 w-10 text-[#0f766e]" /></div>
                   <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Every action logged</h2>
                   <p className="text-lg text-[#64748b]">
-                    Every action, every read of patient data, and every confirmation is logged, tenant-scoped, and retained in a tamper-evident audit trail. You always know exactly what Ayla and your staff are doing.
+                    Every action, every read of patient data, and every confirmation is logged, tenant-scoped, and retained in a tamper-evident audit trail. You always know exactly what Mandi and your staff are doing.
                   </p>
                 </div>
               </div>
@@ -212,10 +212,10 @@ export default function Features() {
         </div>
       </section>
 
-      {/* What Ayla Doesn't Do */}
+      {/* What Mandi Doesn't Do */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-[#0f172a] mb-8 text-center">What Ayla doesn't do</h2>
+          <h2 className="text-3xl font-bold text-[#0f172a] mb-8 text-center">What Mandi doesn't do</h2>
           <div className="bg-white border border-border/50 rounded-2xl p-8 shadow-sm">
             <StaggerChildren className="space-y-4">
               <StaggerItem className="flex items-start gap-3">

@@ -3,8 +3,8 @@ import { logger } from "./logger";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const NOTIFY_EMAIL = "aylainsights@gmail.com";
-const FROM = "Ayla Waitlist <onboarding@resend.dev>";
+const NOTIFY_EMAIL = "hello@heymandi.ai";
+const FROM = "Mandi Waitlist <onboarding@resend.dev>";
 
 export interface WaitlistEntry {
   id: number;

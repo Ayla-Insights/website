@@ -66,7 +66,7 @@ export default function ResourcePost() {
     post
       ? {
           title: post.title,
-          fullTitleOverride: `${post.title} | Ayla Insights`,
+          fullTitleOverride: `${post.title} | Mandi`,
           description: post.description,
           path: `/resources/${post.slug}`,
           type: "article",

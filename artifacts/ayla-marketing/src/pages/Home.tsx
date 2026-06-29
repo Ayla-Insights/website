@@ -10,19 +10,19 @@ import { StaggerChildren, StaggerItem } from "@/components/animations";
 export default function Home() {
   useSEO({
     title: "AI Front Office for Dental Practices",
-    fullTitleOverride: "Ayla Insights | AI Front Office for Dental Practices",
-    description: "See the revenue hiding in your Dentrix data. Ayla helps your dental front desk fill the schedule, recover unscheduled treatment, and grow.",
+    fullTitleOverride: "Mandi | AI Front Office for Dental Practices",
+    description: "See the revenue hiding in your Dentrix data. Mandi helps your dental front desk fill the schedule, recover unscheduled treatment, and grow.",
     path: "/",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "Ayla Insights",
+      name: "Mandi",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
-      url: "https://aylainsights.com",
+      url: "https://heymandi.ai",
       description:
         "AI front-office copilot for dental practices that finds unscheduled treatment, schedule gaps, and lapsed recall — and helps the team book it.",
-      publisher: { "@type": "Organization", name: "Ayla Insights" },
+      publisher: { "@type": "Organization", name: "Mandi" },
     },
   });
 
@@ -52,13 +52,13 @@ export default function Home() {
                 The AI front-office copilot for dental practices
               </h1>
               <p className="text-2xl md:text-3xl font-bold text-[#0f172a] mb-5 leading-snug">
-                Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Ayla finds it.
+                Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Mandi finds it.
               </p>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
-                Ayla connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
+                Mandi connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://staging.aylainsights.com" data-testid="hero-join-beta">
+                <a href="https://app.heymandi.ai" data-testid="hero-join-beta">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
                     Beta Access
                   </Button>
@@ -137,17 +137,17 @@ export default function Home() {
       <section className="py-24 px-4 bg-[#f8fafc]">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-4">How Ayla works</h2>
-            <p className="text-lg text-[#64748b]">No rip-and-replace required. Ayla sits on top of your existing systems.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-4">How Mandi works</h2>
+            <p className="text-lg text-[#64748b]">No rip-and-replace required. Mandi sits on top of your existing systems.</p>
           </div>
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#14b8a6]/20 via-[#14b8a6] to-[#14b8a6]/20" />
 
             {[
-              { title: "Connect to Dentrix", desc: "Ayla integrates directly with your Dentrix system — no manual data entry, no spreadsheets. Setup takes minutes." },
+              { title: "Connect to Dentrix", desc: "Mandi integrates directly with your Dentrix system — no manual data entry, no spreadsheets. Setup takes minutes." },
               { title: "See your opportunities", desc: "Your dashboard shows the numbers that matter: unscheduled treatment, schedule gaps, recall patients, goal pacing — in real dollars." },
-              { title: "Ask Ayla to act", desc: "Type a question — 'Who can fill tomorrow's 2pm?' — and Ayla finds the answer and proposes the action. You approve it. Done." }
+              { title: "Ask Mandi to act", desc: "Type a question — 'Who can fill tomorrow's 2pm?' — and Mandi finds the answer and proposes the action. You approve it. Done." }
             ].map((step, i) => (
               <StaggerItem
                 key={i}
@@ -170,7 +170,7 @@ export default function Home() {
       <section className="py-20 px-4 bg-[#f8fafc]">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-bold text-[#0f172a] mb-2">What practices typically find when they surface hidden revenue</h2>
-          <p className="text-center text-sm text-[#94a3b8] mb-2">Illustrative examples based on industry data — not yet from Ayla customers.</p>
+          <p className="text-center text-sm text-[#94a3b8] mb-2">Illustrative examples based on industry data — not yet from Mandi customers.</p>
           <p className="text-center text-lg text-[#64748b] mb-12">Patterns observed across six common dental specialties.</p>
 
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -206,7 +206,7 @@ export default function Home() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 mb-6">
               <CheckCircle2 className="h-8 w-8 text-[#14b8a6]" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ayla suggests. Your team decides. Every time.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Mandi suggests. Your team decides. Every time.</h2>
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
               No action executes automatically. Every booking, every outreach, every schedule change goes through a staff confirmation card. Nothing happens until a human taps Confirm. Every single action is logged.
             </p>
@@ -220,7 +220,7 @@ export default function Home() {
           <ShieldCheck className="h-12 w-12 text-[#0f766e] mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-[#0f172a] mb-4">Built for HIPAA from the ground up. Not bolted on after.</h2>
           <p className="text-lg text-[#334155] max-w-2xl mx-auto mb-8">
-            Ayla was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
+            Mandi was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
           </p>
           <Link href="/security" data-testid="home-security-link" className="text-[#0d9488] font-semibold hover:text-[#0f766e] underline underline-offset-4">
             Read our security posture
@@ -231,12 +231,12 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-24 px-4">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Ayla finds in your practice.</h2>
+          <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Mandi finds in your practice.</h2>
           <p className="text-xl text-[#64748b] mb-10">
             Get beta access or book a 30-minute walkthrough. No commitment. No pitch deck.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://staging.aylainsights.com" data-testid="home-beta-cta">
+            <a href="https://app.heymandi.ai" data-testid="home-beta-cta">
               <Button size="lg" variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa] h-14 px-10 text-lg">
                 Beta Access
               </Button>

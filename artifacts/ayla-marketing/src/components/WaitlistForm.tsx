@@ -71,7 +71,7 @@ export function WaitlistForm({
     } catch (error) {
       console.error(error);
       setStatus("error");
-      setErrorMessage("Something went wrong. Please try again or contact hello@aylainsights.com.");
+      setErrorMessage("Something went wrong. Please try again or contact hello@heymandi.ai.");
     }
   }
 

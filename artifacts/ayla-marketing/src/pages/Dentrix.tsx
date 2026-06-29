@@ -15,12 +15,12 @@ const valueProps = [
   {
     icon: BarChart3,
     title: "Dentrix analytics, in plain English",
-    body: "Ayla reads your Dentrix data and surfaces the numbers that move production — unscheduled treatment, fillable gaps, and lapsed recall — without you building a single report.",
+    body: "Mandi reads your Dentrix data and surfaces the numbers that move production — unscheduled treatment, fillable gaps, and lapsed recall — without you building a single report.",
   },
   {
     icon: PlugZap,
     title: "A Dentrix integration that just runs",
-    body: "Connect once. Ayla syncs in the background — no manual exports, no spreadsheets, no double entry. Your front desk keeps working in Dentrix the way they already do.",
+    body: "Connect once. Mandi syncs in the background — no manual exports, no spreadsheets, no double entry. Your front desk keeps working in Dentrix the way they already do.",
   },
   {
     icon: FileSpreadsheet,
@@ -30,17 +30,17 @@ const valueProps = [
 ];
 
 const steps = [
-  "Connect Ayla to your Dentrix system in minutes — read-only to start.",
-  "Ayla analyzes your schedule, ledger, and treatment plans for missed production.",
+  "Connect Mandi to your Dentrix system in minutes — read-only to start.",
+  "Mandi analyzes your schedule, ledger, and treatment plans for missed production.",
   "Your team sees ranked opportunities and books them, with every action confirmed by staff.",
 ];
 
 export default function Dentrix() {
   useSEO({
     title: "Dentrix Analytics & AI Front Office",
-    fullTitleOverride: "Dentrix Analytics & AI Front Office | Ayla Insights",
+    fullTitleOverride: "Dentrix Analytics & AI Front Office | Mandi",
     description:
-      "Turn your Dentrix data into a fuller schedule. Ayla adds AI analytics and front-office automation on top of Dentrix — no manual reporting.",
+      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and front-office automation on top of Dentrix — no manual reporting.",
     path: "/dentrix",
   });
 
@@ -56,7 +56,7 @@ export default function Dentrix() {
             Turn your Dentrix data into a fuller schedule
           </h1>
           <p className="text-lg md:text-xl text-[#334155] max-w-2xl mx-auto mb-8 leading-relaxed">
-            You already have everything you need to grow — it's sitting in Dentrix. Ayla is the AI
+            You already have everything you need to grow — it's sitting in Dentrix. Mandi is the AI
             front-office copilot that reads your Dentrix data, finds the production you're missing, and
             helps your team book it.
           </p>
@@ -66,7 +66,7 @@ export default function Dentrix() {
                 Book a walkthrough
               </Button>
             </Link>
-            <a href="https://staging.aylainsights.com" data-testid="dentrix-beta-cta">
+            <a href="https://app.heymandi.ai" data-testid="dentrix-beta-cta">
               <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
                 Beta Access
               </Button>
@@ -144,7 +144,7 @@ export default function Dentrix() {
             <Lock className="h-5 w-5 text-[#0f766e] shrink-0 mt-0.5" />
             <p className="text-sm text-[#64748b] leading-relaxed">
               Patient data is handled with minimum-necessary access and a tamper-evident audit trail.
-              Ayla is built for HIPAA from day one.{" "}
+              Mandi is built for HIPAA from day one.{" "}
               <Link href="/security" className="text-[#0d9488] font-medium hover:underline">
                 See our security posture
               </Link>
@@ -158,7 +158,7 @@ export default function Dentrix() {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold text-[#0f172a] mb-8 text-center">
-            Questions Ayla answers from your Dentrix data
+            Questions Mandi answers from your Dentrix data
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
@@ -183,7 +183,7 @@ export default function Dentrix() {
       <section className="px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="rounded-2xl bg-[#0f766e] text-white px-8 py-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">See what Ayla finds in your Dentrix data</h2>
+            <h2 className="text-3xl font-bold mb-4">See what Mandi finds in your Dentrix data</h2>
             <p className="text-[#ccfbf1] text-lg max-w-xl mx-auto mb-8">
               Book a 30-minute walkthrough and we'll show you the production hiding in your practice.
             </p>

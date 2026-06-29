@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Ayla Insights — Marketing Site"
+title = "Mandi — Marketing Site"
 version = "1.0.0"
 id = "artifacts/ayla-marketing"
 router = "path"
