@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Typecheck the whole workspace (tsc --build + per-artifact typecheck).
+      - run: pnpm run typecheck
+
+      # Runs every package's tests, including the teaser-core no-PHI egress guard
+      # + whitelist-drift tripwire (lib/teaser-core/test/phi-egress.test.ts).
+      # This is the automated control required by ONRAMP_DESIGN §6a(5): if any PHI
+      # field could egress, or the egress schema's key-set drifts, the build fails.
+      - run: pnpm run test
