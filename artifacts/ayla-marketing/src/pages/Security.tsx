@@ -113,7 +113,7 @@ export default function Security() {
           <Shield className="h-6 w-6 text-[#14b8a6] inline mr-3 mb-1" />
           <h2 className="text-xl font-bold text-white inline-block mb-3">We sign a BAA before anything else.</h2>
           <p className="text-slate-300 leading-relaxed">
-            Before any real patient data flows through Mandi, we execute a fully signed Business Associate Agreement with your practice. HIPAA compliance isn't a feature — it's the foundation. We won't cut corners on this, and we won't ask you to either.
+            Before any real patient data flows through Mandi, we execute a fully signed Business Associate Agreement with your practice. Building for HIPAA isn't a feature — it's the foundation. We won't cut corners on this, and we won't ask you to either.
           </p>
         </div>
       </section>
