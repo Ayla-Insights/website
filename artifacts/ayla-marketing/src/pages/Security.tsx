@@ -19,7 +19,7 @@ export default function Security() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Built for HIPAA from the ground up. Not bolted on after.</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            Mandi was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access — by construction, not by policy.
+            Mandi was designed in partnership with dentists — by the son of one — a cybersecurity expert with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access — by construction, not by policy.
           </p>
           <div className="inline-flex flex-wrap justify-center gap-3 mt-8">
             <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
