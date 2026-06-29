@@ -246,7 +246,7 @@ export default function Home() {
           <ShieldCheck className="h-12 w-12 text-[#0f766e] mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-[#0f172a] mb-4">Built for HIPAA from the ground up. Not bolted on after.</h2>
           <p className="text-lg text-[#334155] max-w-2xl mx-auto mb-8">
-            Mandi was designed by an IAM and cybersecurity architect with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
+            Mandi was designed in partnership with dentists — by the son of one — a cybersecurity expert with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
           </p>
           <Link href="/security" data-testid="home-security-link" className="text-[#0d9488] font-semibold hover:text-[#0f766e] underline underline-offset-4">
             Read our security posture
