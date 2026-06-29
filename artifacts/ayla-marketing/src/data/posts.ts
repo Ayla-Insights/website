@@ -71,7 +71,7 @@ export const posts: Post[] = [
       {
         type: "callout",
         content:
-          "The average independent practice Ayla has analyzed has $145,000 of unscheduled treatment ranked and ready to act on. That's estimated revenue — not guaranteed — but it represents real patients who already said yes to a diagnosis.",
+          "The average independent practice Mandi has analyzed has $145,000 of unscheduled treatment ranked and ready to act on. That's estimated revenue — not guaranteed — but it represents real patients who already said yes to a diagnosis.",
       },
       {
         type: "h2",
@@ -147,7 +147,7 @@ export const posts: Post[] = [
       {
         type: "callout",
         content:
-          "Ayla is designed around one rule: the AI can propose, but a staff member always confirms. Every booking, every cancellation, every outreach script — nothing executes until someone at the front desk taps Confirm.",
+          "Mandi is designed around one rule: the AI can propose, but a staff member always confirms. Every booking, every cancellation, every outreach script — nothing executes until someone at the front desk taps Confirm.",
       },
       {
         type: "h2",
@@ -176,12 +176,12 @@ export const posts: Post[] = [
       {
         type: "p",
         content:
-          "Before we get into specifics: Ayla does not claim to be HIPAA compliant. That's an intentional choice, not an oversight. 'HIPAA compliant' is a legal status that requires executed Business Associate Agreements, a completed risk analysis, written policies, a designated Security Officer, and often a third-party assessment. Claiming it before those elements are in place is a compliance risk, not a selling point.",
+          "Before we get into specifics: Mandi does not claim to be HIPAA compliant. That's an intentional choice, not an oversight. 'HIPAA compliant' is a legal status that requires executed Business Associate Agreements, a completed risk analysis, written policies, a designated Security Officer, and often a third-party assessment. Claiming it before those elements are in place is a compliance risk, not a selling point.",
       },
       {
         type: "p",
         content:
-          "What we can say — and what we say carefully — is that Ayla is built for HIPAA. That means the architecture was designed from day one with the HIPAA technical safeguards as a constraint, not an afterthought. Here's what that looks like in practice.",
+          "What we can say — and what we say carefully — is that Mandi is built for HIPAA. That means the architecture was designed from day one with the HIPAA technical safeguards as a constraint, not an afterthought. Here's what that looks like in practice.",
       },
       {
         type: "h2",
@@ -195,7 +195,7 @@ export const posts: Post[] = [
       {
         type: "p",
         content:
-          "In Ayla's architecture, cross-tenant reads are structurally impossible. Each practice's data is accessed through a tenant-bound data adapter, and the adapter itself — not just the query logic — enforces the boundary. A bug in application code cannot cause a cross-tenant data leak, because the layer below it doesn't allow it.",
+          "In Mandi's architecture, cross-tenant reads are structurally impossible. Each practice's data is accessed through a tenant-bound data adapter, and the adapter itself — not just the query logic — enforces the boundary. A bug in application code cannot cause a cross-tenant data leak, because the layer below it doesn't allow it.",
       },
       {
         type: "h2",
@@ -209,7 +209,7 @@ export const posts: Post[] = [
       {
         type: "p",
         content:
-          "In Ayla, the AI can only call a whitelisted, validated set of tools. It cannot query the database directly. It cannot read a patient record it hasn't been explicitly given access to. It cannot execute a booking without generating a proposal that a staff member must confirm. The boundary between the model and the data is enforced in code, not in prompting.",
+          "In Mandi, the AI can only call a whitelisted, validated set of tools. It cannot query the database directly. It cannot read a patient record it hasn't been explicitly given access to. It cannot execute a booking without generating a proposal that a staff member must confirm. The boundary between the model and the data is enforced in code, not in prompting.",
       },
       {
         type: "h2",
@@ -236,7 +236,7 @@ export const posts: Post[] = [
       {
         type: "p",
         content:
-          "Every action in Ayla — every booking proposal, every confirmation, every cancellation, every time a patient record is read — is logged with the user, the timestamp, and the tenant. The log is tamper-evident and retained.",
+          "Every action in Mandi — every booking proposal, every confirmation, every cancellation, every time a patient record is read — is logged with the user, the timestamp, and the tenant. The log is tamper-evident and retained.",
       },
       {
         type: "p",
@@ -250,7 +250,7 @@ export const posts: Post[] = [
       {
         type: "p",
         content:
-          "We believe in being honest about where we are. Before any real patient data flows through Ayla, we will have in place: TLS end-to-end and encryption at rest, SSO with MFA and automatic session expiry, executed BAAs with every business associate, a completed risk analysis and written policies, and an independent HIPAA gap assessment.",
+          "We believe in being honest about where we are. Before any real patient data flows through Mandi, we will have in place: TLS end-to-end and encryption at rest, SSO with MFA and automatic session expiry, executed BAAs with every business associate, a completed risk analysis and written policies, and an independent HIPAA gap assessment.",
       },
       {
         type: "p",
@@ -260,7 +260,7 @@ export const posts: Post[] = [
       {
         type: "callout",
         content:
-          "If you have questions about Ayla's security architecture, we're happy to go deep. Reach out to security@aylainsights.com — we'll respond with specifics, not talking points.",
+          "If you have questions about Mandi's security architecture, we're happy to go deep. Reach out to security@heymandi.ai — we'll respond with specifics, not talking points.",
       },
     ],
   },

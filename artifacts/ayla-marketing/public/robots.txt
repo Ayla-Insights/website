@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aylainsights.com/sitemap.xml
+Sitemap: https://heymandi.ai/sitemap.xml

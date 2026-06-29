@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { captureSeo } from "@/lib/ssr-head";
 
 interface SEOProps {
   title: string;
@@ -12,8 +13,8 @@ interface SEOProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const SITE_NAME = "Ayla Insights";
-const BASE_URL = "https://aylainsights.com";
+const SITE_NAME = "Mandi";
+const BASE_URL = "https://heymandi.ai";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 
 function setMeta(name: string, content: string, attr: "name" | "property" = "name") {
@@ -27,6 +28,12 @@ function setMeta(name: string, content: string, attr: "name" | "property" = "nam
 }
 
 export function useSEO({ title, description, path = "", type = "website", publishedAt, fullTitleOverride, jsonLd }: SEOProps) {
+  // During build-time prerendering there's no DOM and effects don't run, so
+  // record this page's SEO synchronously for the prerender script to emit.
+  if (typeof document === "undefined") {
+    captureSeo({ title, description, path, type, publishedAt, fullTitleOverride, jsonLd });
+  }
+
   useEffect(() => {
     const fullTitle = fullTitleOverride ?? `${title} — ${SITE_NAME}`;
     const url = `${BASE_URL}${path}`;

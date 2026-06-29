@@ -65,7 +65,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Right side: Join the beta + Book a demo + hamburger */}
           <div className="flex items-center gap-2">
-            <a href="https://staging.aylainsights.com" data-testid="link-beta-nav" className="hidden md:block">
+            <a href="https://app.heymandi.ai" data-testid="link-beta-nav" className="hidden md:block">
               <Button variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa]">
                 Beta Access
               </Button>
@@ -107,7 +107,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
             <div className="pt-2 border-t border-border/40 mt-1 flex flex-col gap-1">
-              <a href="https://staging.aylainsights.com" data-testid="mobile-link-beta" onClick={closeMenu}>
+              <a href="https://app.heymandi.ai" data-testid="mobile-link-beta" onClick={closeMenu}>
                 <button className="w-full px-3 py-2.5 rounded-lg text-sm font-semibold text-[#0d9488] hover:bg-[#f0fdfa] transition-colors text-left">
                   Beta Access →
                 </button>
@@ -151,7 +151,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/about" className="hover:text-primary">About</Link></li>
                 <li><Link href="/resources" className="hover:text-primary">Resources</Link></li>
-                <li><a href="https://staging.aylainsights.com" className="hover:text-primary">Beta Access</a></li>
+                <li><a href="https://app.heymandi.ai" className="hover:text-primary">Beta Access</a></li>
               </ul>
             </div>
 
@@ -160,13 +160,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/legal/privacy" className="hover:text-primary">Privacy Policy</Link></li>
                 <li><Link href="/legal/terms" className="hover:text-primary">Terms of Service</Link></li>
-                <li><a href="mailto:hello@aylainsights.com" className="hover:text-primary">hello@aylainsights.com</a></li>
+                <li><a href="mailto:hello@heymandi.ai" className="hover:text-primary">hello@heymandi.ai</a></li>
               </ul>
             </div>
           </div>
 
           <div className="mt-12 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Ayla Insights. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Mandi. All rights reserved.</p>
           </div>
         </div>
       </footer>

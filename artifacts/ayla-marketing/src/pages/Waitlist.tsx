@@ -4,7 +4,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 export default function Waitlist() {
   useSEO({
     title: "Join the Waitlist",
-    description: "Get early access to Ayla — the AI copilot that finds unscheduled treatment and schedule gaps in your dental practice.",
+    description: "Get early access to Mandi — the AI copilot that finds unscheduled treatment and schedule gaps in your dental practice.",
     path: "/waitlist",
   });
 

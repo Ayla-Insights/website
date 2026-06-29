@@ -5,8 +5,8 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 export default function Demo() {
   useSEO({
     title: "Book a Discovery Call",
-    fullTitleOverride: "Book a Discovery Call | Ayla Insights",
-    description: "30 minutes. We'll show you what Ayla would find in a dental practice your size. No pitch deck.",
+    fullTitleOverride: "Book a Discovery Call | Mandi",
+    description: "30 minutes. We'll show you what Mandi would find in a dental practice your size. No pitch deck.",
     path: "/demo",
   });
   const [scheduling, setScheduling] = useState(false);
@@ -63,7 +63,7 @@ export default function Demo() {
               width="100%"
               height="660"
               frameBorder="0"
-              title="Book a discovery call with Ayla Insights"
+              title="Book a discovery call with Mandi"
             />
             <p className="text-xs text-[#94a3b8] pb-4">Calendar powered by Cal.com</p>
           </div>
