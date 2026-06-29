@@ -15,7 +15,7 @@ interface SEOProps {
 
 const SITE_NAME = "Mandi";
 const BASE_URL = "https://heymandi.ai";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.png`;
 
 function setMeta(name: string, content: string, attr: "name" | "property" = "name") {
   let el = document.querySelector(`meta[${attr}="${name}"]`);

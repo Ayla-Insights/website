@@ -8,7 +8,7 @@ import { posts } from "./data/posts";
 
 const SITE_NAME = "Mandi";
 const BASE_URL = "https://heymandi.ai";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.png`;
 
 // Every route we emit static HTML for. Static pages + one per resource post.
 // The catch-all rewrite (/* -> /index.html) still covers anything not listed.
