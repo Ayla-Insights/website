@@ -28,7 +28,7 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
 
   <text x="90" y="250" font-family="Helvetica, Arial, sans-serif" font-size="132" font-weight="700" fill="#ffffff" letter-spacing="-2">Mandi</text>
   <text x="95" y="332" font-family="Helvetica, Arial, sans-serif" font-size="42" font-weight="600" fill="#ffffff">The AI copilot for the dental office</text>
-  <text x="95" y="392" font-family="Helvetica, Arial, sans-serif" font-size="31" fill="#ccfbf1">Find the revenue hiding in your Dentrix data.</text>
+  <text x="95" y="392" font-family="Helvetica, Arial, sans-serif" font-size="31" fill="#ccfbf1">Find the revenue hiding in your practice data.</text>
 
   <rect x="95" y="466" width="286" height="58" rx="29" fill="#ffffff" fill-opacity="0.14"/>
   <text x="123" y="504" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="600" fill="#ffffff">Built security-first</text>

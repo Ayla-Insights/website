@@ -5,6 +5,7 @@ import { renderToString } from "react-dom/server";
 import App from "./App";
 import { takeSeo } from "./lib/ssr-head";
 import { posts } from "./data/posts";
+import { integrations } from "./data/pms";
 
 const SITE_NAME = "Mandi";
 const BASE_URL = "https://heymandi.ai";
@@ -24,6 +25,7 @@ export const routes: string[] = [
   "/legal/privacy",
   "/legal/terms",
   "/resources",
+  ...integrations.map((p) => `/${p.slug}`),
   ...posts.map((p) => `/resources/${p.slug}`),
 ];
 

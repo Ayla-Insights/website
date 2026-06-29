@@ -6,6 +6,7 @@ import { ArrowUpRight, Calendar, Users, Activity, ShieldCheck, CheckCircle2 } fr
 import { useSEO } from "@/hooks/useSEO";
 import { useCountUp } from "@/hooks/useCountUp";
 import { StaggerChildren, StaggerItem } from "@/components/animations";
+import { allPms, STATUS_LABEL } from "@/data/pms";
 
 export default function Home() {
   useSEO({
@@ -55,7 +56,7 @@ export default function Home() {
                 Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Mandi finds it.
               </p>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
-                Mandi connects to your Dentrix system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English — and your team confirms every action before anything happens.
+                Mandi connects to your practice management system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English — and your team confirms every action before anything happens.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://app.heymandi.ai" data-testid="hero-join-beta">
@@ -145,7 +146,7 @@ export default function Home() {
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#14b8a6]/20 via-[#14b8a6] to-[#14b8a6]/20" />
 
             {[
-              { title: "Connect to Dentrix", desc: "Mandi integrates directly with your Dentrix system — no manual data entry, no spreadsheets. Setup takes minutes." },
+              { title: "Connect your PMS", desc: "Mandi integrates directly with your practice management system — starting with Dentrix — through its sanctioned API. No manual data entry, no spreadsheets." },
               { title: "See your opportunities", desc: "Your dashboard shows the numbers that matter: unscheduled treatment, schedule gaps, recall patients, goal pacing — in real dollars." },
               { title: "Ask Mandi to act", desc: "Type a question — 'Who can fill tomorrow's 2pm?' — and Mandi finds the answer and proposes the action. You approve it. Done." }
             ].map((step, i) => (
@@ -163,6 +164,31 @@ export default function Home() {
               </StaggerItem>
             ))}
           </StaggerChildren>
+        </div>
+      </section>
+
+      {/* Works with your PMS */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-5xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">Works with your practice management system</h2>
+          <p className="text-lg text-[#64748b] max-w-2xl mx-auto mb-12">
+            Mandi reads your practice data through each system's official, sanctioned API — never screen-scraping. Live on Dentrix today, with more on the way.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {allPms.map((pms) => (
+              <Link key={pms.slug} href={`/${pms.slug}`} data-testid={`pms-card-${pms.slug}`}>
+                <div className="h-full rounded-2xl border border-border/60 bg-white p-6 text-left transition-colors hover:border-[#0d9488]/50 hover:bg-[#f0fdfa]/40">
+                  <div className="flex items-center justify-between mb-2 gap-2">
+                    <span className="font-bold text-[#0f172a]">{pms.name}</span>
+                    <span className={`text-[0.65rem] font-semibold uppercase tracking-wide px-2 py-0.5 rounded shrink-0 ${pms.status === "pilot" ? "bg-[#ccfbf1] text-[#0f766e]" : "bg-[#f1f5f9] text-[#64748b]"}`}>
+                      {STATUS_LABEL[pms.status]}
+                    </span>
+                  </div>
+                  <p className="text-sm text-[#94a3b8]">{pms.vendor}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

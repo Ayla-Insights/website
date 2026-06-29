@@ -18,6 +18,8 @@ import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import Resources from "@/pages/Resources";
 import ResourcePost from "@/pages/ResourcePost";
+import Integration from "@/pages/Integration";
+import { integrations } from "@/data/pms";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,12 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/features" component={Features} />
         <Route path="/dentrix" component={Dentrix} />
+        {/* Per-PMS integration landing pages (data-driven, except Dentrix above) */}
+        {integrations.map((pms) => (
+          <Route key={pms.slug} path={`/${pms.slug}`}>
+            <Integration pms={pms} />
+          </Route>
+        ))}
         <Route path="/security" component={Security} />
         <Route path="/pricing" component={Pricing} />
         <Route path="/about" component={About} />
