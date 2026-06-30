@@ -19,7 +19,7 @@ export default function Security() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Built for HIPAA from the ground up. Not bolted on after.</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            Mandi was designed in partnership with dentists — by the son of one — a cybersecurity expert with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access — by construction, not by policy.
+            Mandi was designed in partnership with dentists, by the son of one, a cybersecurity expert with enterprise defense-industry experience. Your patient data is treated the same way aerospace systems treat classified access: by construction, not by policy.
           </p>
           <div className="inline-flex flex-wrap justify-center gap-3 mt-8">
             <span className="inline-flex items-center gap-2 bg-white border border-border/50 rounded-full px-4 py-2 text-sm font-medium text-[#0f172a] shadow-sm">
@@ -41,7 +41,7 @@ export default function Security() {
       {/* Built from Day One */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold text-[#0f172a] mb-12 text-center">What's built in — not bolted on.</h2>
+          <h2 className="text-3xl font-bold text-[#0f172a] mb-12 text-center">What's built in, not bolted on.</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white border border-border/50 rounded-2xl p-6 shadow-sm">
@@ -113,7 +113,7 @@ export default function Security() {
           <Shield className="h-6 w-6 text-[#14b8a6] inline mr-3 mb-1" />
           <h2 className="text-xl font-bold text-white inline-block mb-3">We sign a BAA before anything else.</h2>
           <p className="text-slate-300 leading-relaxed">
-            Before any real patient data flows through Mandi, we execute a fully signed Business Associate Agreement with your practice. Building for HIPAA isn't a feature — it's the foundation. We won't cut corners on this, and we won't ask you to either.
+            Before any real patient data flows through Mandi, we execute a fully signed Business Associate Agreement with your practice. Building for HIPAA isn't a feature; it's the foundation. We won't cut corners on this, and we won't ask you to either.
           </p>
         </div>
       </section>

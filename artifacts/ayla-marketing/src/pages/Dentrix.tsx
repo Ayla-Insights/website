@@ -15,22 +15,22 @@ const valueProps = [
   {
     icon: BarChart3,
     title: "Dentrix analytics, in plain English",
-    body: "Mandi reads your Dentrix data and surfaces the numbers that move production — unscheduled treatment, fillable gaps, and lapsed recall — without you building a single report.",
+    body: "Mandi reads your Dentrix data and surfaces the numbers that move production (unscheduled treatments, fillable gaps, and lapsed recall) without you building a single report.",
   },
   {
     icon: PlugZap,
     title: "A Dentrix integration that just runs",
-    body: "Connect once. Mandi syncs in the background — no manual exports, no spreadsheets, no double entry. Your front desk keeps working in Dentrix the way they already do.",
+    body: "Connect once. Mandi syncs in the background, with no manual exports, no spreadsheets, no double entry. Your front desk keeps working in Dentrix the way they already do.",
   },
   {
     icon: FileSpreadsheet,
     title: "Dentrix reporting on autopilot",
-    body: "The reports you'd build by hand on a Friday afternoon — production pacing, recall, treatment acceptance — refreshed automatically and ready every morning.",
+    body: "The reports you'd build by hand on a Friday afternoon (production pacing, recall, treatment acceptance) refreshed automatically and ready every morning.",
   },
 ];
 
 const steps = [
-  "Connect Mandi to your Dentrix system in minutes — read-only to start.",
+  "Connect Mandi to your Dentrix system in minutes, read-only to start.",
   "Mandi analyzes your schedule, ledger, and treatment plans for missed production.",
   "Your team sees ranked opportunities and books them, with every action confirmed by staff.",
 ];
@@ -40,7 +40,7 @@ export default function Dentrix() {
     title: "Dentrix Analytics & AI Office Copilot",
     fullTitleOverride: "Dentrix Analytics & AI Office Copilot | Mandi",
     description:
-      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and office automation on top of Dentrix — no manual reporting.",
+      "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and office automation on top of Dentrix, with no manual reporting.",
     path: "/dentrix",
   });
 
@@ -56,7 +56,7 @@ export default function Dentrix() {
             Turn your Dentrix data into a fuller schedule
           </h1>
           <p className="text-lg md:text-xl text-[#334155] max-w-2xl mx-auto mb-8 leading-relaxed">
-            You already have everything you need to grow — it's sitting in Dentrix. Mandi is the AI
+            You already have everything you need to grow, and it's sitting in Dentrix. Mandi is the AI
             office copilot that reads your Dentrix data, finds the production you're missing, and
             helps your team book it.
           </p>

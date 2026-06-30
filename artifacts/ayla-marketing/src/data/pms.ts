@@ -44,7 +44,7 @@ export const dentrix: Pms = {
   program: "Dentrix Developer Program (sanctioned ODBC + REST)",
   seoTitle: "Dentrix Analytics & AI Office Copilot",
   seoDescription:
-    "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and office automation on top of Dentrix — no manual reporting.",
+    "Turn your Dentrix data into a fuller schedule. Mandi adds AI analytics and office automation on top of Dentrix, with no manual reporting.",
   tagline: "Live in pilot via the Dentrix Developer Program.",
   about: "",
   integration: "",
@@ -61,12 +61,12 @@ export const integrations: Pms[] = [
     program: "Open Dental Developer Portal (REST + FHIR API)",
     seoTitle: "Open Dental AI Office Copilot & Analytics",
     seoDescription:
-      "Mandi is building a sanctioned Open Dental integration — surfacing unscheduled treatment, schedule gaps, lapsed recall, and insurance opportunities from your Open Dental data.",
+      "Mandi is building a sanctioned Open Dental integration, surfacing unscheduled treatments, schedule gaps, lapsed recall, and insurance opportunities from your Open Dental data.",
     tagline: "A sanctioned Open Dental integration, in development.",
     about:
       "Open Dental is one of the most integration-friendly systems in dentistry, with an official REST API and FHIR support, a developer portal, and a dedicated test database. That openness makes it a natural early home for Mandi.",
     integration:
-      "We build through Open Dental's official API — developer and customer API keys, no screen-scraping or direct database access — so your data stays inside a sanctioned, auditable channel.",
+      "We build through Open Dental's official API (developer and customer API keys, no screen-scraping or direct database access), so your data stays inside a sanctioned, auditable channel.",
   },
   {
     slug: "eaglesoft",
@@ -77,12 +77,12 @@ export const integrations: Pms[] = [
     program: "Patterson Innovation Connection (PIC)",
     seoTitle: "Eaglesoft AI Office Copilot & Analytics",
     seoDescription:
-      "Mandi is building a sanctioned Eaglesoft integration via Patterson Innovation Connection — finding unscheduled treatment, schedule gaps, and lapsed recall in your Eaglesoft data.",
+      "Mandi is building a sanctioned Eaglesoft integration via Patterson Innovation Connection, finding unscheduled treatments, schedule gaps, and lapsed recall in your Eaglesoft data.",
     tagline: "A sanctioned Eaglesoft integration, in development.",
     about:
-      "Eaglesoft is one of the largest practice management systems in North America. Patterson Dental authorizes third-party integrations through its Patterson Innovation Connection (PIC) program — the secure, supported path to Eaglesoft data.",
+      "Eaglesoft is one of the largest practice management systems in North America. Patterson Dental authorizes third-party integrations through its Patterson Innovation Connection (PIC) program: the secure, supported path to Eaglesoft data.",
     integration:
-      "We integrate only through PIC as an authorized partner — the sanctioned route Patterson reviews and approves — never an off-API workaround.",
+      "We integrate only through PIC as an authorized partner, the sanctioned route Patterson reviews and approves, never an off-API workaround.",
   },
   {
     slug: "dentrix-ascend",
@@ -93,12 +93,12 @@ export const integrations: Pms[] = [
     program: "Dentrix Ascend API (REST/JSON)",
     seoTitle: "Dentrix Ascend AI Office Copilot & Analytics",
     seoDescription:
-      "Mandi is building a sanctioned Dentrix Ascend integration via the Ascend API Program — surfacing the revenue hiding in your cloud practice data.",
+      "Mandi is building a sanctioned Dentrix Ascend integration via the Ascend API Program, surfacing the revenue hiding in your cloud practice data.",
     tagline: "A sanctioned Dentrix Ascend integration, in development.",
     about:
       "Dentrix Ascend is Henry Schein One's cloud-native practice management system. It exposes a modern REST API (JSON) through the Ascend API Program, with sandbox access for approved developers.",
     integration:
-      "We build through the official Ascend API Program — application, agreement, and sandbox — so every read and write rides a sanctioned, cloud-native channel.",
+      "We build through the official Ascend API Program (application, agreement, and sandbox), so every read and write rides a sanctioned, cloud-native channel.",
   },
   {
     slug: "denticon",
@@ -109,12 +109,12 @@ export const integrations: Pms[] = [
     program: "Planet DDS API Program (OAuth 2.0)",
     seoTitle: "Denticon AI Office Copilot & Analytics",
     seoDescription:
-      "Mandi is building a sanctioned Denticon integration via the Planet DDS API Program — purpose-built for DSOs and multi-location groups.",
+      "Mandi is building a sanctioned Denticon integration via the Planet DDS API Program, purpose-built for DSOs and multi-location groups.",
     tagline: "A sanctioned Denticon integration, in development.",
     about:
-      "Denticon, by Planet DDS, runs one of the most comprehensive and open API programs in dentistry — OAuth 2.0, event-driven updates, and writebacks across patient, appointment, financial, and clinical data, with SOC 2 Type II and HIPAA controls. It's a strong fit for DSOs and multi-location groups.",
+      "Denticon, by Planet DDS, runs one of the most comprehensive and open API programs in dentistry: OAuth 2.0, event-driven updates, and writebacks across patient, appointment, financial, and clinical data, with SOC 2 Type II and HIPAA controls. It's a strong fit for DSOs and multi-location groups.",
     integration:
-      "We integrate through the Planet DDS API Program using OAuth 2.0 — the sanctioned, modern path that matches Mandi's own security posture.",
+      "We integrate through the Planet DDS API Program using OAuth 2.0, the sanctioned, modern path that matches Mandi's own security posture.",
   },
   {
     slug: "curve",
@@ -125,12 +125,12 @@ export const integrations: Pms[] = [
     program: "Curve Dental API & SDKs",
     seoTitle: "Curve Dental AI Office Copilot & Analytics",
     seoDescription:
-      "Mandi is building a sanctioned Curve Dental integration — finding unscheduled treatment, schedule gaps, and lapsed recall in your cloud practice data.",
+      "Mandi is building a sanctioned Curve Dental integration, finding unscheduled treatments, schedule gaps, and lapsed recall in your cloud practice data.",
     tagline: "A sanctioned Curve Dental integration, in development.",
     about:
       "Curve Dental is a fully cloud-based practice management platform with a public API and published SDKs, making it a clean target for a modern, sanctioned integration.",
     integration:
-      "We build through Curve's official API and SDKs — a supported, cloud-native channel, never an unsanctioned extraction path.",
+      "We build through Curve's official API and SDKs, a supported, cloud-native channel, never an unsanctioned extraction path.",
   },
 ];
 

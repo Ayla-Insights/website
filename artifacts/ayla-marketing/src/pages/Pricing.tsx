@@ -18,7 +18,7 @@ export default function Pricing() {
           Designed for independent practices. Priced to pay for itself in the first month.
         </p>
         <p className="text-sm text-[#64748b] mt-4">
-          We're finalizing beta pricing with our launch partners. Book a call to see what Mandi finds in your practice first — pricing is always secondary to the ROI.
+          We're finalizing beta pricing with our launch partners. Book a call to see what Mandi finds in your practice first; pricing is always secondary to the ROI.
         </p>
       </section>
 
@@ -43,7 +43,7 @@ export default function Pricing() {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[#14b8a6] shrink-0" />
-                <span className="text-[#334155]">Opportunity dashboard — unscheduled treatment, recall, schedule gaps</span>
+                <span className="text-[#334155]">Opportunity dashboard: unscheduled treatments, recall, schedule gaps</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[#14b8a6] shrink-0" />

@@ -85,7 +85,7 @@ export default function TeaserApp() {
     } catch (e) {
       if (e instanceof PdfRejectedError) return setPdfRejected(true);
       if (e instanceof UnsupportedFileError) return setUploadError(e.message);
-      setUploadError('Sorry — we could not read that file. Try a CSV export.');
+      setUploadError("Sorry, we couldn't read that file. Try a CSV export.");
     }
   }
 
