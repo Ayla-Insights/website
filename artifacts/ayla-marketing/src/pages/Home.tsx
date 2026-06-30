@@ -70,6 +70,12 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
+              <p className="mt-4 text-sm text-[#64748b]">
+                Curious what's hiding in your data?{" "}
+                <Link href="/hidden-revenue" data-testid="hero-revenue-report" className="font-semibold text-[#0d9488] hover:text-[#0f766e] underline underline-offset-4">
+                  See your free Hidden Revenue Report in 2 minutes →
+                </Link>
+              </p>
             </motion.div>
 
             <motion.div
@@ -259,16 +265,16 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Mandi finds in your practice.</h2>
           <p className="text-xl text-[#64748b] mb-10">
-            Get beta access or book a 30-minute walkthrough. No commitment. No pitch deck.
+            Upload a report from your practice management system and get a free Hidden Revenue Report in two minutes — your file is read entirely in your browser, and we never see your patient data. Or book a 30-minute walkthrough.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://app.heymandi.ai" data-testid="home-beta-cta">
-              <Button size="lg" variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa] h-14 px-10 text-lg">
-                Beta Access
-              </Button>
-            </a>
-            <Link href="/demo" data-testid="home-final-cta">
+            <Link href="/hidden-revenue" data-testid="home-revenue-report-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
+                Get your free revenue report →
+              </Button>
+            </Link>
+            <Link href="/demo" data-testid="home-final-cta">
+              <Button size="lg" variant="outline" className="border-[#0d9488] text-[#0d9488] hover:bg-[#f0fdfa] h-14 px-10 text-lg">
                 Book a walkthrough
               </Button>
             </Link>

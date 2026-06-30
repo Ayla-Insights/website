@@ -9,6 +9,7 @@ import { allPms } from "@/data/pms";
 
 const navLinks = [
   { href: "/features", label: "Features", testId: "link-features" },
+  { href: "/hidden-revenue", label: "Revenue Report", testId: "link-hidden-revenue" },
   { href: "/security", label: "Security", testId: "link-security" },
   { href: "/pricing", label: "Pricing", testId: "link-pricing" },
   { href: "/resources", label: "Resources", testId: "link-resources" },
@@ -140,6 +141,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/hidden-revenue" className="hover:text-primary">Hidden Revenue Report</Link></li>
                 <li><Link href="/features" className="hover:text-primary">Features</Link></li>
                 <li><Link href="/security" className="hover:text-primary">Security</Link></li>
                 <li><Link href="/pricing" className="hover:text-primary">Pricing</Link></li>
