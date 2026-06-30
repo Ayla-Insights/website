@@ -5,7 +5,7 @@ export default function HiddenRevenue() {
   useSEO({
     title: "Hidden Revenue Report",
     description:
-      "See the revenue hiding in your practice's unscheduled treatment and overdue recall. Your file is read entirely in your browser — we never see your patient data.",
+      "See the revenue hiding in your practice's unscheduled treatments and overdue recall. Your file is read entirely in your browser, and we never see your patient data.",
     path: "/hidden-revenue",
   });
 
@@ -14,7 +14,7 @@ export default function HiddenRevenue() {
       <div className="mx-auto max-w-3xl">
         <TeaserApp />
         <p className="mt-8 text-center text-xs text-slate-400">
-          Your file is read entirely in your browser — it never leaves your computer. No trackers on
+          Your file is read entirely in your browser; it never leaves your computer. No trackers on
           this page.
         </p>
       </div>

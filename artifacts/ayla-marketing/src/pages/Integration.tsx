@@ -6,7 +6,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { STATUS_LABEL, type Pms } from "@/data/pms";
 
 const opportunities = [
-  { icon: Activity, title: "Unscheduled treatment", body: "Diagnosed-but-unbooked treatment, ranked by production value and remaining benefits." },
+  { icon: Activity, title: "Unscheduled treatments", body: "Diagnosed-but-unbooked treatment, ranked by production value and remaining benefits." },
   { icon: Calendar, title: "Schedule gaps", body: "Open chair time matched to patients who need treatment of the right length." },
   { icon: Users, title: "Lapsed recall", body: "Overdue hygiene patients surfaced before they fall away for good." },
   { icon: ShieldCheck, title: "Insurance & back office", body: "Effective reimbursement by carrier and the admin work that quietly drains production." },
@@ -44,12 +44,12 @@ export default function Integration({ pms }: { pms: Pms }) {
             Mandi for {pms.name}
           </h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto mb-8">
-            {pms.tagline} The AI copilot for the dental office — surfacing the revenue hiding in your {pms.name} data and helping the team act on it, with staff confirming every action.
+            {pms.tagline} The AI copilot for the dental office, surfacing the revenue hiding in your {pms.name} data and helping the team act on it, with staff confirming every action.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/waitlist" data-testid={`${pms.slug}-waitlist-cta`}>
+            <Link href="/hidden-revenue" data-testid={`${pms.slug}-revenue-report-cta`}>
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-12 px-8 text-base">
-                Join the {pms.name} waitlist
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo">
@@ -115,9 +115,9 @@ export default function Integration({ pms }: { pms: Pms }) {
             <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Sanctioned, secure, human-in-the-loop</h2>
             <ul className="space-y-3 text-slate-300">
               {[
-                `We connect only through the ${pms.program} — never screen-scraping or reading the database directly.`,
+                `We connect only through the ${pms.program}, never screen-scraping or reading the database directly.`,
                 "Mandi proposes; a staff member confirms every booking, message, and action.",
-                "Built for HIPAA from day one — encrypted in transit and at rest, tenant-scoped, fully audited. We sign a BAA before any patient data flows.",
+                "Built for HIPAA from day one: encrypted in transit and at rest, tenant-scoped, fully audited. We sign a BAA before any patient data flows.",
               ].map((t) => (
                 <li key={t} className="flex gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#14b8a6] shrink-0 mt-0.5" />
@@ -138,11 +138,11 @@ export default function Integration({ pms }: { pms: Pms }) {
           <p className="text-lg text-[#64748b] mb-8">
             {pms.status === "pilot"
               ? `Mandi is live in pilot on ${pms.name}. Book a walkthrough to see what it finds in a practice your size.`
-              : `We're building the sanctioned ${pms.name} integration now. Join the waitlist and we'll reach out as ${pms.name} early access opens.`}
+              : `We're building the sanctioned ${pms.name} integration now. In the meantime, see your hidden revenue today: upload a ${pms.name} export and get your free report in two minutes.`}
           </p>
-          <Link href="/waitlist" data-testid={`${pms.slug}-waitlist-cta-bottom`}>
+          <Link href="/hidden-revenue" data-testid={`${pms.slug}-revenue-report-cta-bottom`}>
             <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-12 px-8 text-base">
-              Join the {pms.name} waitlist <ArrowRight className="ml-2 h-4 w-4" />
+              Find my hidden revenue <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </div>

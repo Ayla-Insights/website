@@ -12,7 +12,7 @@ export default function Home() {
   useSEO({
     title: "AI Copilot for the Dental Office",
     fullTitleOverride: "Mandi | AI Copilot for the Dental Office",
-    description: "See the revenue hiding in your Dentrix data. Mandi helps your dental front desk fill the schedule, recover unscheduled treatment, and grow.",
+    description: "See the revenue hiding in your Dentrix data. Mandi helps your dental front desk fill the schedule, recover unscheduled treatments, and grow.",
     path: "/",
     jsonLd: {
       "@context": "https://schema.org",
@@ -22,7 +22,7 @@ export default function Home() {
       operatingSystem: "Web",
       url: "https://heymandi.ai",
       description:
-        "AI copilot for the dental office that finds unscheduled treatment, schedule gaps, lapsed recall, and back-office opportunities — and helps the team act on them.",
+        "AI copilot for the dental office that finds unscheduled treatments, schedule gaps, lapsed recall, and back-office opportunities, and helps the team act on them.",
       publisher: { "@type": "Organization", name: "Mandi" },
     },
   });
@@ -56,14 +56,14 @@ export default function Home() {
                 Your practice is leaving <span className="text-[#0d9488]">$145,000</span> on the table. Mandi finds it.
               </p>
               <p className="text-lg md:text-xl text-[#334155] mb-8 leading-relaxed">
-                Mandi connects to your practice management system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English — and your team confirms every action before anything happens.
+                Mandi connects to your practice management system and shows you exactly where you're losing production, then helps you get it back. Unscheduled treatments. Empty chair time. Patients who've fallen off recall. All in one place, in plain English, and your team confirms every action before anything happens.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://app.heymandi.ai" data-testid="hero-join-beta">
+                <Link href="/hidden-revenue" data-testid="hero-revenue-report-cta">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                    Beta Access
+                    Find my hidden revenue →
                   </Button>
-                </a>
+                </Link>
                 <Link href="/demo" data-testid="hero-book-call">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
                     Book a walkthrough
@@ -71,10 +71,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="mt-4 text-sm text-[#64748b]">
-                Curious what's hiding in your data?{" "}
-                <Link href="/hidden-revenue" data-testid="hero-revenue-report" className="font-semibold text-[#0d9488] hover:text-[#0f766e] underline underline-offset-4">
-                  See your free Hidden Revenue Report in 2 minutes →
-                </Link>
+                Free · takes 2 minutes · your data never leaves your browser.
               </p>
             </motion.div>
 
@@ -121,7 +118,7 @@ export default function Home() {
               <div className="h-12 w-12 rounded-xl bg-[#ccfbf1] text-[#0f766e] flex items-center justify-center mb-6">
                 <Activity className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Unscheduled treatment</h3>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Unscheduled treatments</h3>
               <p className="text-[#64748b] leading-relaxed">
                 The average practice has $100,000+ in diagnosed-but-unscheduled treatment plans. Nobody has time to chase them.
               </p>
@@ -152,9 +149,9 @@ export default function Home() {
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#14b8a6]/20 via-[#14b8a6] to-[#14b8a6]/20" />
 
             {[
-              { title: "Connect your PMS", desc: "Mandi integrates directly with your practice management system — starting with Dentrix — through its sanctioned API. No manual data entry, no spreadsheets." },
-              { title: "See your opportunities", desc: "Your dashboard shows the numbers that matter: unscheduled treatment, schedule gaps, recall patients, goal pacing — in real dollars." },
-              { title: "Ask Mandi to act", desc: "Type a question — 'Who can fill tomorrow's 2pm?' — and Mandi finds the answer and proposes the action. You approve it. Done." }
+              { title: "Connect your PMS", desc: "Mandi integrates directly with your practice management system, starting with Dentrix, through its sanctioned API. No manual data entry, no spreadsheets." },
+              { title: "See your opportunities", desc: "Your dashboard shows the numbers that matter: unscheduled treatments, schedule gaps, recall patients, and goal pacing, in real dollars." },
+              { title: "Ask Mandi to act", desc: "Type a question ('Who can fill tomorrow's 2pm?') and Mandi finds the answer and proposes the action. You approve it. Done." }
             ].map((step, i) => (
               <StaggerItem
                 key={i}
@@ -178,7 +175,7 @@ export default function Home() {
         <div className="container mx-auto max-w-5xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">Works with your practice management system</h2>
           <p className="text-lg text-[#64748b] max-w-2xl mx-auto mb-12">
-            Mandi reads your practice data through each system's official, sanctioned API — never screen-scraping. Live on Dentrix today, with more on the way.
+            Mandi reads your practice data through each system's official, sanctioned API. Never screen-scraping. Live on Dentrix today, with more on the way.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {allPms.map((pms) => (
@@ -202,7 +199,7 @@ export default function Home() {
       <section className="py-20 px-4 bg-[#f8fafc]">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-bold text-[#0f172a] mb-2">What practices typically find when they surface hidden revenue</h2>
-          <p className="text-center text-sm text-[#94a3b8] mb-2">Illustrative examples based on industry data — not yet from Mandi customers.</p>
+          <p className="text-center text-sm text-[#94a3b8] mb-2">Illustrative examples based on industry data, not yet from Mandi customers.</p>
           <p className="text-center text-lg text-[#64748b] mb-12">Patterns observed across six common dental specialties.</p>
 
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -252,7 +249,7 @@ export default function Home() {
           <ShieldCheck className="h-12 w-12 text-[#0f766e] mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-[#0f172a] mb-4">Built for HIPAA from the ground up. Not bolted on after.</h2>
           <p className="text-lg text-[#334155] max-w-2xl mx-auto mb-8">
-            Mandi was designed in partnership with dentists — by the son of one — a cybersecurity expert with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
+            Mandi was designed in partnership with dentists, by the son of one, a cybersecurity expert with enterprise defense-industry experience. Encrypted in transit and at rest. Role-based access. Full audit trail. We sign a BAA with every practice before any patient data flows.
           </p>
           <Link href="/security" data-testid="home-security-link" className="text-[#0d9488] font-semibold hover:text-[#0f766e] underline underline-offset-4">
             Read our security posture
@@ -265,12 +262,12 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold text-[#0f172a] mb-6">See what Mandi finds in your practice.</h2>
           <p className="text-xl text-[#64748b] mb-10">
-            Upload a report from your practice management system and get a free Hidden Revenue Report in two minutes — your file is read entirely in your browser, and we never see your patient data. Or book a 30-minute walkthrough.
+            Upload a report from your practice management system and get a free Hidden Revenue Report in two minutes. Your file is read entirely in your browser, and we never see your patient data. Or book a 30-minute walkthrough.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/hidden-revenue" data-testid="home-revenue-report-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
-                Get your free revenue report →
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo" data-testid="home-final-cta">

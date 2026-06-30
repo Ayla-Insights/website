@@ -3,7 +3,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function Privacy() {
   useSEO({
     title: "Privacy Policy",
-    description: "Mandi privacy policy — how we handle visitor data on the marketing site.",
+    description: "Mandi privacy policy: how we handle visitor data on the marketing site.",
     path: "/legal/privacy",
   });
   return (

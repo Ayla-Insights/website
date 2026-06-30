@@ -56,7 +56,7 @@ export function ConsentStep({
       <h1 className="text-2xl font-bold text-slate-900">Find your practice's hidden revenue</h1>
       <p className="mt-2 text-slate-600">
         Drop in a treatment or recall export and we'll estimate the revenue sitting in unscheduled
-        treatment and overdue recall — in about two minutes.
+        treatment and overdue recall, in about two minutes.
       </p>
       <ul className="mt-4 space-y-2 text-sm text-slate-600">
         <li className="flex gap-2">
@@ -200,19 +200,19 @@ export function UploadStep({
             <p>
               Export any <strong>treatment-plan</strong> or{' '}
               <strong>recall / continuing-care</strong> report as CSV or Excel. We look for columns
-              like patient, procedure code, fee, status, and dates — and auto-map the rest, so it
+              like patient, procedure code, fee, status, and dates, and auto-map the rest, so it
               doesn't have to be perfect.
             </p>
           </div>
           <p className="text-xs text-slate-400">
-            Whatever you upload is read entirely in your browser — it never leaves your computer.
+            Whatever you upload is read entirely in your browser; it never leaves your computer.
           </p>
         </div>
       </details>
 
       {pdfRejected ? (
         <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
-          <p className="font-medium">To analyze a PDF we need the pilot BAA — or export a CSV/.out.</p>
+          <p className="font-medium">To analyze a PDF we need the pilot BAA, or export a CSV/.out.</p>
           <button
             onClick={onStartPilot}
             className="mt-2 rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-700"
@@ -251,13 +251,13 @@ export function ConfirmStep({
     <Card>
       <h2 className="text-xl font-bold text-slate-900">Confirm what we found</h2>
       <p className="mt-1 text-sm text-slate-500">
-        We auto-detected your columns. Correct any that look wrong, then continue — this is computed
+        We auto-detected your columns. Correct any that look wrong, then continue. This is computed
         on your machine.
       </p>
 
       {lowConfidence && (
         <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800">
-          Some columns were hard to read automatically — please double-check the mapping below.
+          Some columns were hard to read automatically, so please double-check the mapping below.
         </div>
       )}
 
@@ -302,7 +302,7 @@ export function ConfirmStep({
         </div>
         <div className="mt-1 text-sm text-slate-500">
           across {local.unscheduledRowCount} planned {local.unscheduledRowCount === 1 ? 'procedure' : 'procedures'}
-          {mapping.roleToIndex.fee == null && ' — map your fee column to see this'}
+          {mapping.roleToIndex.fee == null && ' (map your fee column to see this)'}
         </div>
       </div>
 
@@ -315,7 +315,7 @@ export function ConfirmStep({
           disabled={mapping.roleToIndex.fee == null || local.unscheduledTreatmentValue <= 0}
           className="rounded-xl bg-[#0d9488] px-5 py-3 font-semibold text-white transition hover:bg-[#0f766e] disabled:cursor-not-allowed disabled:opacity-40"
         >
-          That's right — show my report →
+          That's right, show my report →
         </button>
       </div>
     </Card>
@@ -345,7 +345,7 @@ export function GateStep({
         </div>
         <div className="mt-2 text-4xl font-bold text-slate-900">{usd(headlineValue)}</div>
         <p className="mt-1 text-slate-600">
-          in estimated unscheduled treatment — plus your overdue-recall opportunity.
+          in estimated unscheduled treatment, plus your overdue-recall opportunity.
         </p>
       </div>
       <form
@@ -374,7 +374,7 @@ export function GateStep({
           {submitting ? 'Preparing your report…' : 'Show my full report →'}
         </button>
         <p className="mt-3 text-center text-xs text-slate-400">
-          We send only anonymous totals with your email — never patient data.
+          We send only anonymous totals with your email, never patient data.
         </p>
       </form>
     </Card>
@@ -392,14 +392,14 @@ function fmtRange(r: { earliest: string | null; latest: string | null }): string
 export function ReportStep({
   local,
   onStartPilot,
-  onJoinWaitlist,
+  onExplore,
   sample,
 }: {
   local: LocalAggregate;
   /** Primary CTA → book a discovery call. */
   onStartPilot: () => void;
-  /** Secondary CTA → join the waitlist. */
-  onJoinWaitlist: () => void;
+  /** Secondary CTA → explore the full platform. */
+  onExplore: () => void;
   /** True for the "Try with sample data" demo — watermarks the report as synthetic. */
   sample?: boolean;
 }) {
@@ -462,8 +462,8 @@ export function ReportStep({
         <p className="mt-1 text-sm text-slate-600">
           This quick report only looks at unscheduled treatment and overdue recall from a single
           file. The full Mandi platform connects to your practice management system and surfaces the
-          money across your whole office — insurance &amp; carrier profitability, schedule &amp;
-          chair-time, case acceptance, staff productivity — answers any question in plain English
+          money across your whole office: insurance &amp; carrier profitability, schedule &amp;
+          chair-time, case acceptance, and staff productivity. It answers any question in plain English
           with Ask Mandi, and helps your team book it. With your data live, the numbers are bigger
           and always up to date.
         </p>
@@ -472,8 +472,8 @@ export function ReportStep({
       <div className="mt-6 rounded-xl bg-slate-900 p-5 text-white">
         <div className="text-lg font-semibold">Ready to turn this into booked appointments?</div>
         <p className="mt-1 text-sm text-slate-300">
-          In a pilot, Mandi works this list for you — outreach scripts, recall, and schedule-gap
-          filling — with a signed BAA and your live PMS.
+          In a pilot, Mandi works this list for you (outreach scripts, recall, and schedule-gap
+          filling) with a signed BAA and your live PMS.
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-4">
           <button
@@ -483,10 +483,10 @@ export function ReportStep({
             Book a discovery call →
           </button>
           <button
-            onClick={onJoinWaitlist}
+            onClick={onExplore}
             className="text-sm font-medium text-slate-200 hover:text-white hover:underline"
           >
-            or join the waitlist →
+            or explore the full platform →
           </button>
         </div>
       </div>

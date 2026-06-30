@@ -41,7 +41,7 @@ export default function Demo() {
             <div className="text-center mb-6">
               <h2 className="text-xl font-bold text-[#0f172a] mb-2">First, tell us about your practice</h2>
               <p className="text-sm text-[#64748b]">
-                So we can tailor the walkthrough — then you'll pick a time.
+                So we can tailor the walkthrough, then you'll pick a time.
               </p>
             </div>
             <WaitlistForm

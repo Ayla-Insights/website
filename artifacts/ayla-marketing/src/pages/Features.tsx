@@ -10,7 +10,7 @@ export default function Features() {
   useSEO({
     title: "Features",
     fullTitleOverride: "Features | Mandi Dental Office Software",
-    description: "Fill schedule gaps, recover unscheduled treatment, reactivate recall, and spot insurance that hurts collections — all from your Dentrix data.",
+    description: "Fill schedule gaps, recover unscheduled treatments, reactivate recall, and spot insurance that hurts collections, all from your Dentrix data.",
     path: "/features",
   });
 
@@ -37,7 +37,7 @@ export default function Features() {
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-6">Everything your front desk needs to grow the practice</h1>
           <p className="text-xl text-[#334155] max-w-2xl mx-auto">
-            Dental office software that finds, prioritizes, and schedules the hidden revenue in your practice — built on your Dentrix data.
+            Dental office software that finds, prioritizes, and schedules the hidden revenue in your practice, built on your Dentrix data.
           </p>
         </div>
       </section>
@@ -86,7 +86,7 @@ export default function Features() {
                         <ActivityIcon />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#0f172a] text-lg">Unscheduled Treatment</h4>
+                        <h4 className="font-semibold text-[#0f172a] text-lg">Unscheduled Treatments</h4>
                         <p className="text-[#64748b]">Prioritized by production value and remaining insurance benefits.</p>
                       </div>
                     </li>
@@ -166,13 +166,13 @@ export default function Features() {
                 <div className={`transition-opacity duration-500 ${activeSection === 3 ? "opacity-100" : "opacity-35"}`}>
                   <h2 className="text-3xl font-bold text-[#0f172a] mb-6">Align your team around growth</h2>
                   <p className="text-lg text-[#64748b] mb-6">
-                    Mandi tracks production by provider and hygiene productivity by hygienist — and shows everyone their pacing toward monthly goals. When the team can see the gap, they can close it.
+                    Mandi tracks production by provider and hygiene productivity by hygienist, and shows everyone their pacing toward monthly goals. When the team can see the gap, they can close it.
                   </p>
                   <blockquote className="border-l-4 border-[#0d9488] pl-4 py-1 text-[#334155] italic text-base mb-2">
                     "I need my staff to be as invested in growth as I am."
                   </blockquote>
                   <p className="text-sm text-[#64748b] mt-2">
-                    — General dentist, 20-year practice owner
+                    General dentist, 20-year practice owner
                   </p>
                 </div>
               </div>
@@ -288,7 +288,7 @@ function ChatMock() {
   const queries = [
     {
       user: "Find unscheduled crowns over $1,000",
-      ayla: "Found 14 patients. Top match: John S. — $1,450, $1,500 benefits remaining."
+      ayla: "Found 14 patients. Top match: John S., $1,450, $1,500 benefits remaining."
     },
     {
       user: "Fill tomorrow's 2pm opening",
@@ -296,7 +296,7 @@ function ChatMock() {
     },
     {
       user: "Who is most overdue for recall?",
-      ayla: "Robert T. — 18 months overdue, high show-rate history."
+      ayla: "Robert T., 18 months overdue, high show-rate history."
     }
   ];
 
@@ -388,7 +388,7 @@ function BookingMock() {
 function TeamMock() {
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-border/50 p-6 w-full relative">
-      <h3 className="font-semibold text-[#0f172a] mb-6">Goal Pacing — This Month</h3>
+      <h3 className="font-semibold text-[#0f172a] mb-6">Goal Pacing: This Month</h3>
       <div className="space-y-5">
         <div>
           <div className="flex justify-between items-end mb-1">
