@@ -59,11 +59,11 @@ export default function Home() {
                 Mandi connects to your practice management system and shows you exactly where you're losing production — then helps you get it back. Unscheduled treatment. Empty chair time. Patients who've fallen off recall. All in one place, in plain English — and your team confirms every action before anything happens.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://app.heymandi.ai" data-testid="hero-join-beta">
+                <Link href="/hidden-revenue" data-testid="hero-revenue-report-cta">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                    Beta Access
+                    Get your free revenue report
                   </Button>
-                </a>
+                </Link>
                 <Link href="/demo" data-testid="hero-book-call">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
                     Book a walkthrough
@@ -71,10 +71,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="mt-4 text-sm text-[#64748b]">
-                Curious what's hiding in your data?{" "}
-                <Link href="/hidden-revenue" data-testid="hero-revenue-report" className="font-semibold text-[#0d9488] hover:text-[#0f766e] underline underline-offset-4">
-                  See your free Hidden Revenue Report in 2 minutes →
-                </Link>
+                Free · takes 2 minutes · your data never leaves your browser.
               </p>
             </motion.div>
 

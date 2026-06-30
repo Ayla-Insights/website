@@ -61,16 +61,16 @@ export default function Dentrix() {
             helps your team book it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/demo" data-testid="dentrix-demo-cta">
+            <Link href="/hidden-revenue" data-testid="dentrix-revenue-report-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
+                Get your free revenue report
+              </Button>
+            </Link>
+            <Link href="/demo" data-testid="dentrix-demo-cta">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
                 Book a walkthrough
               </Button>
             </Link>
-            <a href="https://app.heymandi.ai" data-testid="dentrix-beta-cta">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 px-8 text-base">
-                Beta Access
-              </Button>
-            </a>
           </div>
         </div>
       </section>
