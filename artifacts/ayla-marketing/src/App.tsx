@@ -13,7 +13,6 @@ import Security from "@/pages/Security";
 import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
 import Demo from "@/pages/Demo";
-import Waitlist from "@/pages/Waitlist";
 import HiddenRevenue from "@/pages/HiddenRevenue";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
@@ -47,7 +46,8 @@ function Router() {
         <Route path="/pricing" component={Pricing} />
         <Route path="/about" component={About} />
         <Route path="/demo" component={Demo} />
-        <Route path="/waitlist" component={Waitlist} />
+        {/* Waitlist folded into the funnel — redirect to the Hidden Revenue Report */}
+        <Route path="/waitlist"><Redirect to="/hidden-revenue" replace /></Route>
         <Route path="/hidden-revenue" component={HiddenRevenue} />
         <Route path="/legal/privacy" component={Privacy} />
         <Route path="/legal/terms" component={Terms} />

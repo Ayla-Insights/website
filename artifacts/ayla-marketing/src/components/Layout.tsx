@@ -68,7 +68,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-2">
             <Link href="/hidden-revenue" data-testid="link-revenue-report-nav" className="hidden md:block">
               <Button variant="default" className="bg-[#0d9488] hover:bg-[#0f766e] text-white">
-                Free revenue report
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo" data-testid="link-demo-nav">
@@ -110,7 +110,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="pt-2 border-t border-border/40 mt-1 flex flex-col gap-1">
               <Link href="/hidden-revenue" data-testid="mobile-link-revenue-report" onClick={closeMenu}>
                 <button className="w-full px-3 py-2.5 rounded-lg text-sm font-semibold text-[#0d9488] hover:bg-[#f0fdfa] transition-colors text-left">
-                  Free revenue report →
+                  Find my hidden revenue →
                 </button>
               </Link>
               <Link href="/demo" data-testid="mobile-link-demo" onClick={closeMenu}>

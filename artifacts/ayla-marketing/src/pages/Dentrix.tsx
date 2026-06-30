@@ -63,7 +63,7 @@ export default function Dentrix() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/hidden-revenue" data-testid="dentrix-revenue-report-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                Get your free revenue report
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo" data-testid="dentrix-demo-cta">

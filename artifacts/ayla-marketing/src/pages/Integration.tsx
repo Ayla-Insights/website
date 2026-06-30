@@ -47,9 +47,9 @@ export default function Integration({ pms }: { pms: Pms }) {
             {pms.tagline} The AI copilot for the dental office — surfacing the revenue hiding in your {pms.name} data and helping the team act on it, with staff confirming every action.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/waitlist" data-testid={`${pms.slug}-waitlist-cta`}>
+            <Link href="/hidden-revenue" data-testid={`${pms.slug}-revenue-report-cta`}>
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-12 px-8 text-base">
-                Join the {pms.name} waitlist
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo">
@@ -138,11 +138,11 @@ export default function Integration({ pms }: { pms: Pms }) {
           <p className="text-lg text-[#64748b] mb-8">
             {pms.status === "pilot"
               ? `Mandi is live in pilot on ${pms.name}. Book a walkthrough to see what it finds in a practice your size.`
-              : `We're building the sanctioned ${pms.name} integration now. Join the waitlist and we'll reach out as ${pms.name} early access opens.`}
+              : `We're building the sanctioned ${pms.name} integration now. In the meantime, see your hidden revenue today — upload a ${pms.name} export and get your free report in two minutes.`}
           </p>
-          <Link href="/waitlist" data-testid={`${pms.slug}-waitlist-cta-bottom`}>
+          <Link href="/hidden-revenue" data-testid={`${pms.slug}-revenue-report-cta-bottom`}>
             <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-12 px-8 text-base">
-              Join the {pms.name} waitlist <ArrowRight className="ml-2 h-4 w-4" />
+              Find my hidden revenue <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </div>

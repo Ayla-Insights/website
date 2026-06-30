@@ -51,10 +51,6 @@ from = "/demo"
 to = "/demo.html"
 
 [[services.production.rewrites]]
-from = "/waitlist"
-to = "/waitlist.html"
-
-[[services.production.rewrites]]
 from = "/legal/privacy"
 to = "/legal/privacy.html"
 

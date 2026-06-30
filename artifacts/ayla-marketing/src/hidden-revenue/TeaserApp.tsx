@@ -141,7 +141,7 @@ export default function TeaserApp() {
   }
 
   const bookCall = () => setLocation('/demo'); // primary CTA — book a discovery call
-  const joinWaitlist = () => setLocation('/waitlist'); // secondary CTA
+  const explore = () => setLocation('/features'); // secondary CTA → see the full platform
 
   return (
     <>
@@ -186,7 +186,7 @@ export default function TeaserApp() {
         <ReportStep
           local={parse.local}
           onStartPilot={bookCall}
-          onJoinWaitlist={joinWaitlist}
+          onExplore={explore}
           sample={parse.isSample}
         />
       )}

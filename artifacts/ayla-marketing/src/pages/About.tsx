@@ -67,7 +67,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/hidden-revenue" data-testid="about-revenue-report-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
-                Get your free revenue report
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo" data-testid="about-book-cta">

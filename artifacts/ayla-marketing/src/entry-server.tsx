@@ -21,7 +21,6 @@ export const routes: string[] = [
   "/pricing",
   "/about",
   "/demo",
-  "/waitlist",
   "/legal/privacy",
   "/legal/terms",
   "/resources",

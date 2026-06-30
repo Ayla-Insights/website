@@ -392,14 +392,14 @@ function fmtRange(r: { earliest: string | null; latest: string | null }): string
 export function ReportStep({
   local,
   onStartPilot,
-  onJoinWaitlist,
+  onExplore,
   sample,
 }: {
   local: LocalAggregate;
   /** Primary CTA → book a discovery call. */
   onStartPilot: () => void;
-  /** Secondary CTA → join the waitlist. */
-  onJoinWaitlist: () => void;
+  /** Secondary CTA → explore the full platform. */
+  onExplore: () => void;
   /** True for the "Try with sample data" demo — watermarks the report as synthetic. */
   sample?: boolean;
 }) {
@@ -483,10 +483,10 @@ export function ReportStep({
             Book a discovery call →
           </button>
           <button
-            onClick={onJoinWaitlist}
+            onClick={onExplore}
             className="text-sm font-medium text-slate-200 hover:text-white hover:underline"
           >
-            or join the waitlist →
+            or explore the full platform →
           </button>
         </div>
       </div>

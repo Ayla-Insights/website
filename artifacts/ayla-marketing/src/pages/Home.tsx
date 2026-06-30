@@ -61,7 +61,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/hidden-revenue" data-testid="hero-revenue-report-cta">
                   <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white w-full sm:w-auto h-12 px-8 text-base">
-                    Get your free revenue report
+                    Find my hidden revenue →
                   </Button>
                 </Link>
                 <Link href="/demo" data-testid="hero-book-call">
@@ -267,7 +267,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/hidden-revenue" data-testid="home-revenue-report-cta">
               <Button size="lg" className="bg-[#0d9488] hover:bg-[#0f766e] text-white h-14 px-10 text-lg">
-                Get your free revenue report →
+                Find my hidden revenue →
               </Button>
             </Link>
             <Link href="/demo" data-testid="home-final-cta">
