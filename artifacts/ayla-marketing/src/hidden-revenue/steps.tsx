@@ -174,6 +174,42 @@ export function UploadStep({
         </button>
       </div>
 
+      <details className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+        <summary className="cursor-pointer font-medium text-slate-700">
+          How do I export this from my practice management system?
+        </summary>
+        <div className="mt-3 space-y-3">
+          <div>
+            <div className="font-semibold text-slate-700">Dentrix (desktop)</div>
+            <p>
+              Office Manager → <strong>Letters &amp; Lists</strong> → <strong>List Manager</strong> →
+              build a treatment or continuing-care (recall) list → <strong>Export</strong> to a{' '}
+              <code className="rounded bg-slate-200 px-1">.out</code> file (it opens in Excel). Or
+              use <strong>Treatment Manager</strong> for diagnosed-but-unscheduled treatment.
+            </p>
+          </div>
+          <div>
+            <div className="font-semibold text-slate-700">Dentrix Ascend (cloud)</div>
+            <p>
+              <strong>Power Reports</strong> → an <strong>Unscheduled Treatment</strong> report →{' '}
+              <strong>Export to CSV</strong>. The Treatment Manager and Daily Huddle export too.
+            </p>
+          </div>
+          <div>
+            <div className="font-semibold text-slate-700">Any other system</div>
+            <p>
+              Export any <strong>treatment-plan</strong> or{' '}
+              <strong>recall / continuing-care</strong> report as CSV or Excel. We look for columns
+              like patient, procedure code, fee, status, and dates — and auto-map the rest, so it
+              doesn't have to be perfect.
+            </p>
+          </div>
+          <p className="text-xs text-slate-400">
+            Whatever you upload is read entirely in your browser — it never leaves your computer.
+          </p>
+        </div>
+      </details>
+
       {pdfRejected ? (
         <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
           <p className="font-medium">To analyze a PDF we need the pilot BAA — or export a CSV/.out.</p>
@@ -417,6 +453,20 @@ export function ReportStep({
           value={local.fillableGapValue != null ? usd(local.fillableGapValue) : 'Pilot'}
           sub={local.fillableGapValue != null ? 'recoverable' : 'needs schedule data'}
         />
+      </div>
+
+      <div className="mt-6 rounded-xl border border-[#99f6e4] bg-[#f0fdfa] p-5">
+        <div className="text-sm font-semibold uppercase tracking-wide text-[#0f766e]">
+          This is a fraction of what Mandi finds
+        </div>
+        <p className="mt-1 text-sm text-slate-600">
+          This quick report only looks at unscheduled treatment and overdue recall from a single
+          file. The full Mandi platform connects to your practice management system and surfaces the
+          money across your whole office — insurance &amp; carrier profitability, schedule &amp;
+          chair-time, case acceptance, staff productivity — answers any question in plain English
+          with Ask Mandi, and helps your team book it. With your data live, the numbers are bigger
+          and always up to date.
+        </p>
       </div>
 
       <div className="mt-6 rounded-xl bg-slate-900 p-5 text-white">
