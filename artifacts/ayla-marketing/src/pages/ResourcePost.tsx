@@ -82,7 +82,7 @@ export default function ResourcePost() {
             publisher: {
               "@type": "Organization",
               name: "Mandi",
-              logo: { "@type": "ImageObject", url: "https://heymandi.ai/logo-primary.svg" },
+              logo: { "@type": "ImageObject", url: "https://heymandi.ai/favicon.svg" },
             },
             image: "https://heymandi.ai/opengraph.png",
             mainEntityOfPage: {
