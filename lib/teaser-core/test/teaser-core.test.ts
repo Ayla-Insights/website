@@ -240,6 +240,38 @@ describe('computeLocalAggregate', () => {
     expect(local.unscheduledTreatmentValue).toBe(1500);
     expect(local.unscheduledPatientCount).toBe(2);
   });
+
+  it('excludes future-dated and >18-month-stale diagnoses (recoverable window)', () => {
+    // NOW = 2026-06 → window is ~2024-12 .. 2026-06.
+    const mapping = {
+      columns: [],
+      roleToIndex: { patientRef: 0, procedureCode: 1, fee: 2, status: 3, diagnosedDate: 4 },
+      overallConfidence: 1,
+    };
+    const rows = [
+      ['A', 'D2740', '1000', 'Unscheduled', '03/15/2026'], // in window → counts
+      ['B', 'D2740', '2000', 'Unscheduled', '01/15/2028'], // future → excluded
+      ['C', 'D2740', '4000', 'Unscheduled', '01/15/2023'], // >18mo stale → excluded
+      ['D', 'D2740', '500', 'Unscheduled', ''], //            no date → counts best-effort
+    ];
+    const local = computeLocalAggregate(rows, mapping, { now: NOW });
+    expect(local.unscheduledTreatmentValue).toBe(1500); // 1000 + 500 only
+    expect(local.unscheduledPatientCount).toBe(2); // A + D
+    // Range is bounded and never shows a future month.
+    expect(local.diagnosedDateRange).toEqual({ earliest: '2026-03', latest: '2026-03' });
+  });
+
+  it('leaves the total unchanged and the range empty when no diagnosed column is mapped', () => {
+    const mapping = {
+      columns: [],
+      roleToIndex: { patientRef: 0, procedureCode: 1, fee: 2, status: 3 },
+      overallConfidence: 1,
+    };
+    const rows = [['A', 'D2740', '1000', 'Unscheduled']];
+    const local = computeLocalAggregate(rows, mapping, { now: NOW });
+    expect(local.unscheduledTreatmentValue).toBe(1000);
+    expect(local.diagnosedDateRange).toEqual({ earliest: null, latest: null });
+  });
 });
 
 describe('suppression + rounding', () => {

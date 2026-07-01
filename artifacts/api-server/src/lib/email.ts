@@ -10,7 +10,10 @@ function getResend(): Resend {
 }
 
 const NOTIFY_EMAIL = "hello@heymandi.ai";
-const FROM = "Mandi Waitlist <onboarding@resend.dev>";
+// Sender for all outbound mail. Requires a VERIFIED domain in Resend — the
+// default `onboarding@resend.dev` sandbox only delivers to the account owner,
+// so once heymandi.ai is verified, set MAIL_FROM (or rely on this default).
+const FROM = process.env.MAIL_FROM || "Mandi <hello@heymandi.ai>";
 
 export interface WaitlistEntry {
   id: number;
@@ -98,7 +101,7 @@ export async function sendTeaserLeadNotification(entry: TeaserLeadEntry) {
 
   try {
     await getResend().emails.send({
-      from: "Mandi <onboarding@resend.dev>",
+      from: FROM,
       to,
       subject: `New Hidden Revenue Report lead — ${usd} estimated (${entry.contactEmail})`,
       text: `New Hidden Revenue Report lead\n\n${details}\n\nSubmitted: ${entry.createdAt.toISOString()}`,
@@ -117,5 +120,59 @@ export async function sendTeaserLeadNotification(entry: TeaserLeadEntry) {
     logger.info({ id: entry.id }, "Teaser lead notification email sent");
   } catch (err) {
     logger.error({ err, id: entry.id }, "Failed to send teaser lead notification email");
+  }
+}
+
+/**
+ * Send the PROSPECT their own Hidden Revenue Report. Content is only the already-
+ * validated no-PHI aggregate (rounded dollars, small-cell-suppressed counts) plus
+ * a book-a-call link — no patient data by construction.
+ *
+ * Requires a VERIFIED heymandi.ai sending domain in Resend; `onboarding@resend.dev`
+ * (Resend's sandbox) only delivers to the account owner, so this sends from
+ * REPORT_FROM (default hello@heymandi.ai) and will not deliver until the domain is
+ * verified. Guarded on RESEND_API_KEY and wrapped in try/catch, so an unconfigured
+ * or unverified setup fails quietly rather than affecting the request.
+ */
+export async function sendHiddenRevenueReportEmail(entry: TeaserLeadEntry) {
+  if (!process.env.RESEND_API_KEY) {
+    logger.warn("RESEND_API_KEY not set — skipping prospect report email");
+    return;
+  }
+
+  const usd = `$${entry.unscheduledTreatmentValue.toLocaleString("en-US")}`;
+  const bookUrl = "https://heymandi.ai/demo";
+
+  try {
+    await getResend().emails.send({
+      from: FROM,
+      to: entry.contactEmail,
+      subject: `Your Hidden Revenue Report — ${usd} in unscheduled treatments`,
+      text:
+        `Here's your Hidden Revenue Report.\n\n` +
+        `Estimated unscheduled treatments: ${usd}\n` +
+        `Patients with unscheduled treatment: ${entry.unscheduledPatientCount}\n` +
+        `Overdue-recall patients: ${entry.overdueRecallPatientCount}\n\n` +
+        `This is a fraction of what Mandi finds with your live practice management ` +
+        `system. Book a 30-minute walkthrough: ${bookUrl}\n\n` +
+        `Your file was read entirely in your browser — we never saw your patient data.`,
+      html: `
+        <div style="font-family:sans-serif;color:#0f172a;max-width:520px">
+          <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#0f766e;margin:0 0 4px">Your Hidden Revenue Report</p>
+          <p style="font-size:34px;font-weight:700;margin:0">${usd}</p>
+          <p style="color:#64748b;margin:2px 0 20px">in estimated unscheduled treatments, plus your overdue-recall opportunity.</p>
+          <table style="font-size:15px;border-collapse:collapse;margin-bottom:20px">
+            <tr><td style="padding:4px 16px 4px 0;color:#64748b">Patients with unscheduled treatment</td><td style="padding:4px 0"><strong>${entry.unscheduledPatientCount}</strong></td></tr>
+            <tr><td style="padding:4px 16px 4px 0;color:#64748b">Overdue-recall patients</td><td style="padding:4px 0"><strong>${entry.overdueRecallPatientCount}</strong></td></tr>
+          </table>
+          <p style="color:#334155">This is a fraction of what Mandi finds with your live practice management system — insurance and carrier profitability, schedule and chair-time, case acceptance, and more.</p>
+          <p style="margin:20px 0"><a href="${bookUrl}" style="background:#0d9488;color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:600;display:inline-block">Book a discovery call &rarr;</a></p>
+          <p style="font-size:13px;color:#94a3b8;margin-top:24px">Your file was read entirely in your browser — we never saw your patient data.</p>
+        </div>
+      `,
+    });
+    logger.info({ id: entry.id }, "Prospect report email sent");
+  } catch (err) {
+    logger.error({ err, id: entry.id }, "Failed to send prospect report email");
   }
 }

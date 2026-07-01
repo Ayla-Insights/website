@@ -16,6 +16,7 @@ import {
   computeLocalAggregate,
   detectHeaderRow,
   hiddenRevenueAggregateSchema,
+  type HiddenRevenueAggregate,
   type ColumnMapping,
   type ColumnRole,
   type DetectedColumn,
@@ -60,13 +61,37 @@ function withRole(mapping: ColumnMapping, col: number, role: ColumnRole | null):
   return { columns, roleToIndex, overallConfidence: mapping.overallConfidence };
 }
 
+/**
+ * POST the validated (no-PHI) aggregate, retrying once on a network error or 5xx.
+ * Returns whether the lead was captured. The report itself is local and never
+ * waits on this — see handleGateSubmit. The server dedupes on (email, day) so
+ * background + CTA retries can't create duplicate rows.
+ */
+async function postLeadWithRetry(safe: HiddenRevenueAggregate): Promise<boolean> {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch('/api/teaser/aggregate', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(safe),
+      });
+      if (res.ok) return true;
+      if (res.status < 500) return false; // 4xx won't succeed on retry
+    } catch {
+      // network error — fall through to the retry
+    }
+    if (attempt === 0) await new Promise((r) => setTimeout(r, 800));
+  }
+  return false;
+}
+
 export default function TeaserApp() {
   const [step, setStep] = useState<Step>('consent');
   const [parse, setParse] = useState<ParseState | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [pdfRejected, setPdfRejected] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [leadCaptured, setLeadCaptured] = useState(false);
+  const [pendingLead, setPendingLead] = useState<HiddenRevenueAggregate | null>(null);
   const [pseudonym] = useState(generatePseudonym);
   const [, setLocation] = useLocation();
 
@@ -114,34 +139,47 @@ export default function TeaserApp() {
     });
   }
 
-  async function handleGateSubmit(email: string) {
+  function captureLead(safe: HiddenRevenueAggregate) {
+    void postLeadWithRetry(safe).then((ok) => {
+      if (ok) {
+        setLeadCaptured(true);
+        setPendingLead(null);
+      }
+    });
+  }
+
+  function handleGateSubmit(email: string) {
     if (!parse) return;
-    setSubmitError(null);
-    setSubmitting(true);
+    let safe: HiddenRevenueAggregate;
     try {
       const payload = buildHiddenRevenueAggregate(parse.local, parse.mapping, {
         practicePseudonym: pseudonym,
         contactEmail: email,
         sourceFormat: parse.sourceFormat,
       });
-      // Defense in depth: refuse to transmit anything outside the allowlist.
-      const safe = assertNoPhiEgress(payload, hiddenRevenueAggregateSchema);
-      const res = await fetch('/api/teaser/aggregate', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(safe),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      setStep('report');
+      // The single egress gate — runs before anything transmits.
+      safe = assertNoPhiEgress(payload, hiddenRevenueAggregateSchema);
     } catch {
-      setSubmitError("We couldn't generate your report just now. Please try again.");
-    } finally {
-      setSubmitting(false);
+      // Should never happen (email is client-validated), but never block the
+      // user's own 100%-local report on it.
+      setStep('report');
+      return;
     }
+    // The report is entirely local — render it immediately, don't gate on the
+    // network. Capture the lead in the background; if it fails we re-try when
+    // the user clicks a post-report CTA (peak intent).
+    setPendingLead(safe);
+    setStep('report');
+    captureLead(safe);
   }
 
-  const bookCall = () => setLocation('/demo'); // primary CTA — book a discovery call
-  const explore = () => setLocation('/features'); // secondary CTA → see the full platform
+  // Second capture chance at peak intent; the server dedupes so this is safe.
+  const reattemptCapture = () => {
+    if (pendingLead && !leadCaptured) void postLeadWithRetry(pendingLead);
+  };
+
+  const bookCall = () => { reattemptCapture(); setLocation('/demo'); }; // primary CTA
+  const explore = () => { reattemptCapture(); setLocation('/features'); }; // secondary CTA
 
   return (
     <>
@@ -177,8 +215,8 @@ export default function TeaserApp() {
         <GateStep
           headlineValue={parse.local.unscheduledTreatmentValue}
           onSubmit={handleGateSubmit}
-          submitting={submitting}
-          error={submitError}
+          submitting={false}
+          error={null}
         />
       )}
 

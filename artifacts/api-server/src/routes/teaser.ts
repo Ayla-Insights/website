@@ -1,12 +1,13 @@
 import { Router } from "express";
 import rateLimit from "express-rate-limit";
+import { and, eq, gte } from "drizzle-orm";
 import { db, teaserLeadsTable } from "@workspace/db";
 import {
   assertNoPhiEgress,
   PhiEgressError,
   hiddenRevenueAggregateSchema,
 } from "@workspace/teaser-core";
-import { sendTeaserLeadNotification } from "../lib/email";
+import { sendHiddenRevenueReportEmail, sendTeaserLeadNotification } from "../lib/email";
 
 const router = Router();
 
@@ -38,6 +39,25 @@ router.post("/teaser/aggregate", limiter, async (req, res) => {
   }
 
   try {
+    // Dedupe on (contactEmail, day) so background + CTA retries never create
+    // duplicate rows or duplicate emails.
+    const startOfDay = new Date();
+    startOfDay.setUTCHours(0, 0, 0, 0);
+    const existing = await db
+      .select({ id: teaserLeadsTable.id })
+      .from(teaserLeadsTable)
+      .where(
+        and(
+          eq(teaserLeadsTable.contactEmail, safe.contactEmail),
+          gte(teaserLeadsTable.createdAt, startOfDay),
+        ),
+      )
+      .limit(1);
+    if (existing.length > 0) {
+      res.status(201).json({ ok: true });
+      return;
+    }
+
     const [entry] = await db
       .insert(teaserLeadsTable)
       .values({
@@ -59,7 +79,9 @@ router.post("/teaser/aggregate", limiter, async (req, res) => {
     // Log the row id only — never the email/aggregate.
     req.log.info({ id: entry.id }, "Hidden Revenue Report lead");
 
+    // Internal alert + the prospect's own copy of their report (both no-PHI).
     sendTeaserLeadNotification(entry).catch(() => {});
+    sendHiddenRevenueReportEmail(entry).catch(() => {});
 
     res.status(201).json({ ok: true });
   } catch (err) {
