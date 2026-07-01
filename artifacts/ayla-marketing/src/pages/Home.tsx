@@ -180,14 +180,12 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {allPms.map((pms) => (
               <Link key={pms.slug} href={`/${pms.slug}`} data-testid={`pms-card-${pms.slug}`}>
-                <div className="h-full rounded-2xl border border-border/60 bg-white p-6 text-left transition-colors hover:border-[#0d9488]/50 hover:bg-[#f0fdfa]/40">
-                  <div className="flex items-center justify-between mb-2 gap-2">
-                    <span className="font-bold text-[#0f172a]">{pms.name}</span>
-                    <span className={`text-[0.65rem] font-semibold uppercase tracking-wide px-2 py-0.5 rounded shrink-0 ${pms.status === "pilot" ? "bg-[#ccfbf1] text-[#0f766e]" : "bg-[#f1f5f9] text-[#64748b]"}`}>
-                      {STATUS_LABEL[pms.status]}
-                    </span>
-                  </div>
-                  <p className="text-sm text-[#94a3b8]">{pms.vendor}</p>
+                <div className="h-full rounded-2xl border border-border/60 bg-white p-5 text-left transition-colors hover:border-[#0d9488]/50 hover:bg-[#f0fdfa]/40">
+                  <span className="block font-bold text-[#0f172a] leading-snug">{pms.name}</span>
+                  <span className={`mt-2 inline-block text-[0.65rem] font-semibold uppercase tracking-wide px-2 py-0.5 rounded ${pms.status === "pilot" ? "bg-[#ccfbf1] text-[#0f766e]" : "bg-[#f1f5f9] text-[#64748b]"}`}>
+                    {STATUS_LABEL[pms.status]}
+                  </span>
+                  <p className="text-sm text-[#94a3b8] mt-2">{pms.vendor}</p>
                 </div>
               </Link>
             ))}

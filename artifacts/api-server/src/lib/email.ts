@@ -1,7 +1,13 @@
 import { Resend } from "resend";
 import { logger } from "./logger";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy-init: Resend v6 throws if constructed without an API key, so building it
+// at module load would crash the entire api-server on boot when RESEND_API_KEY
+// is unset (taking down /api/* including the teaser + waitlist endpoints). Build
+// it on demand instead, only after the per-function key guard passes.
+function getResend(): Resend {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const NOTIFY_EMAIL = "hello@heymandi.ai";
 const FROM = "Mandi Waitlist <onboarding@resend.dev>";
@@ -35,7 +41,7 @@ export async function sendWaitlistNotification(entry: WaitlistEntry) {
     .join("\n");
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM,
       to: NOTIFY_EMAIL,
       subject: `New waitlist signup: ${entry.name} — ${entry.practiceName}`,
@@ -91,7 +97,7 @@ export async function sendTeaserLeadNotification(entry: TeaserLeadEntry) {
   ].join("\n");
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: "Mandi <onboarding@resend.dev>",
       to,
       subject: `New Hidden Revenue Report lead — ${usd} estimated (${entry.contactEmail})`,
