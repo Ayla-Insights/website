@@ -383,12 +383,6 @@ export function GateStep({
 
 /* ---- 5. Report --------------------------------------------------------- */
 
-function fmtRange(r: { earliest: string | null; latest: string | null }): string | null {
-  if (!r.earliest && !r.latest) return null;
-  if (r.earliest === r.latest) return r.earliest;
-  return `${r.earliest ?? '—'} to ${r.latest ?? '—'}`;
-}
-
 export function ReportStep({
   local,
   onStartPilot,
@@ -403,8 +397,33 @@ export function ReportStep({
   /** True for the "Try with sample data" demo — watermarks the report as synthetic. */
   sample?: boolean;
 }) {
-  const diagnosed = fmtRange(local.diagnosedDateRange);
-  const recall = fmtRange(local.recallDueDateRange);
+  const hasDiagnosedWindow =
+    local.diagnosedDateRange.earliest != null || local.diagnosedDateRange.latest != null;
+  const patientsCount = local.unscheduledPatientCount;
+  const recallCount = local.overdueRecallPatientCount;
+
+  // Real (value) cards: the $ hero always; patient/recall counts only when > 0.
+  const valueCards: Array<{ key: string; label: string; value: string; sub: string | null; hero?: boolean }> = [
+    {
+      key: 'tx',
+      label: 'Unscheduled treatments',
+      value: usd(local.unscheduledTreatmentValue),
+      sub: hasDiagnosedWindow ? 'diagnosed in the last 18 months' : 'on the table',
+      hero: true,
+    },
+  ];
+  if (patientsCount > 0)
+    valueCards.push({ key: 'pt', label: 'Patients with unscheduled treatment', value: String(patientsCount), sub: 'to reach out to' });
+  if (recallCount > 0)
+    valueCards.push({ key: 'rc', label: 'Overdue-recall patients', value: String(recallCount), sub: 'past due' });
+
+  // Small-cell-suppressed cards (count came back 0). Shown only when the report
+  // would otherwise look near-empty; hidden once we have 2+ real cards.
+  const suppressed: string[] = [];
+  if (patientsCount === 0) suppressed.push('Patients with unscheduled treatment');
+  if (recallCount === 0) suppressed.push('Overdue-recall patients');
+  const showSuppressed = valueCards.length < 2;
+
   return (
     <Card>
       <div className="flex items-center justify-between gap-2">
@@ -426,33 +445,13 @@ export function ReportStep({
       </p>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
-        <Metric
-          label="Unscheduled treatment"
-          value={usd(local.unscheduledTreatmentValue)}
-          sub={diagnosed ? `diagnosed ${diagnosed}` : 'on the table'}
-          hero
-        />
-        <Metric
-          label="Patients with unscheduled treatment"
-          value={local.unscheduledPatientCount > 0 ? String(local.unscheduledPatientCount) : '—'}
-          sub={local.unscheduledPatientCount > 0 ? 'to reach out to' : 'too few to report'}
-        />
-        <Metric
-          label="Overdue-recall patients"
-          value={local.overdueRecallPatientCount > 0 ? String(local.overdueRecallPatientCount) : '—'}
-          sub={
-            local.overdueRecallPatientCount > 0
-              ? recall
-                ? `due ${recall}`
-                : 'past due'
-              : 'too few to report'
-          }
-        />
-        <Metric
-          label="Fillable schedule gaps"
-          value={local.fillableGapValue != null ? usd(local.fillableGapValue) : 'Pilot'}
-          sub={local.fillableGapValue != null ? 'recoverable' : 'needs schedule data'}
-        />
+        {valueCards.map((c) => (
+          <Metric key={c.key} label={c.label} value={c.value} sub={c.sub} hero={c.hero} />
+        ))}
+        {/* Fillable gaps needs live appointment data — a locked teaser, not a stat. */}
+        <Metric variant="locked" label="Fillable schedule gaps" />
+        {showSuppressed &&
+          suppressed.map((label) => <Metric key={label} variant="suppressed" label={label} />)}
       </div>
 
       <div className="mt-6 rounded-xl border border-[#99f6e4] bg-[#f0fdfa] p-5">
@@ -499,12 +498,34 @@ function Metric({
   value,
   sub,
   hero,
+  variant = 'value',
 }: {
   label: string;
-  value: string;
-  sub: string | null;
+  value?: string;
+  sub?: string | null;
   hero?: boolean;
+  variant?: 'value' | 'suppressed' | 'locked';
 }) {
+  if (variant === 'locked') {
+    // Needs live PMS data — an explicit teaser, never a bare stat.
+    return (
+      <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+        <div className="text-xs font-medium uppercase tracking-wide text-slate-400">{label}</div>
+        <div className="mt-1 flex items-center gap-1.5 text-base font-semibold text-slate-400">
+          <LockIcon /> Unlock with your live PMS
+        </div>
+      </div>
+    );
+  }
+  if (variant === 'suppressed') {
+    // Small-cell suppressed — honest muted copy, never a bare dash.
+    return (
+      <div className="rounded-xl border border-dashed border-slate-200 bg-white p-4">
+        <div className="text-xs font-medium uppercase tracking-wide text-slate-400">{label}</div>
+        <div className="mt-1 text-sm text-slate-400">Not enough in this file.</div>
+      </div>
+    );
+  }
   return (
     <div className={`rounded-xl border p-4 ${hero ? 'border-[#99f6e4] bg-[#f0fdfa]' : 'border-slate-200 bg-white'}`}>
       <div className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</div>
@@ -513,6 +534,18 @@ function Metric({
       </div>
       {sub && <div className="mt-0.5 text-xs text-slate-400">{sub}</div>}
     </div>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 20 20" className="h-4 w-4 flex-none" fill="currentColor" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        d="M10 1a4 4 0 0 0-4 4v2H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-1V5a4 4 0 0 0-4-4Zm2 6V5a2 2 0 1 0-4 0v2h4Z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 }
 

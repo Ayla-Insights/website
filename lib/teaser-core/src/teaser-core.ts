@@ -423,6 +423,10 @@ export function computeLocalAggregate(
   const diagnosedRange = new RangeAccumulator();
   const recallRange = new RangeAccumulator();
 
+  // Recoverable date window: only count diagnoses from the last 18 months.
+  const LOOKBACK_MONTHS = 18;
+  const windowStart = nowMonth - LOOKBACK_MONTHS;
+
   for (const row of dataRows) {
     if (row.every((c) => c.trim() === '')) continue; // skip blank lines
 
@@ -441,11 +445,20 @@ export function computeLocalAggregate(
       : priced && (hasCode || codeCol == null);
 
     if (isUnscheduled && priced) {
-      unscheduledValue += fee!;
-      unscheduledRowCount++;
-      if (patientKey) unscheduledPatients.add(patientKey);
+      // Exclude future-dated diagnoses (impossible for a real diagnosis; a
+      // "proposed treatment date" column legitimately holds future dates) and
+      // ones older than LOOKBACK_MONTHS (too stale to be realistically
+      // recoverable). Rows with no parseable diagnosed date are counted
+      // best-effort but don't contribute to the range.
       const d = diagnosedCol != null ? parseLooseDate(row[diagnosedCol] ?? '') : null;
-      if (d) diagnosedRange.add(d);
+      const m = d ? monthIndexOf(d) : null;
+      const inWindow = m == null || (m <= nowMonth && m >= windowStart);
+      if (inWindow) {
+        unscheduledValue += fee!;
+        unscheduledRowCount++;
+        if (patientKey) unscheduledPatients.add(patientKey);
+        if (d) diagnosedRange.add(d);
+      }
     }
 
     if (recallCol != null) {
