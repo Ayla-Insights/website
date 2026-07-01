@@ -10,7 +10,10 @@ function getResend(): Resend {
 }
 
 const NOTIFY_EMAIL = "hello@heymandi.ai";
-const FROM = "Mandi Waitlist <onboarding@resend.dev>";
+// Sender for all outbound mail. Requires a VERIFIED domain in Resend — the
+// default `onboarding@resend.dev` sandbox only delivers to the account owner,
+// so once heymandi.ai is verified, set MAIL_FROM (or rely on this default).
+const FROM = process.env.MAIL_FROM || "Mandi <hello@heymandi.ai>";
 
 export interface WaitlistEntry {
   id: number;
@@ -98,7 +101,7 @@ export async function sendTeaserLeadNotification(entry: TeaserLeadEntry) {
 
   try {
     await getResend().emails.send({
-      from: "Mandi <onboarding@resend.dev>",
+      from: FROM,
       to,
       subject: `New Hidden Revenue Report lead — ${usd} estimated (${entry.contactEmail})`,
       text: `New Hidden Revenue Report lead\n\n${details}\n\nSubmitted: ${entry.createdAt.toISOString()}`,
@@ -137,13 +140,12 @@ export async function sendHiddenRevenueReportEmail(entry: TeaserLeadEntry) {
     return;
   }
 
-  const from = process.env.REPORT_FROM_EMAIL || "Mandi <hello@heymandi.ai>";
   const usd = `$${entry.unscheduledTreatmentValue.toLocaleString("en-US")}`;
   const bookUrl = "https://heymandi.ai/demo";
 
   try {
     await getResend().emails.send({
-      from,
+      from: FROM,
       to: entry.contactEmail,
       subject: `Your Hidden Revenue Report — ${usd} in unscheduled treatments`,
       text:
