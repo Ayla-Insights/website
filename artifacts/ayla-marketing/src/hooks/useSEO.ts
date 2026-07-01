@@ -11,6 +11,8 @@ interface SEOProps {
   fullTitleOverride?: string;
   /** Optional JSON-LD structured data injected for this page. */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Set robots to noindex,nofollow (e.g. redirect-only destinations). */
+  noindex?: boolean;
 }
 
 const SITE_NAME = "Mandi";
@@ -27,7 +29,7 @@ function setMeta(name: string, content: string, attr: "name" | "property" = "nam
   el.setAttribute("content", content);
 }
 
-export function useSEO({ title, description, path = "", type = "website", publishedAt, fullTitleOverride, jsonLd }: SEOProps) {
+export function useSEO({ title, description, path = "", type = "website", publishedAt, fullTitleOverride, jsonLd, noindex }: SEOProps) {
   // During build-time prerendering there's no DOM and effects don't run, so
   // record this page's SEO synchronously for the prerender script to emit.
   if (typeof document === "undefined") {
@@ -42,6 +44,8 @@ export function useSEO({ title, description, path = "", type = "website", publis
 
     // Standard
     setMeta("description", description);
+    // Reset per page so SPA nav away from a noindex page restores indexing.
+    setMeta("robots", noindex ? "noindex, nofollow" : "index, follow");
 
     // Open Graph
     setMeta("og:title", fullTitle, "property");
@@ -89,5 +93,5 @@ export function useSEO({ title, description, path = "", type = "website", publis
       const node = document.getElementById(SCRIPT_ID);
       if (node) node.remove();
     };
-  }, [title, description, path, type, publishedAt, fullTitleOverride, jsonLd]);
+  }, [title, description, path, type, publishedAt, fullTitleOverride, jsonLd, noindex]);
 }

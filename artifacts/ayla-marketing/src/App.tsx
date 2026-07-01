@@ -19,6 +19,7 @@ import Terms from "@/pages/Terms";
 import Resources from "@/pages/Resources";
 import ResourcePost from "@/pages/ResourcePost";
 import Integration from "@/pages/Integration";
+import ThankYou from "@/pages/ThankYou";
 import { integrations } from "@/data/pms";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,8 @@ function Router() {
         {/* Waitlist folded into the funnel — redirect to the Hidden Revenue Report */}
         <Route path="/waitlist"><Redirect to="/hidden-revenue" replace /></Route>
         <Route path="/hidden-revenue" component={HiddenRevenue} />
+        {/* Redirect-only destination for the Cal.com post-call redirect (noindex, not linked). */}
+        <Route path="/thank-you" component={ThankYou} />
         <Route path="/legal/privacy" component={Privacy} />
         <Route path="/legal/terms" component={Terms} />
         <Route path="/resources/:slug" component={ResourcePost} />
